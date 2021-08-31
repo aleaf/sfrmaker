@@ -26,6 +26,8 @@ def pick_toids(routing, elevations):
     ta = time.time()
     routing2 = {}
     for k, v in routing.items():
+        if not any(v):
+            v = 0
         if isinstance(v, set):
             v = list(v)
         if isinstance(v, list):
