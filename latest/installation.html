@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; SFRmaker 0.9.1.post35.dev0+gaf7de6e documentation</title>
+  <title>Installation &mdash; SFRmaker 0.9.3.post4.dev0+g4aef635 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -37,7 +37,7 @@
             <a href="index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.1.post35.dev0+gaf7de6e
+                0.9.3.post4.dev0+g4aef635
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -155,7 +155,7 @@
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
 <section id="installing-python-dependencies-with-conda">
 <h2>Installing python dependencies with Conda<a class="headerlink" href="#installing-python-dependencies-with-conda" title="Permalink to this heading">¶</a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">sfrmaker</span></code> depends on a number of python packages, many of which have external C library dependencies. The easiest way to install most of these is with <a class="reference external" href="https://docs.conda.io/en/latest/">conda</a>. A few packages are not available via conda, and must be installed with <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#use-pip-for-installing">pip</a>. If you are on the USGS internal network, see the <a class="reference internal" href="#considerations-for-usgs-users">Considerations for USGS Users</a> section below first.</p>
+<p>SFRmaker depends on a number of python packages, many of which have external C library dependencies. The easiest way to install most of these is with a package installer like <a class="reference external" href="https://docs.conda.io/en/latest/">Conda</a>. A few packages are not available via conda, and must be installed with <a class="reference external" href="https://packaging.python.org/tutorials/installing-packages/#use-pip-for-installing">pip</a>. If you are on the USGS internal network, see the <a class="reference internal" href="#considerations-for-usgs-users">Considerations for USGS Users</a> section below first.</p>
 <section id="download-and-install-a-python-distribution-and-conda-like-package-installer">
 <h3>Download and install a python distribution and Conda-like package installer<a class="headerlink" href="#download-and-install-a-python-distribution-and-conda-like-package-installer" title="Permalink to this heading">¶</a></h3>
 <p>There are many ways to do this:</p>
@@ -163,10 +163,10 @@
 <div><ul class="simple">
 <li><p>The <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda python distribution</a> comes with a large selection of popular data science and scientific packages pre-installed.</p></li>
 <li><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a minimal installer with a much smaller footprint, makingit ideal for creating python environments dedicated to specific tasks (a recommended practice).</p></li>
-<li><p><a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Mambaforge</a> is like Miniconda, but pre-configured to use the`Mamba`_ installer, and only the <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">conda-forge</a> channel for gettingpackages (more below). If the above two options don’t work (for example, the Conda installer fails or gets stuck on the”solve” step), this may be your best option.</p></li>
+<li><p><a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Mambaforge</a> is like Miniconda, but pre-configured to use the <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">Mamba</a> installer, and only the <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">conda-forge</a> channel for getting packages (more below). If the above two options don’t work (for example, the Conda installer fails or gets stuck on the “solve” step), this may be your best option.</p></li>
 </ul>
 </div></blockquote>
-<p><strong>Make sure to install Anaconda or Miniconda to your username</strong> (not at the system level). More often than not, installing at the system level (for all users) seems to result in issues with library dependencies (for example, import of <code class="docutils literal notranslate"><span class="pre">fiona</span></code> or``rasterio`` failing because gdal isn’t found). It is also good practice to periodically do a <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">clean uninstall</a> of Anaconda, which at the system level requires admin. privileges.</p>
+<p><strong>Make sure to install Anaconda or Miniconda to your username</strong> (not at the system level). More often than not, installing at the system level (for all users) seems to result in issues with library dependencies (for example, import of <code class="docutils literal notranslate"><span class="pre">fiona</span></code> or <code class="docutils literal notranslate"><span class="pre">rasterio</span></code> failing because gdal isn’t found). It is also good practice to periodically do a <a class="reference external" href="https://docs.anaconda.com/anaconda/install/uninstall/">clean uninstall</a> of Anaconda, which at the system level requires admin. privileges.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>In the installer, at the “Destination Select” step, select “Install for me only.” It should say something about how the software will be installed to your home folder.</p></li>
@@ -185,8 +185,8 @@
 <p>To download the above YAML files, simply follow the links to get the raw text and then go to File &gt; Save within your web browser, and save the text as a YAML file (with the <cite>.yaml</cite> or <cite>.yml</cite> extension).</p>
 </div>
 </li>
-<li><p>Alternatively, clone (<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">using git</a>) or <a class="reference external" href="https://github.com/aleaf/sfrmaker/archive/master.zip">download</a> the <code class="docutils literal notranslate"><span class="pre">sfrmaker</span></code> repository, which includes the two environment files at the root level.</p></li>
-<li><p>Note that both of these environment files contain a <code class="docutils literal notranslate"><span class="pre">pip</span></code> section of packages that will be installed with pip, after the <code class="docutils literal notranslate"><span class="pre">conda</span></code> packages are installed.</p></li>
+<li><p>Alternatively, clone (<a class="reference external" href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">using git</a>) or <a class="reference external" href="https://github.com/aleaf/sfrmaker/archive/master.zip">download</a> the SFRmaker repository, which includes the two environment files at the root level.</p></li>
+<li><p>Note that both of these environment files contain a <code class="docutils literal notranslate"><span class="pre">pip</span></code> section of packages that will be installed with pip, after the Conda packages are installed.</p></li>
 </ul>
 </div></blockquote>
 </section>
@@ -195,7 +195,7 @@
 <p>If you are on the USGS internal network, see the <a class="reference internal" href="#considerations-for-usgs-users">Considerations for USGS Users</a> section below first.</p>
 <p>While Conda can of course be used to create a Conda environment, the Mamba package solver is generally faster and more robust, especially for larger, more complex environments like the included <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code>. Mamba is a reimplementation of the conda package manager in C++.</p>
 <p>Before using Mamba, you will need to <a class="reference external" href="https://mamba.readthedocs.io/en/latest/installation.html">install it first</a>.</p>
-<p>Python packages are available through conda via channels. Conda comes preconfigured to install packages from the default channel, which is maintained by Anaconda, Inc. In general, you may have better luck exclusively using the <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">conda-forge</a> channel instead, which is community-based and intended to provide a single location to get any package, with a minimum of hassle. In general, it is bad practice to mix package channels within a single environment. You can read more <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">here</a>, but to set conda-forge as the default:</p>
+<p>Python packages are available from conda via channels. Conda comes preconfigured to install packages from the default channel, which is maintained by Anaconda, Inc. In general, you may have better luck exclusively using the <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">conda-forge</a> channel instead, which is community-based and intended to provide a single location to get any package, with a minimum of hassle. In general, it is bad practice to mix package channels within a single environment. You can read more <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">here</a>, but to set conda-forge as the default:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda config --add channels conda-forge
 </pre></div>
 </div>
@@ -301,12 +301,13 @@ will work to remove the package, and the current version of the package (includi
 <section id="best-practices">
 <h2>Best practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>Install the *conda distribution of your choice to your user account, NOT at the system level. Installing to your user means you have rights to delete and reinstall Anaconda as-needed, as well as to edit any configuration files for <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code>, etc. Installing at the system level also just seems to lead to more confusing problems with dependencies, at least in the USGS.</p></li>
+<li><p>Install the *conda distribution of your choice to your user account, NOT at the system level. Installing to your user means you have rights to delete and reinstall Anaconda as-needed, as well as to edit any configuration files for pip, Conda, etc. Installing at the system level also just seems to lead to more confusing problems with dependencies, at least in the USGS.</p></li>
 <li><p>Periodically (maybe a few times a year?) fully remove your *conda distribution and reinstall it. If you just can’t get things to work (packages won’t import or produce DLL errors on import, adding or upgrading a package takes a very long time or results in excessive upgrades or downgrades of other packages, etc.), fully removing and reinstalling *conda just may resolve your issues.</p></li>
 <li><p>Don’t use your base environment; create and delete environments as needed. Conda is generally pretty good about managing packages between environments without wasting a lot of disk space.</p></li>
 <li><p>Use an environment file (as above) to create a conda environment, instead of installing packages ad-hoc.</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">mamba</span></code> instead of <code class="docutils literal notranslate"><span class="pre">conda</span></code>; it just works better for environments with a lot of packages.</p></li>
-<li><p>After setting up the above conda environment, scan the screen output to make sure that everything installed correctly, especially the packages installed through <code class="docutils literal notranslate"><span class="pre">pip</span></code>.</p></li>
+<li><p>Use Mamba instead of Conda; it just works better for environments with a lot of packages.</p></li>
+<li><p>After setting up the above conda environment, scan the screen output to make sure that everything installed correctly, especially the packages installed through pip.</p></li>
+<li><p>Avoid mixing package channels within a Conda environment. Strictly sticking to conda-forge may yield the best results.</p></li>
 <li><p>Use <a class="reference external" href="https://conda.github.io/conda-pack/">conda-pack</a>, rather than an overly-detailed environment file, to guarantee reproducibility.</p></li>
 </ul>
 </section>
@@ -360,7 +361,7 @@ and comment out the SSL certificate file, if it is specified. E.g.:</p>
 <section id="ssl-related-error-messages-when-using-conda">
 <h4>SSL-related error messages when using conda<a class="headerlink" href="#ssl-related-error-messages-when-using-conda" title="Permalink to this heading">¶</a></h4>
 <p>(with <code class="docutils literal notranslate"><span class="pre">SSL</span></code> mentioned in the message and possibly <code class="docutils literal notranslate"><span class="pre">bad</span> <span class="pre">handshake</span></code>)</p>
-<p>Make sure that the <code class="docutils literal notranslate"><span class="pre">conda</span></code> package installer is configured to use the USGS certificate
+<p>Make sure that the <code class="docutils literal notranslate"><span class="pre">Conda</span></code> package installer is configured to use the USGS certificate
 (see <a class="reference internal" href="#installing-the-doi-ssl-certificate-for-use-with-conda"><span class="std std-ref">Installing the DOI SSL certificate for use with conda</span></a> above).</p>
 </section>
 <section id="ssl-related-error-messages-when-using-pip">
@@ -400,7 +401,7 @@ so it needs to be commented out on other operating systems (normally it wouldn�
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 07, 2023.
+      <span class="lastupdated">Last updated on Jan 09, 2023.
       </span></p>
   </div>
 
