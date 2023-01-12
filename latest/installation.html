@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installation &mdash; SFRmaker 0.9.3.post4.dev0+g4aef635 documentation</title>
+  <title>Installation &mdash; SFRmaker 0.9.3.post5.dev0+g959746e documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -37,7 +37,7 @@
             <a href="index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.3.post4.dev0+g4aef635
+                0.9.3.post5.dev0+g959746e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -65,6 +65,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#installing-the-sfrmaker-source-code-in-place">Installing the SFRmaker source code in-place</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-the-ipython-kernel-to-use-sfrmaker-in-jupyter-notebooks">Installing the IPython kernel to use SFRmaker in Jupyter Notebooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#best-practices">Best practices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#id4">Considerations for USGS Users</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id5">Installing the DOI SSL certificate for use with pip</a></li>
@@ -162,7 +163,7 @@
 <blockquote>
 <div><ul class="simple">
 <li><p>The <a class="reference external" href="https://www.anaconda.com/distribution/">Anaconda python distribution</a> comes with a large selection of popular data science and scientific packages pre-installed.</p></li>
-<li><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a minimal installer with a much smaller footprint, makingit ideal for creating python environments dedicated to specific tasks (a recommended practice).</p></li>
+<li><p><a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> is a minimal installer with a much smaller footprint, making it ideal for creating python environments dedicated to specific tasks (a recommended practice).</p></li>
 <li><p><a class="reference external" href="https://github.com/conda-forge/miniforge#mambaforge">Mambaforge</a> is like Miniconda, but pre-configured to use the <a class="reference external" href="https://mamba.readthedocs.io/en/latest/">Mamba</a> installer, and only the <a class="reference external" href="https://conda-forge.org/docs/user/introduction.html">conda-forge</a> channel for getting packages (more below). If the above two options don’t work (for example, the Conda installer fails or gets stuck on the “solve” step), this may be your best option.</p></li>
 </ul>
 </div></blockquote>
@@ -215,13 +216,13 @@
 </div>
 <ol class="loweralpha">
 <li><p>Update the environment</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env update -f requirements.yml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mamba env update -f requirements.yml
 </pre></div>
 </div>
 </li>
 <li><p>or remove and reinstall it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda env remove -n sfrmaker
-conda env create -f requirements.yml
+mamba env create -f requirements.yml
 </pre></div>
 </div>
 </li>
@@ -297,6 +298,14 @@ pip install -e .
 <p>The advantage of installing the source code in-place is that any changes you make are automatically incorporated into your python environment, without any additional install commands. When debugging in an interactive development environment (IDE) such as Pycharm or VS Code, error tracebacks and inspection features go to the actual source code, not the version installed in the <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> folder. Additionally, since this install is done through pip, <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">uninstall</span></code>
 will work to remove the package, and the current version of the package (including the latest commit information) will be visible with <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">list</span></code>.</p>
 </section>
+</section>
+<section id="installing-the-ipython-kernel-to-use-sfrmaker-in-jupyter-notebooks">
+<h2>Installing the IPython kernel to use SFRmaker in Jupyter Notebooks<a class="headerlink" href="#installing-the-ipython-kernel-to-use-sfrmaker-in-jupyter-notebooks" title="Permalink to this heading">¶</a></h2>
+<p>This step may not be needed if you already have an existing Python environment with the packages required by SFRmaker <em>and</em> Jupyter Notebook installed. However, if you’d like to use SFRmaker in a Jupyter Notebook with the included <code class="docutils literal notranslate"><span class="pre">sfrmaker</span></code> environment (specified in <code class="docutils literal notranslate"><span class="pre">requirements.yml</span></code>), you’ll most likely need to install the IPython kernel in that environment. You can do this at the command line or terminal window (with <code class="docutils literal notranslate"><span class="pre">sfrmaker</span></code> activated):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python -m ipykernel install --user --name sfrmaker --display-name <span class="s2">&quot;sfrmaker&quot;</span>
+</pre></div>
+</div>
+<p>The first instance of <code class="docutils literal notranslate"><span class="pre">sfrmaker</span></code> in this command is the environment to install the kernel to, and the second instance (in quotes) is the name that will appear in the <code class="docutils literal notranslate"><span class="pre">Kernel</span></code> menu within Jupyter Notebook. To use the kernel, simply select it from the <code class="docutils literal notranslate"><span class="pre">Kernel</span> <span class="pre">&gt;</span> <span class="pre">Change</span> <span class="pre">kernel</span></code> menu within  Jupyter Notebook.</p>
 </section>
 <section id="best-practices">
 <h2>Best practices<a class="headerlink" href="#best-practices" title="Permalink to this heading">¶</a></h2>
@@ -401,7 +410,7 @@ so it needs to be commented out on other operating systems (normally it wouldn�
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 09, 2023.
+      <span class="lastupdated">Last updated on Jan 12, 2023.
       </span></p>
   </div>
 
