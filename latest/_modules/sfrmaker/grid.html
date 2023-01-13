@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.grid &mdash; SFRmaker 0.9.3.post5.dev0+g959746e documentation</title>
+  <title>sfrmaker.grid &mdash; SFRmaker 0.9.3.post6.dev0+g3612ca7 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.3.post5.dev0+g959746e
+                0.9.3.post6.dev0+g3612ca7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -382,11 +382,11 @@
                  <span class="n">uniform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">model_units</span><span class="o">=</span><span class="s1">&#39;undefined&#39;</span><span class="p">,</span> <span class="n">crs_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">bounds</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">active_area</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                 <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 
         <span class="n">Grid</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">model_units</span><span class="o">=</span><span class="n">model_units</span><span class="p">,</span> <span class="n">crs_units</span><span class="o">=</span><span class="n">crs_units</span><span class="p">,</span>
                       <span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">,</span> <span class="n">active_area</span><span class="o">=</span><span class="n">active_area</span><span class="p">,</span>
-                      <span class="n">epsg</span><span class="o">=</span><span class="n">epsg</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="n">proj_str</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="n">prjfile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                      <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="n">epsg</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="n">proj_str</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="n">prjfile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="c1"># structured grid parameters</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">xul</span> <span class="o">=</span> <span class="n">xul</span>
@@ -480,6 +480,9 @@
         <span class="k">if</span> <span class="n">epsg</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">epsg</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">epsg</span>
         <span class="n">crs</span> <span class="o">=</span> <span class="n">get_crs</span><span class="p">(</span><span class="n">prjfile</span><span class="o">=</span><span class="n">prjfile</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="n">epsg</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="n">mg</span><span class="o">.</span><span class="n">proj4</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+        <span class="c1"># get the crs from the model grid if it wasn&#39;t supplied</span>
+        <span class="k">if</span> <span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">mg</span><span class="p">,</span> <span class="s1">&#39;crs&#39;</span><span class="p">):</span>
+            <span class="n">crs</span> <span class="o">=</span> <span class="n">mg</span><span class="o">.</span><span class="n">crs</span>
 
         <span class="k">if</span> <span class="n">isfr</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># if a 3D array is supplied for isfr, convert to 2D</span>
@@ -672,7 +675,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 12, 2023.
+      <span class="lastupdated">Last updated on Jan 13, 2023.
       </span></p>
   </div>
 
