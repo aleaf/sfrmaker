@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.lines &mdash; SFRmaker 0.9.3.post7.dev0+gd166911 documentation</title>
+  <title>sfrmaker.lines &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.3.post7.dev0+gd166911
+                0.9.4.post0.dev0+g65bdd4d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -194,14 +194,13 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">valid_units</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;feet&#39;</span><span class="p">:</span> <span class="s1">&#39;feet&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;foot&#39;</span><span class="p">:</span> <span class="s1">&#39;feet&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;us-ft&#39;</span><span class="p">:</span> <span class="s1">&#39;feet&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;meters&#39;</span><span class="p">:</span> <span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                       <span class="s1">&#39;meter&#39;</span><span class="p">:</span> <span class="s1">&#39;meters&#39;</span><span class="p">}</span>
+                       <span class="s1">&#39;metre&#39;</span><span class="p">:</span> <span class="s1">&#39;meters&#39;</span><span class="p">}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span> <span class="o">=</span> <span class="n">valid_units</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">axis_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unit_name</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: No length units specified in CRS for input LineStrings &quot;</span>
-                  <span class="s2">&quot;or length units not recognized. &quot;</span>
-                  <span class="s2">&quot;Defaulting to meters.&quot;</span><span class="p">)</span>
+                  <span class="s2">&quot;or length units not recognized&quot;</span>
+                  <span class="s2">&quot;defaulting to meters.&quot;</span><span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span> <span class="o">=</span> <span class="s1">&#39;meters&#39;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span>
 
@@ -771,7 +770,7 @@
 
 <div class="viewcode-block" id="Lines.from_nhdplus_hr"><a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.from_nhdplus_hr">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">from_nhdplus_hr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">NHDPlusHR_paths</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
-                        <span class="n">drop_fcodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                        <span class="n">drop_fcodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_ftypes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_NHDPlusIDs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
@@ -794,7 +793,13 @@
 <span class="sd">            water pipelines from line network::</span>
 <span class="sd">                </span>
 <span class="sd">                drop_fcodes = [42803, 42814]</span>
-<span class="sd">                </span>
+<span class="sd">        drop_ftypes : int or list of ints, optional</span>
+<span class="sd">            List of NHDFlowline FTypes to drop from network.</span>
+<span class="sd">            For example, to remove all pipelines from line network::</span>
+
+<span class="sd">                drop_fcodes = [428]</span>
+<span class="sd">        drop_NHDPlusIDs : int or list of ints, optional</span>
+<span class="sd">            List of NHDFlowlines (as NHDPlusIDs) to drop from network.</span>
 <span class="sd">        crs : obj, optional</span>
 <span class="sd">            Coordinate reference object to reproject NHDPlus High Resolution </span>
 <span class="sd">            flowlines. A Python int, dict, str, or :class:`pyproj.crs.CRS` </span>
@@ -822,7 +827,8 @@
 <span class="sd">        ==========</span>
 <span class="sd">        lines : :class:`Lines` instance</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">df</span><span class="p">,</span> <span class="n">gdb_crs</span> <span class="o">=</span> <span class="n">load_nhdplus_hr</span><span class="p">(</span><span class="n">NHDPlusHR_paths</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">,</span> <span class="n">drop_fcodes</span><span class="o">=</span><span class="n">drop_fcodes</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">,</span> <span class="n">gdb_crs</span> <span class="o">=</span> <span class="n">load_nhdplus_hr</span><span class="p">(</span><span class="n">NHDPlusHR_paths</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="nb">filter</span><span class="p">,</span> <span class="n">drop_fcodes</span><span class="o">=</span><span class="n">drop_fcodes</span><span class="p">,</span> 
+                                      <span class="n">drop_ftypes</span><span class="o">=</span><span class="n">drop_ftypes</span><span class="p">,</span> <span class="n">drop_NHDPlusIDs</span><span class="o">=</span><span class="n">drop_NHDPlusIDs</span><span class="p">)</span>
 
         <span class="c1">#  check to see if flowline geodataframe needs to be reprojected, and get new CRS</span>
         <span class="k">if</span> <span class="n">crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">epsg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">proj_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -951,7 +957,7 @@
             <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="s1">&#39;mf6&#39;</span><span class="p">:</span>
                 <span class="n">isfr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">idomain</span><span class="o">.</span><span class="n">array</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">isfr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">bas6</span><span class="o">.</span><span class="n">ibound</span><span class="o">.</span><span class="n">array</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="n">isfr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">bas6</span><span class="o">.</span><span class="n">ibound</span><span class="o">.</span><span class="n">array</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="k">if</span> <span class="n">flopy</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">flopy</span><span class="o">.</span><span class="n">discretization</span><span class="o">.</span><span class="n">StructuredGrid</span><span class="p">):</span>
             <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Creating grid class instance from flopy Grid instance...&#39;</span><span class="p">)</span>
             <span class="n">ta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>

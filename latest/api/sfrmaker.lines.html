@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Lines Module &mdash; SFRmaker 0.9.3.post7.dev0+gd166911 documentation</title>
+  <title>The Lines Module &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -39,7 +39,7 @@
             <a href="../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.3.post7.dev0+gd166911
+                0.9.4.post0.dev0+g65bdd4d
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -335,7 +335,7 @@ will be used.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="sfrmaker.lines.Lines.from_nhdplus_hr">
-<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_nhdplus_hr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NHDPlusHR_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_fcodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proj_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sfrmaker/lines.html#Lines.from_nhdplus_hr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sfrmaker.lines.Lines.from_nhdplus_hr" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_nhdplus_hr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">NHDPlusHR_paths</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_fcodes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_ftypes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_NHDPlusIDs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">epsg</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">proj_str</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sfrmaker/lines.html#Lines.from_nhdplus_hr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sfrmaker.lines.Lines.from_nhdplus_hr" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
@@ -357,6 +357,14 @@ water pipelines from line network:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">drop_fcodes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">42803</span><span class="p">,</span> <span class="mi">42814</span><span class="p">]</span>
 </pre></div>
 </div>
+</dd>
+<dt><strong>drop_ftypes</strong><span class="classifier">int or list of ints, optional</span></dt><dd><p>List of NHDFlowline FTypes to drop from network.
+For example, to remove all pipelines from line network:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">drop_fcodes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">428</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd>
+<dt><strong>drop_NHDPlusIDs</strong><span class="classifier">int or list of ints, optional</span></dt><dd><p>List of NHDFlowlines (as NHDPlusIDs) to drop from network.</p>
 </dd>
 <dt><strong>crs</strong><span class="classifier">obj, optional</span></dt><dd><p>Coordinate reference object to reproject NHDPlus High Resolution 
 flowlines. A Python int, dict, str, or <a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/crs/crs.html#pyproj.crs.CRS" title="(in pyproj v3.4.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyproj.crs.CRS</span></code></a> 
