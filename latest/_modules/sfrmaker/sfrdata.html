@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.sfrdata &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
+  <title>sfrmaker.sfrdata &mdash; SFRmaker 0.10.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.4.post0.dev0+g65bdd4d
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -746,7 +746,7 @@
             <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">nper</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="k">if</span> <span class="s1">&#39;tdis&#39;</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">package_key_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                    <span class="n">tdis</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">package_key_dict</span><span class="p">[</span><span class="s1">&#39;tdis&#39;</span><span class="p">]</span>
+                    <span class="n">tdis</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">tdis</span>
                     <span class="n">nper</span> <span class="o">=</span> <span class="n">tdis</span><span class="o">.</span><span class="n">nper</span><span class="o">.</span><span class="n">array</span>
                 <span class="k">if</span> <span class="s1">&#39;dis&#39;</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">package_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
                     <span class="n">dis</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">dis</span>
@@ -810,7 +810,7 @@
         <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">model</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="s1">&#39;mf6&#39;</span><span class="p">:</span>
             <span class="n">m</span> <span class="o">=</span> <span class="n">model</span>
             <span class="k">if</span> <span class="s1">&#39;tdis&#39;</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">package_key_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-                <span class="n">tdis</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">package_key_dict</span><span class="p">[</span><span class="s1">&#39;tdis&#39;</span><span class="p">]</span>
+                <span class="n">tdis</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulation</span><span class="o">.</span><span class="n">tdis</span>
                 <span class="n">nper</span> <span class="o">=</span> <span class="n">tdis</span><span class="o">.</span><span class="n">nper</span><span class="o">.</span><span class="n">array</span>
         <span class="c1"># create an flopy mf2005 model instance attached to modflow_sfr2 object</span>
         <span class="c1"># this is a parallel model instance to self.model, that is only</span>
@@ -1908,7 +1908,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 19, 2023.
+      <span class="lastupdated">Last updated on Feb 02, 2023.
       </span></p>
   </div>
 

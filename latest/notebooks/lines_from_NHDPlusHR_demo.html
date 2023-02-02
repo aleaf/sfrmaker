@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using SFRmaker with NHDPlus High Resolution &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
+  <title>Using SFRmaker with NHDPlus High Resolution &mdash; SFRmaker 0.10.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -39,7 +39,7 @@
             <a href="../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.4.post0.dev0+g65bdd4d
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -684,7 +684,7 @@ epsg:4269
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">Lines</span><span class="o">.</span><span class="n">from_nhdplus_hr</span><span class="p">(</span><span class="n">NHDPlusHR_paths</span><span class="p">,</span>
-                                       <span class="nb">filter</span><span class="o">=</span><span class="n">boundary_file</span><span class="p">,</span>
+                                       <span class="n">bbox_filter</span><span class="o">=</span><span class="n">boundary_file</span><span class="p">,</span>
                                        <span class="n">drop_fcodes</span><span class="o">=</span><span class="n">drop_fcodes</span><span class="p">,</span>
                                        <span class="n">epsg</span><span class="o">=</span><span class="mi">4269</span>
                                       <span class="p">)</span>
@@ -1087,7 +1087,7 @@ No non-zero values of flow to export!
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 19, 2023.
+      <span class="lastupdated">Last updated on Feb 02, 2023.
       </span></p>
   </div>
 

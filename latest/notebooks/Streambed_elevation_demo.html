@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demonstration of how sfrmaker handles streambed elevations &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
+  <title>Demonstration of how sfrmaker handles streambed elevations &mdash; SFRmaker 0.10.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -39,7 +39,7 @@
             <a href="../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.4.post0.dev0+g65bdd4d
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -432,7 +432,7 @@ div.rendered_html tbody tr:hover {
 <span class="c1"># use a shapefile of the model grid to filter what is read in</span>
 <span class="c1"># (only flowlines within the bounding box of the grid are read)</span>
 <span class="n">lns</span> <span class="o">=</span> <span class="n">Lines</span><span class="o">.</span><span class="n">from_nhdplus_v2</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="s1">&#39;../tylerforks/NHDPlus/&#39;</span><span class="p">,</span>
-                            <span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;../tylerforks/grid.shp&#39;</span><span class="p">)</span>
+                            <span class="n">bbox_filter</span><span class="o">=</span><span class="s1">&#39;../tylerforks/grid.shp&#39;</span><span class="p">)</span>
 
 <span class="c1"># load the model using flopy</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;tf.nam&#39;</span><span class="p">,</span> <span class="n">model_ws</span><span class="o">=</span><span class="s1">&#39;../tylerforks/tylerforks&#39;</span><span class="p">)</span>
@@ -471,31 +471,21 @@ loading NHDPlus v2 hydrography data...
 for basins:
 ../tylerforks/NHDPlus/
 
-reading ../tylerforks/NHDPlus/NHDSnapshot/Hydrography/NHDFlowline.shp...
-filtering on bounding box -90.624482596925, 46.37886827710283, -90.4625592199325, 46.45832567355404...
---&gt; building dataframe... (may take a while for large shapefiles)
-
-reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlowlineVAA.dbf...
---&gt; building dataframe... (may take a while for large shapefiles)
-
 reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
 --&gt; building dataframe... (may take a while for large shapefiles)
 
-reading ../tylerforks/NHDPlus/NHDPlusAttributes/elevslope.dbf...
---&gt; building dataframe... (may take a while for large shapefiles)
-
-load finished in 0.08s
+load finished in 0.09s
 
 Getting routing information from NHDPlus Plusflow table...
 finished in 0.04s
 
 
-SFRmaker version 0.9.4.post0.dev0+g65bdd4d
+SFRmaker version 0.10.0
 
 Creating sfr dataset...
 
 Creating grid class instance from flopy Grid instance...
-grid class created in 0.37s
+grid class created in 0.40s
 
 Model grid information
 structured grid
@@ -509,7 +499,6 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 MODFLOW 5 layer(s) 111 row(s) 160 column(s) 1 stress period(s)
-Warning: No length units specified in CRS for input LineStrings or length units not recognizeddefaulting to meters.
 
 reprojecting hydrography from
 EPSG:4269
@@ -526,7 +515,7 @@ finished in 0.01s
 Intersecting 42 flowlines with 17,760 grid cells...
 
 Building spatial index...
-finished in 1.85s
+finished in 1.87s
 
 Intersecting 42 features...
 42
@@ -555,7 +544,7 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 
-Time to create sfr dataset: 2.79s
+Time to create sfr dataset: 2.86s
 
 </pre></div></div>
 </div>
@@ -591,10 +580,10 @@ For each level:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 6.07s
+finished in 6.21s
 
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 6.19s
+finished in 6.26s
 
 
 Smoothing elevations...
@@ -972,7 +961,7 @@ finished in 0.13s
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 19, 2023.
+      <span class="lastupdated">Last updated on Feb 02, 2023.
       </span></p>
   </div>
 

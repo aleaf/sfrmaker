@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic usage of SFRmaker in a scripting context &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
+  <title>Basic usage of SFRmaker in a scripting context &mdash; SFRmaker 0.10.0 documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -39,7 +39,7 @@
             <a href="../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.4.post0.dev0+g65bdd4d
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -451,7 +451,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lns</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">Lines</span><span class="o">.</span><span class="n">from_nhdplus_v2</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="s1">&#39;../tylerforks/NHDPlus/&#39;</span><span class="p">,</span>
-                            <span class="nb">filter</span><span class="o">=</span><span class="s1">&#39;../tylerforks/grid.shp&#39;</span><span class="p">)</span>
+                            <span class="n">bbox_filter</span><span class="o">=</span><span class="s1">&#39;../tylerforks/grid.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -465,20 +465,10 @@ loading NHDPlus v2 hydrography data...
 for basins:
 ../tylerforks/NHDPlus/
 
-reading ../tylerforks/NHDPlus/NHDSnapshot/Hydrography/NHDFlowline.shp...
-filtering on bounding box -90.624482596925, 46.37886827710283, -90.4625592199325, 46.45832567355404...
---&gt; building dataframe... (may take a while for large shapefiles)
-
-reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlowlineVAA.dbf...
---&gt; building dataframe... (may take a while for large shapefiles)
-
 reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
 --&gt; building dataframe... (may take a while for large shapefiles)
 
-reading ../tylerforks/NHDPlus/NHDPlusAttributes/elevslope.dbf...
---&gt; building dataframe... (may take a while for large shapefiles)
-
-load finished in 0.09s
+load finished in 0.08s
 
 Getting routing information from NHDPlus Plusflow table...
 finished in 0.04s
@@ -494,7 +484,7 @@ finished in 0.04s
                                        <span class="n">PlusFlowlineVAA</span><span class="o">=</span><span class="s1">&#39;../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlowlineVAA.dbf&#39;</span><span class="p">,</span>
                                        <span class="n">PlusFlow</span><span class="o">=</span><span class="s1">&#39;../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf&#39;</span><span class="p">,</span>
                                        <span class="n">elevslope</span><span class="o">=</span><span class="s1">&#39;../tylerforks/NHDPlus/NHDPlusAttributes/elevslope.dbf&#39;</span><span class="p">,</span>
-                                       <span class="nb">filter</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">90.625</span><span class="p">,</span> <span class="mf">46.3788</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.4634</span><span class="p">,</span> <span class="mf">46.4586</span><span class="p">))</span>
+                                       <span class="n">bbox_filter</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">90.625</span><span class="p">,</span> <span class="mf">46.3788</span><span class="p">,</span> <span class="o">-</span><span class="mf">90.4634</span><span class="p">,</span> <span class="mf">46.4586</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -506,23 +496,13 @@ finished in 0.04s
 
 loading NHDPlus v2 hydrography data...
 
-reading ../tylerforks/NHDPlus/NHDSnapshot/Hydrography/NHDFlowline.shp...
-filtering on bounding box -90.625, 46.3788, -90.4634, 46.4586...
---&gt; building dataframe... (may take a while for large shapefiles)
-
-reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlowlineVAA.dbf...
---&gt; building dataframe... (may take a while for large shapefiles)
-
 reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
---&gt; building dataframe... (may take a while for large shapefiles)
-
-reading ../tylerforks/NHDPlus/NHDPlusAttributes/elevslope.dbf...
 --&gt; building dataframe... (may take a while for large shapefiles)
 
 load finished in 0.05s
 
 Getting routing information from NHDPlus Plusflow table...
-finished in 0.03s
+finished in 0.04s
 
 </pre></div></div>
 </div>
@@ -530,7 +510,7 @@ finished in 0.03s
 <section id="Creating-a-Lines-instance-from-custom-hydrography">
 <h2>Creating a <code class="docutils literal notranslate"><span class="pre">Lines</span></code> instance from custom hydrography<a class="headerlink" href="#Creating-a-Lines-instance-from-custom-hydrography" title="Permalink to this heading">¶</a></h2>
 <p>Alternatively, a <code class="docutils literal notranslate"><span class="pre">Lines</span></code> instance can be created from any hydrography that includes the pertinent attribute fields, which must be specified:</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
@@ -547,16 +527,6 @@ finished in 0.03s
                                              <span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-
-reading ../meras/flowlines.shp...
---&gt; building dataframe... (may take a while for large shapefiles)
-</pre></div></div>
 </div>
 </section>
 <section id="Specifying-a-model-grid-from-a-flopy-StructuredGrid-instance">
@@ -625,7 +595,7 @@ reading ../tylerforks/active_area.shp...
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7ff079717970&gt;
+&lt;matplotlib.image.AxesImage at 0x7f6000533fd0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -680,12 +650,12 @@ MODFLOW 5 layer(s) 111 row(s) 160 column(s) 1 stress period(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-SFRmaker version 0.9.4.post0.dev0+g65bdd4d
+SFRmaker version 0.10.0
 
 Creating sfr dataset...
 
 Creating grid class instance from flopy Grid instance...
-grid class created in 0.29s
+grid class created in 0.32s
 
 Model grid information
 structured grid
@@ -699,7 +669,6 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 MODFLOW 5 layer(s) 111 row(s) 160 column(s) 1 stress period(s)
-Warning: No length units specified in CRS for input LineStrings or length units not recognizeddefaulting to meters.
 
 reprojecting hydrography from
 EPSG:4269
@@ -716,14 +685,14 @@ finished in 0.01s
 Intersecting 42 flowlines with 17,760 grid cells...
 
 Building spatial index...
-finished in 1.83s
+finished in 1.82s
 
 Intersecting 42 features...
 42
-finished in 0.09s
+finished in 0.10s
 
 Setting up reach data... (may take a few minutes for large grids)
-finished in 0.30s
+finished in 0.31s
 
 Computing widths...
 
@@ -745,7 +714,7 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 
-Time to create sfr dataset: 2.70s
+Time to create sfr dataset: 2.73s
 
 </pre></div></div>
 </div>
@@ -1133,7 +1102,7 @@ Time to create sfr dataset: 2.70s
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 6.28s
+finished in 6.17s
 
 
 Smoothing elevations...
@@ -1377,7 +1346,7 @@ wrote tf_SFR.chk
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SFRmaker v. 0.9.4.post0.dev0+g65bdd4d
+SFRmaker v. 0.10.0
 
 Running Flopy v. 3.3.7 diagnostics...
 passed.
@@ -1516,7 +1485,7 @@ wrote ../tylerforks/tylerforks/tf.sfr.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SFRmaker v. 0.9.4.post0.dev0+g65bdd4d
+SFRmaker v. 0.10.0
 
 Running Flopy v. 3.3.7 diagnostics...
 passed.
@@ -1730,7 +1699,7 @@ No non-zero values of flow to export!
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 19, 2023.
+      <span class="lastupdated">Last updated on Feb 02, 2023.
       </span></p>
   </div>
 

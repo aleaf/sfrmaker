@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.preprocessing &mdash; SFRmaker 0.9.4.post0.dev0+g65bdd4d documentation</title>
+  <title>sfrmaker.preprocessing &mdash; SFRmaker 0.10.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.9.4.post0.dev0+g65bdd4d
+                0.10.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -173,17 +173,17 @@
         <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">):</span>
                 <span class="n">extent_poly_nhd_crs</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">mask</span><span class="p">)</span>
-                <span class="nb">filter</span> <span class="o">=</span> <span class="n">mask</span>
+                <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">mask</span>
             <span class="k">elif</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">extent_poly_nhd_crs</span> <span class="o">=</span> <span class="n">read_polygon_feature</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> 
                                                            <span class="n">feature_crs</span><span class="o">=</span><span class="n">mask_crs</span><span class="p">,</span>
                                                            <span class="n">dest_crs</span><span class="o">=</span><span class="n">nhdplus_crs</span><span class="p">)</span>
                 <span class="c1"># ensure that filter bbox is in same crs as flowlines</span>
                 <span class="c1"># get filters from shapefiles, shapley Polygons or GeoJSON polygons</span>
-                <span class="nb">filter</span> <span class="o">=</span> <span class="n">get_bbox</span><span class="p">(</span><span class="n">extent_poly_nhd_crs</span><span class="p">,</span> <span class="n">dest_crs</span><span class="o">=</span><span class="n">nhdplus_crs</span><span class="p">)</span>
+                <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">get_bbox</span><span class="p">(</span><span class="n">extent_poly_nhd_crs</span><span class="p">,</span> <span class="n">dest_crs</span><span class="o">=</span><span class="n">nhdplus_crs</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">filter</span> <span class="o">=</span> <span class="kc">None</span>
-            <span class="n">flowlines</span> <span class="o">=</span> <span class="n">shp2df</span><span class="p">(</span><span class="n">flowlines_files</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="nb">filter</span><span class="p">)</span>
+                <span class="n">bbox_filter</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">flowlines</span> <span class="o">=</span> <span class="n">shp2df</span><span class="p">(</span><span class="n">flowlines_files</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">bbox_filter</span><span class="p">)</span>
             <span class="n">keep_comids</span> <span class="o">=</span> <span class="n">pf</span><span class="p">[</span><span class="s1">&#39;FROMCOMID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">])</span> <span class="o">|</span> \
                           <span class="n">pf</span><span class="p">[</span><span class="s1">&#39;TOCOMID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">flowlines</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">])</span>
             <span class="n">pf</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">keep_comids</span><span class="p">]</span>
@@ -1031,7 +1031,7 @@
         <span class="n">narwidth_bbox</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">flowline_bbox</span><span class="p">,</span> <span class="n">flowline_crs</span><span class="p">,</span> <span class="n">narwidth_crs</span><span class="p">)</span>
         <span class="n">sample_NARWidth</span><span class="p">(</span><span class="n">flcc</span><span class="p">,</span> <span class="n">narwidth_shapefile</span><span class="p">,</span>
                         <span class="n">waterbodies</span><span class="o">=</span><span class="n">waterbody_shapefiles</span><span class="p">,</span>
-                        <span class="nb">filter</span><span class="o">=</span><span class="n">narwidth_bbox</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span>
+                        <span class="n">bbox_filter</span><span class="o">=</span><span class="n">narwidth_bbox</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span>
                         <span class="n">crs</span><span class="o">=</span><span class="n">project_crs</span><span class="p">,</span>
                         <span class="n">output_width_units</span><span class="o">=</span><span class="n">output_length_units</span><span class="p">)</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Sampling widths from NARWidth database&#39;</span><span class="p">)</span>
@@ -1134,7 +1134,7 @@
 
 
 <div class="viewcode-block" id="sample_NARWidth"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.sample_NARWidth">[docs]</a><span class="k">def</span> <span class="nf">sample_NARWidth</span><span class="p">(</span><span class="n">flowlines</span><span class="p">,</span> <span class="n">narwidth_shapefile</span><span class="p">,</span> <span class="n">waterbodies</span><span class="p">,</span>
-                    <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                    <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">output_width_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
                     <span class="n">outpath</span><span class="o">=</span><span class="s1">&#39;shps/&#39;</span><span class="p">):</span>
@@ -1199,7 +1199,7 @@
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
     <span class="c1"># read in narwidth shapefile; to_crs to flowline CRS</span>
-    <span class="n">nw</span> <span class="o">=</span> <span class="n">shp2df</span><span class="p">(</span><span class="n">narwidth_shapefile</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="nb">filter</span><span class="p">)</span>
+    <span class="n">nw</span> <span class="o">=</span> <span class="n">shp2df</span><span class="p">(</span><span class="n">narwidth_shapefile</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="n">bbox_filter</span><span class="p">)</span>
     <span class="n">narwidth_crs</span> <span class="o">=</span> <span class="n">get_shapefile_crs</span><span class="p">(</span><span class="n">narwidth_shapefile</span><span class="p">)</span>
     <span class="n">nw</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">nw</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">narwidth_crs</span><span class="p">,</span> <span class="n">flowline_crs</span><span class="p">)</span>
 
@@ -1627,7 +1627,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Jan 19, 2023.
+      <span class="lastupdated">Last updated on Feb 02, 2023.
       </span></p>
   </div>
 
