@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.preprocessing &mdash; SFRmaker 0.10.0.post4.dev0+g93b5612 documentation</title>
+  <title>sfrmaker.preprocessing &mdash; SFRmaker 0.10.0.post5.dev0+g53aea5b documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.10.0.post4.dev0+g93b5612
+                0.10.0.post5.dev0+g53aea5b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -298,10 +298,20 @@
     <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;Reading raw NHDPlus files&#39;</span><span class="p">)</span>
 
     <span class="c1"># index dataframes by common-identifier numbers</span>
-    <span class="n">fl</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">COMID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">pfvaa</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pfvaa</span><span class="o">.</span><span class="n">ComID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">pf</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">FROMCOMID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-    <span class="n">elevslope</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">elevslope</span><span class="o">.</span><span class="n">COMID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="c1"># drop any entries without ID numbers</span>
+    <span class="c1"># enforce integer dtype in ID numbers</span>
+    <span class="n">fl</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">fl</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fl</span><span class="o">.</span><span class="n">COMID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">fl</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">fl</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">]</span>
+    <span class="n">pfvaa</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ComID&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pfvaa</span><span class="p">[</span><span class="s1">&#39;ComID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pfvaa</span><span class="o">.</span><span class="n">ComID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">pfvaa</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pfvaa</span><span class="p">[</span><span class="s1">&#39;ComID&#39;</span><span class="p">]</span>
+    <span class="n">pf</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FROMCOMID&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">pf</span><span class="p">[</span><span class="s1">&#39;FROMCOMID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pf</span><span class="o">.</span><span class="n">FROMCOMID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">pf</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pf</span><span class="p">[</span><span class="s1">&#39;FROMCOMID&#39;</span><span class="p">]</span>
+    <span class="n">elevslope</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">elevslope</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">elevslope</span><span class="o">.</span><span class="n">COMID</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">elevslope</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">elevslope</span><span class="p">[</span><span class="s1">&#39;COMID&#39;</span><span class="p">]</span>
 
     <span class="n">original_comids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">fl</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">cull_invalid</span><span class="p">:</span>
@@ -1627,7 +1637,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Feb 06, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2023.
       </span></p>
   </div>
 

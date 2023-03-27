@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic usage of SFRmaker in a scripting context &mdash; SFRmaker 0.10.0.post4.dev0+g93b5612 documentation</title>
+  <title>Basic usage of SFRmaker in a scripting context &mdash; SFRmaker 0.10.0.post5.dev0+g53aea5b documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/plot_directive.css" type="text/css" />
@@ -39,7 +39,7 @@
             <a href="../index.html" class="icon icon-home"> SFRmaker
           </a>
               <div class="version">
-                0.10.0.post4.dev0+g93b5612
+                0.10.0.post5.dev0+g53aea5b
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -468,7 +468,7 @@ for basins:
 reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
 --&gt; building dataframe... (may take a while for large shapefiles)
 
-load finished in 0.09s
+load finished in 0.10s
 
 Getting routing information from NHDPlus Plusflow table...
 finished in 0.04s
@@ -499,10 +499,10 @@ loading NHDPlus v2 hydrography data...
 reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
 --&gt; building dataframe... (may take a while for large shapefiles)
 
-load finished in 0.05s
+load finished in 0.06s
 
 Getting routing information from NHDPlus Plusflow table...
-finished in 0.03s
+finished in 0.04s
 
 </pre></div></div>
 </div>
@@ -595,7 +595,7 @@ reading ../tylerforks/active_area.shp...
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f149ac97fd0&gt;
+&lt;matplotlib.image.AxesImage at 0x7fb3176644c0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -650,12 +650,12 @@ MODFLOW 5 layer(s) 111 row(s) 160 column(s) 1 stress period(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-SFRmaker version 0.10.0.post4.dev0+g93b5612
+SFRmaker version 0.10.0.post5.dev0+g53aea5b
 
 Creating sfr dataset...
 
 Creating grid class instance from flopy Grid instance...
-grid class created in 0.30s
+grid class created in 0.33s
 
 Model grid information
 structured grid
@@ -685,14 +685,14 @@ finished in 0.01s
 Intersecting 42 flowlines with 17,760 grid cells...
 
 Building spatial index...
-finished in 1.86s
+finished in 2.13s
 
 Intersecting 42 features...
 42
-finished in 0.10s
+finished in 0.11s
 
 Setting up reach data... (may take a few minutes for large grids)
-finished in 0.32s
+finished in 0.35s
 
 Computing widths...
 
@@ -714,7 +714,7 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 
-Time to create sfr dataset: 2.77s
+Time to create sfr dataset: 3.14s
 
 </pre></div></div>
 </div>
@@ -723,8 +723,16 @@ Time to create sfr dataset: 2.77s
 <h2>The <code class="docutils literal notranslate"><span class="pre">SFRData</span></code> class<a class="headerlink" href="#The-SFRData-class" title="Permalink to this heading">¶</a></h2>
 <p>Internally, the SFRData class mostly uses the data model for the MODFLOW-2005 style SFR2 package (which includes MODFLOW-NWT), which organizes the input into segments and reaches. Segment and reach data are stored in the <code class="docutils literal notranslate"><span class="pre">reach_data</span></code> and <code class="docutils literal notranslate"><span class="pre">segment_data</span></code> attribute DataFrames. In addition to the MODFLOW-2005 data, reach numbers and their routing connections (as needed for MODFLOW-6) are also stored. On writing of SFR package input, MODFLOW-6 style input can be created via the
 <code class="docutils literal notranslate"><span class="pre">sfrmaker.mf5to6</span></code> module.</p>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">reach_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sfrdata</span><span class="o">.</span><span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;strhc1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">reach_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -732,7 +740,7 @@ Time to create sfr dataset: 2.77s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -904,7 +912,7 @@ Time to create sfr dataset: 2.77s
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">segment_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -912,7 +920,7 @@ Time to create sfr dataset: 2.77s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1088,7 +1096,7 @@ Time to create sfr dataset: 2.77s
 <h2>Sampling streambed top elevations from a DEM<a class="headerlink" href="#Sampling-streambed-top-elevations-from-a-DEM" title="Permalink to this heading">¶</a></h2>
 <p>While the above dataset contains streambed top elevations read from NHDPlus, a DEM can be sampled to obtain more accurate elevations. If the DEM elevation units are specified, SFRmaker will convert the elevations to model units if needed. See the Streambed_elevation_demo notebook for more information on how this works.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">set_streambed_top_elevations_from_dem</span><span class="p">(</span><span class="s1">&#39;../tylerforks/dem_26715.tif&#39;</span><span class="p">,</span>
@@ -1102,11 +1110,11 @@ Time to create sfr dataset: 2.77s
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 6.25s
+finished in 7.20s
 
 
 Smoothing elevations...
-finished in 0.13s
+finished in 0.15s
 </pre></div></div>
 </div>
 </section>
@@ -1114,7 +1122,7 @@ finished in 0.13s
 <h2>Assigning layers to the reaches<a class="headerlink" href="#Assigning-layers-to-the-reaches" title="Permalink to this heading">¶</a></h2>
 <p>Once we have a valid set of streambed elevations, the reaches can be assigned to model layers.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">assign_layers</span><span class="p">()</span>
@@ -1122,7 +1130,7 @@ finished in 0.13s
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">reach_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1130,7 +1138,7 @@ finished in 0.13s
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1312,7 +1320,7 @@ non-adjacent routing connections are identified, the user can check the shapefil
 grids in areas of high stream density (where there are often multiple streams in a cell), it may be impossible to ensure that all streambed top elevations are at or below the model top. Oftentimes, these reaches are dry anyways (for example, and ephemeral gully that runs off a bluff into a perennial stream, where the cell elevation is based on the elevation of the perennial stream). In any case, it is good practice to check the largest violations by comparing the SFRmaker shapefile output to a
 DEM and other data in a GIS environment. * <strong>suprious slopes:</strong> slopes of less than 0.0001 (which can lead to excessive stages with the SFR package’s Manning approximation) and greater than 1.0 are flagged.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">run_diagnostics</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1334,7 +1342,7 @@ wrote tf_SFR.chk
 <h2>Writing an SFR package<a class="headerlink" href="#Writing-an-SFR-package" title="Permalink to this heading">¶</a></h2>
 <p>Now we can write the package. By default, a MODFLOW-2005 style package is written to the current working directory or the model workspace of the attached model instance.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">write_package</span><span class="p">()</span>
@@ -1346,7 +1354,7 @@ wrote tf_SFR.chk
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SFRmaker v. 0.10.0.post4.dev0+g93b5612
+SFRmaker v. 0.10.0.post5.dev0+g53aea5b
 
 Running Flopy v. 3.3.7 diagnostics...
 passed.
@@ -1465,7 +1473,7 @@ Checking for streambed slopes of greater than 1.0...
 passed.
 
 wrote tf_SFR.chk
-wrote ../tylerforks/tylerforks/tf.sfr.
+wrote /home/runner/work/sfrmaker/sfrmaker/examples/Notebooks/../tylerforks/tylerforks/tf.sfr.
 </pre></div></div>
 </div>
 </section>
@@ -1473,7 +1481,7 @@ wrote ../tylerforks/tylerforks/tf.sfr.
 <h2>Writing a MODFLOW-6 SFR package<a class="headerlink" href="#Writing-a-MODFLOW-6-SFR-package" title="Permalink to this heading">¶</a></h2>
 <p>Alternatively, a MODFLOW-6 style SFR package can be written by specifying <code class="docutils literal notranslate"><span class="pre">version='mf6'</span></code></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">write_package</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">&#39;mf6&#39;</span><span class="p">)</span>
@@ -1485,7 +1493,7 @@ wrote ../tylerforks/tylerforks/tf.sfr.
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SFRmaker v. 0.10.0.post4.dev0+g93b5612
+SFRmaker v. 0.10.0.post5.dev0+g53aea5b
 
 Running Flopy v. 3.3.7 diagnostics...
 passed.
@@ -1606,7 +1614,7 @@ passed.
 wrote tf_SFR.chk
 converting segment data to period data...
 converting reach and segment data to package data...
-wrote ../tylerforks/tylerforks/tf.sfr
+wrote /home/runner/work/sfrmaker/sfrmaker/examples/Notebooks/../tylerforks/tylerforks/tf.sfr
 </pre></div></div>
 </div>
 </section>
@@ -1614,7 +1622,7 @@ wrote ../tylerforks/tylerforks/tf.sfr
 <h2>Writing tables<a class="headerlink" href="#Writing-tables" title="Permalink to this heading">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">reach_data</span></code> and <code class="docutils literal notranslate"><span class="pre">segment_data</span></code> tables can be written out to csv files for further processing:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">write_tables</span><span class="p">()</span>
@@ -1632,7 +1640,7 @@ wrote tables/tf_sfr_segment_data.csv
 </div>
 <p>and then read back in to create an <code class="docutils literal notranslate"><span class="pre">SFRData</span></code> instance</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata2</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">SFRData</span><span class="o">.</span><span class="n">from_tables</span><span class="p">(</span><span class="s1">&#39;tables/tf_sfr_reach_data.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;tables/tf_sfr_segment_data.csv&#39;</span><span class="p">,</span>
@@ -1663,7 +1671,7 @@ active area defined by: isfr array
 <h2>Writing shapefiles<a class="headerlink" href="#Writing-shapefiles" title="Permalink to this heading">¶</a></h2>
 <p>Shapefiles can also be written to visualize the SFR package. These include: * hydrography linestrings associated with each reach * model cell polygons associated with each reach * outlet locations where water is leaving the model * routing connections (as lines drawn between cell centers) * the locations of specified inflows or any other period data * observation locations (if observations were supplied as input)</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sfrdata</span><span class="o">.</span><span class="n">write_shapefiles</span><span class="p">()</span>
@@ -1699,7 +1707,7 @@ No non-zero values of flow to export!
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Feb 06, 2023.
+      <span class="lastupdated">Last updated on Mar 27, 2023.
       </span></p>
   </div>
 

@@ -12,10 +12,10 @@
    "execution_count": 1,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-02-06T21:26:26.212601Z",
-     "iopub.status.busy": "2023-02-06T21:26:26.212024Z",
-     "iopub.status.idle": "2023-02-06T21:26:27.427447Z",
-     "shell.execute_reply": "2023-02-06T21:26:27.426773Z"
+     "iopub.execute_input": "2023-03-27T15:24:56.694518Z",
+     "iopub.status.busy": "2023-03-27T15:24:56.694006Z",
+     "iopub.status.idle": "2023-03-27T15:24:58.085377Z",
+     "shell.execute_reply": "2023-03-27T15:24:58.084553Z"
     }
    },
    "outputs": [],
@@ -43,10 +43,10 @@
    "execution_count": 2,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-02-06T21:26:27.431951Z",
-     "iopub.status.busy": "2023-02-06T21:26:27.431514Z",
-     "iopub.status.idle": "2023-02-06T21:26:30.517779Z",
-     "shell.execute_reply": "2023-02-06T21:26:30.517116Z"
+     "iopub.execute_input": "2023-03-27T15:24:58.090224Z",
+     "iopub.status.busy": "2023-03-27T15:24:58.089785Z",
+     "iopub.status.idle": "2023-03-27T15:25:01.862606Z",
+     "shell.execute_reply": "2023-03-27T15:25:01.861742Z"
     }
    },
    "outputs": [
@@ -62,18 +62,18 @@
       "reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...\n",
       "--> building dataframe... (may take a while for large shapefiles)\n",
       "\n",
-      "load finished in 0.09s\n",
+      "load finished in 0.10s\n",
       "\n",
       "Getting routing information from NHDPlus Plusflow table...\n",
-      "finished in 0.04s\n",
+      "finished in 0.05s\n",
       "\n",
       "\n",
-      "SFRmaker version 0.10.0.post4.dev0+g93b5612\n",
+      "SFRmaker version 0.10.0.post5.dev0+g53aea5b\n",
       "\n",
       "Creating sfr dataset...\n",
       "\n",
       "Creating grid class instance from flopy Grid instance...\n",
-      "grid class created in 0.37s\n",
+      "grid class created in 0.43s\n",
       "\n",
       "Model grid information\n",
       "structured grid\n",
@@ -103,14 +103,14 @@
       "Intersecting 42 flowlines with 17,760 grid cells...\n",
       "\n",
       "Building spatial index...\n",
-      "finished in 1.88s\n",
+      "finished in 2.34s\n",
       "\n",
       "Intersecting 42 features...\n",
       "42\n",
-      "finished in 0.09s\n",
+      "finished in 0.11s\n",
       "\n",
       "Setting up reach data... (may take a few minutes for large grids)\n",
-      "finished in 0.30s\n",
+      "finished in 0.37s\n",
       "\n",
       "Computing widths...\n",
       "\n",
@@ -132,7 +132,7 @@
       "active area defined by: all cells\n",
       "\n",
       "\n",
-      "Time to create sfr dataset: 2.83s\n",
+      "Time to create sfr dataset: 3.47s\n",
       "\n"
      ]
     }
@@ -205,10 +205,10 @@
    "execution_count": 3,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-02-06T21:26:30.521619Z",
-     "iopub.status.busy": "2023-02-06T21:26:30.521041Z",
-     "iopub.status.idle": "2023-02-06T21:26:43.307869Z",
-     "shell.execute_reply": "2023-02-06T21:26:43.307228Z"
+     "iopub.execute_input": "2023-03-27T15:25:01.866724Z",
+     "iopub.status.busy": "2023-03-27T15:25:01.866177Z",
+     "iopub.status.idle": "2023-03-27T15:25:16.658259Z",
+     "shell.execute_reply": "2023-03-27T15:25:16.657083Z"
     }
    },
    "outputs": [
@@ -217,14 +217,14 @@
      "output_type": "stream",
      "text": [
       "running rasterstats.zonal_stats on buffered LineStrings...\n",
-      "finished in 6.22s\n",
+      "finished in 7.28s\n",
       "\n",
       "running rasterstats.zonal_stats on buffered LineStrings...\n",
-      "finished in 6.25s\n",
+      "finished in 7.15s\n",
       "\n",
       "\n",
       "Smoothing elevations...\n",
-      "finished in 0.13s\n"
+      "finished in 0.16s\n"
      ]
     }
    ],
@@ -252,10 +252,10 @@
    "execution_count": 4,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-02-06T21:26:43.312049Z",
-     "iopub.status.busy": "2023-02-06T21:26:43.311557Z",
-     "iopub.status.idle": "2023-02-06T21:26:43.381338Z",
-     "shell.execute_reply": "2023-02-06T21:26:43.380657Z"
+     "iopub.execute_input": "2023-03-27T15:25:16.663338Z",
+     "iopub.status.busy": "2023-03-27T15:25:16.663050Z",
+     "iopub.status.idle": "2023-03-27T15:25:16.744402Z",
+     "shell.execute_reply": "2023-03-27T15:25:16.743505Z"
     }
    },
    "outputs": [],
@@ -282,10 +282,10 @@
    "execution_count": 5,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-02-06T21:26:43.385087Z",
-     "iopub.status.busy": "2023-02-06T21:26:43.384610Z",
-     "iopub.status.idle": "2023-02-06T21:26:51.409547Z",
-     "shell.execute_reply": "2023-02-06T21:26:51.408824Z"
+     "iopub.execute_input": "2023-03-27T15:25:16.748938Z",
+     "iopub.status.busy": "2023-03-27T15:25:16.748212Z",
+     "iopub.status.idle": "2023-03-27T15:25:25.978002Z",
+     "shell.execute_reply": "2023-03-27T15:25:25.977106Z"
     }
    },
    "outputs": [
