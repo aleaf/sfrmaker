@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.lines &mdash; SFRmaker 0.10.0.post5.dev0+g53aea5b documentation</title>
+  <title>sfrmaker.lines &mdash; SFRmaker 0.10.0.post16.dev0+g7095c8e documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -31,14 +31,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> SFRmaker
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SFRmaker
           </a>
               <div class="version">
-                0.10.0.post5.dev0+g53aea5b
+                0.10.0.post16.dev0+g7095c8e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -86,7 +90,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">sfrmaker.lines</li>
       <li class="wy-breadcrumbs-aside">
@@ -122,7 +126,7 @@
 
 
 <div class="viewcode-block" id="Lines"><a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines">[docs]</a><span class="k">class</span> <span class="nc">Lines</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Class for working with linestring feature input.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for working with linestring feature input.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -200,7 +204,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">geometry_length_units</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Length units of reach LineString geometries.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Length units of reach LineString geometries.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">valid_units</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;feet&#39;</span><span class="p">:</span> <span class="s1">&#39;feet&#39;</span><span class="p">,</span>
                        <span class="s1">&#39;foot&#39;</span><span class="p">:</span> <span class="s1">&#39;feet&#39;</span><span class="p">,</span>
@@ -222,7 +226,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">routing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Dictionary of routing connections from ids (keys)</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of routing connections from ids (keys)</span>
 <span class="sd">        to to_ids (values).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_df_routing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -270,7 +274,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Dictionary of paths, where each value is a list</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of paths, where each value is a list</span>
 <span class="sd">        of downstream lines constituting a flow path to an outlet</span>
 <span class="sd">        for a given line (key).</span>
 <span class="sd">        &quot;&quot;&quot;</span>        
@@ -299,7 +303,7 @@
 
 <div class="viewcode-block" id="Lines.cull"><a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.cull">[docs]</a>    <span class="k">def</span> <span class="nf">cull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">simplify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">feature_crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Cull linework; retaining only the</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cull linework; retaining only the</span>
 <span class="sd">        lines that intersect a polygon feature.</span>
 
 <span class="sd">        Parameters</span>
@@ -373,7 +377,7 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finished in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ta</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="Lines.intersect"><a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.intersect">[docs]</a>    <span class="k">def</span> <span class="nf">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">size_thresh</span><span class="o">=</span><span class="mf">1e5</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Intersect linework with a model grid.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Intersect linework with a model grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -458,7 +462,7 @@
 
 
 <div class="viewcode-block" id="Lines.to_crs"><a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.to_crs">[docs]</a>    <span class="k">def</span> <span class="nf">to_crs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dest_crs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Reproject the LineStrings in :py:attr:`Lines.df` to</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reproject the LineStrings in :py:attr:`Lines.df` to</span>
 <span class="sd">        a different Coordinate Reference System.</span>
 
 <span class="sd">        Parameters</span>
@@ -511,7 +515,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">dest_crs</span></div>
 
 <div class="viewcode-block" id="Lines.write_shapefile"><a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.write_shapefile">[docs]</a>    <span class="k">def</span> <span class="nf">write_shapefile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outshp</span><span class="o">=</span><span class="s1">&#39;flowlines.shp&#39;</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Write a shapefile of :py:attr:`Lines.df`.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a shapefile of :py:attr:`Lines.df`.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -533,7 +537,7 @@
                        <span class="n">attr_length_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span> <span class="n">attr_height_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
                        <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a Lines instance from a shapefile.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a Lines instance from a shapefile.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -642,7 +646,7 @@
                        <span class="n">attr_length_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
                        <span class="n">attr_height_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
                        <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;[summary]</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;[summary]</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -734,7 +738,7 @@
                         <span class="n">NHDFlowlines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PlusFlowlineVAA</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PlusFlow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">elevslope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ==========</span>
 <span class="sd">        NHDPlus_paths : str or list of strings</span>
@@ -824,7 +828,7 @@
     <span class="k">def</span> <span class="nf">from_nhdplus_hr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">NHDPlusHR_paths</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                         <span class="n">drop_fcodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_ftypes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_NHDPlusIDs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ==========</span>
 <span class="sd">        NHDPlusHR_paths : str or list of strings</span>
@@ -934,7 +938,7 @@
                <span class="n">add_outlets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">package_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Create a streamflow routing dataset from the information</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a streamflow routing dataset from the information</span>
 <span class="sd">        in sfrmaker.lines class instance and a supplied sfrmaker.grid class instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -1285,7 +1289,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 27, 2023.
+      <span class="lastupdated">Last updated on Jul 24, 2023.
       </span></p>
   </div>
 

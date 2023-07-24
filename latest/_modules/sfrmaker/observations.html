@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.observations &mdash; SFRmaker 0.10.0.post5.dev0+g53aea5b documentation</title>
+  <title>sfrmaker.observations &mdash; SFRmaker 0.10.0.post16.dev0+g7095c8e documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -31,14 +31,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> SFRmaker
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SFRmaker
           </a>
               <div class="version">
-                0.10.0.post5.dev0+g53aea5b
+                0.10.0.post16.dev0+g7095c8e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -86,7 +90,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">sfrmaker.observations</li>
       <li class="wy-breadcrumbs-aside">
@@ -127,7 +131,7 @@
                      <span class="n">rno_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">obstype_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">obsname_column</span><span class="o">=</span><span class="s1">&#39;site_no&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Add SFR observations to the observations DataFrame</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add SFR observations to the observations DataFrame</span>
 <span class="sd">    attribute of an sfrdata instance. Observations can</span>
 <span class="sd">    by located on the SFR network by specifying reach number</span>
 <span class="sd">    directly (rno_column), by x, y location (x_column_in_data and y_column in data),</span>
@@ -290,7 +294,7 @@
 
 <div class="viewcode-block" id="get_closest_reach"><a class="viewcode-back" href="../../api/sfrmaker.observations.html#sfrmaker.observations.get_closest_reach">[docs]</a><span class="k">def</span> <span class="nf">get_closest_reach</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sfrlines</span><span class="p">,</span>
                       <span class="n">rno_column</span><span class="o">=</span><span class="s1">&#39;rno&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get the SFR reach number closest to a point feature.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the SFR reach number closest to a point feature.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -312,6 +316,9 @@
 <span class="sd">    rno : int or list of ints</span>
 <span class="sd">        Reach numbers for reaches closest to each location</span>
 <span class="sd">        defined by x, y.</span>
+<span class="sd">    distance: int or list of ints</span>
+<span class="sd">        Distance from each site in x, y to the corresponding </span>
+<span class="sd">        closest SFR reach.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">scalar</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -366,7 +373,7 @@
                  <span class="n">perimeter_buffer</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                  <span class="n">distance_threshold</span><span class="o">=</span><span class="mi">1000</span>
                  <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Get SFR reach locations corresponding to x, y points</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get SFR reach locations corresponding to x, y points</span>
 <span class="sd">    (e.g. measurement site locations).</span>
 
 <span class="sd">    Parameters</span>
@@ -508,7 +515,7 @@
                        <span class="n">sitename_col</span><span class="o">=</span><span class="s1">&#39;site_no&#39;</span><span class="p">,</span>
                        <span class="n">gage_package_unit</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
                        <span class="n">start_gage_unit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -589,7 +596,7 @@
                           <span class="n">filename</span><span class="p">,</span>
                           <span class="n">sfr_output_filename</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                           <span class="n">print_input</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Write MODFLOW-6 observation input for the SFR package.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write MODFLOW-6 observation input for the SFR package.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -635,7 +642,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 27, 2023.
+      <span class="lastupdated">Last updated on Jul 24, 2023.
       </span></p>
   </div>
 

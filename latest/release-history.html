@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Release History &mdash; SFRmaker 0.10.0.post5.dev0+g53aea5b documentation</title>
+  <title>Release History &mdash; SFRmaker 0.10.0.post16.dev0+g7095c8e documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -34,14 +34,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> SFRmaker
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            SFRmaker
           </a>
               <div class="version">
-                0.10.0.post5.dev0+g53aea5b
+                0.10.0.post16.dev0+g7095c8e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -69,6 +73,7 @@
 <li class="toctree-l1"><a class="reference internal" href="api/index.html"> Code reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="config-summary.html"> Summary of configuration file options</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> Release History</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-10-2-2023-07-24">Version 0.10.2 (2023-07-24)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-10-1-2023-02-06">Version 0.10.1 (2023-02-06)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-10-0-2023-02-02">Version 0.10.0 (2023-02-02)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#version-0-9-4-2023-01-19">Version 0.9.4 (2023-01-19)</a></li>
@@ -110,7 +115,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Release History</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/release-history.rst.txt" rel="nofollow"> View page source</a>
@@ -121,32 +126,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="release-history">
+  <section id="release-history">
 <h1>Release History<a class="headerlink" href="#release-history" title="Permalink to this heading">¶</a></h1>
+<section id="version-0-10-2-2023-07-24">
+<h2>Version 0.10.2 (2023-07-24)<a class="headerlink" href="#version-0-10-2-2023-07-24" title="Permalink to this heading">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="simple">
+<dt>enhancements to <code class="docutils literal notranslate"><span class="pre">preprocessing.swb_runoff_to_csv()</span></code>:</dt><dd><ul>
+<li><p>add option to limit runoff output to a polygon area</p></li>
+<li><p>add option to include x, y coordinates in output in a specified CRS (were previously included by default in the same CRS as the NetCDF input)</p></li>
+<li><p>add start_ and end_datetime args to limit the timespan of runoff output</p></li>
+<li><p>add more robust detection of coordinate reference system of NetCDF input</p></li>
+<li><p>add additional plotting and GIS layers export for diagnostic/QC checking (done by default)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>fixes to adapted to breaking changes with pandas 2.0 and revised flopy modelgrid/crs interface</p></li>
+<li><p>bug fix in cull_flowlines() function in preprocessing.py</p></li>
+</ul>
+</div></blockquote>
+</section>
 <section id="version-0-10-1-2023-02-06">
 <h2>Version 0.10.1 (2023-02-06)<a class="headerlink" href="#version-0-10-1-2023-02-06" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
@@ -299,7 +300,7 @@
 <section id="version-0-6-1-2020-11-04">
 <h2>Version 0.6.1 (2020-11-04)<a class="headerlink" href="#version-0-6-1-2020-11-04" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
-<li><p>deprecate sfrmaker.gis.CRS class in favor of <a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/crs/crs.html#pyproj.crs.CRS" title="(in pyproj v3.4.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyproj.crs.CRS</span></code></a></p></li>
+<li><p>deprecate sfrmaker.gis.CRS class in favor of <a class="reference external" href="https://pyproj4.github.io/pyproj/stable/api/crs/crs.html#pyproj.crs.CRS" title="(in pyproj v3.6.0)"><code class="xref py py-class docutils literal notranslate"><span class="pre">pyproj.crs.CRS</span></code></a></p></li>
 <li><p>add <code class="xref py py-func docutils literal notranslate"><span class="pre">sfrmaker.routing.get_previous_ids_in_subset()</span></code> function that can find outlet locations if the specified line IDs for outlets aren’t in a consolidated (one_reach_per_cell=True) sfr network</p></li>
 <li><p>some bug fixes to the <code class="docutils literal notranslate"><span class="pre">add_outlets</span></code> option</p></li>
 <li><p>some fixes to the input data for the MERAS example</p></li>
@@ -380,7 +381,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 27, 2023.
+      <span class="lastupdated">Last updated on Jul 24, 2023.
       </span></p>
   </div>
 

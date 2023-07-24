@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.preprocessing &mdash; SFRmaker 0.10.0.post5.dev0+g53aea5b documentation</title>
+  <title>sfrmaker.preprocessing &mdash; SFRmaker 0.10.0.post16.dev0+g7095c8e documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -31,14 +31,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../index.html" class="icon icon-home"> SFRmaker
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            SFRmaker
           </a>
               <div class="version">
-                0.10.0.post5.dev0+g53aea5b
+                0.10.0.post16.dev0+g7095c8e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -86,7 +90,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../index.html" class="icon icon-home"></a></li>
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
       <li class="breadcrumb-item active">sfrmaker.preprocessing</li>
       <li class="wy-breadcrumbs-aside">
@@ -110,9 +114,13 @@
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">fiona</span>
 <span class="kn">import</span> <span class="nn">rasterio</span>
-<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">shape</span><span class="p">,</span> <span class="n">MultiLineString</span><span class="p">,</span> <span class="n">box</span>
+<span class="kn">import</span> <span class="nn">pyproj</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">MultiLineString</span><span class="p">,</span> 
+    <span class="n">box</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">rasterstats</span> <span class="kn">import</span> <span class="n">zonal_stats</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">colors</span>
 <span class="kn">from</span> <span class="nn">gisutils</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">get_shapefile_crs</span><span class="p">,</span> 
     <span class="n">write_raster</span><span class="p">,</span> 
@@ -134,7 +142,7 @@
 
 <div class="viewcode-block" id="get_flowline_routing"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.get_flowline_routing">[docs]</a><span class="k">def</span> <span class="nf">get_flowline_routing</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PlusFlow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                          <span class="n">mask_crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">nhdplus_crs</span><span class="o">=</span><span class="mi">4269</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read a collection of NHDPlus version 2 PlusFlow (routing)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read a collection of NHDPlus version 2 PlusFlow (routing)</span>
 <span class="sd">    tables from one or more drainage basins and consolidate into a </span>
 <span class="sd">    single pandas DataFrame, returning the `FROMCOMID` and `TOCOMID` </span>
 <span class="sd">    columns.</span>
@@ -204,7 +212,7 @@
                    <span class="n">cull_isolated</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                    <span class="n">keep_comids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                    <span class="n">outfolder</span><span class="o">=</span><span class="s1">&#39;clipped_flowlines&#39;</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Cull NHDPlus version2 data to an area defined by an ``active_area`` polygon and</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Cull NHDPlus version2 data to an area defined by an ``active_area`` polygon and</span>
 <span class="sd">    to flowlines with Arbolate sums greater than specified thresholds. Also remove</span>
 <span class="sd">    lines that are isolated from the stream network or are missing attribute information.</span>
 
@@ -471,7 +479,7 @@
                        <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outfolder</span><span class="o">=</span><span class="s1">&#39;output/&#39;</span><span class="p">,</span>
                        <span class="n">flowline_crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dest_crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Preprocess NHDPlus data to a single DataFrame of flowlines</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Preprocess NHDPlus data to a single DataFrame of flowlines</span>
 <span class="sd">    that each route to no more than one flowline, with width, elevation</span>
 <span class="sd">    and recomputed arbolate sum attributes. A key part of the preprocessing is handling divergences in the stream network, as described in more detail in the ``Notes`` section. In picking routing at divergences, values are sampled from the ``demfile`` and included in the output DataFrame. Optionally (via the ``narwidth_shapefile`` arguement), remote sensing-based width estimates from the NARWidth Database (Allen and Pavelsky, 2015) can be included.</span>
 
@@ -907,7 +915,7 @@
 
     <span class="c1"># label secondary distributaries</span>
     <span class="n">flcc</span><span class="p">[</span><span class="s1">&#39;main_chan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
-    <span class="n">flcc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">diversionminorcomids</span><span class="p">,</span> <span class="s1">&#39;main_chan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">flcc</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">diversionminorcomids</span><span class="p">),</span> <span class="s1">&#39;main_chan&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 
     <span class="c1"># verify that all comids only route to one other comid</span>
     <span class="k">assert</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">tocomids</span><span class="o">.</span><span class="n">values</span><span class="p">()])</span>
@@ -1074,7 +1082,7 @@
 <div class="viewcode-block" id="clip_flowlines_to_polygon"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.clip_flowlines_to_polygon">[docs]</a><span class="k">def</span> <span class="nf">clip_flowlines_to_polygon</span><span class="p">(</span><span class="n">flowlines</span><span class="p">,</span> <span class="n">polygon</span><span class="p">,</span>
                               <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                               <span class="n">simplify_tol</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Clip line features in a flowlines DataFrame to polygon</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Clip line features in a flowlines DataFrame to polygon</span>
 <span class="sd">    features in polygon.</span>
 
 <span class="sd">    Parameters</span>
@@ -1148,7 +1156,7 @@
                     <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                     <span class="n">output_width_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
                     <span class="n">outpath</span><span class="o">=</span><span class="s1">&#39;shps/&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Sample the North American River Width Database by</span>
 <span class="sd">    doing a spatial join (transfer width information from</span>
 <span class="sd">    NARWidth shapefile to flowlines shapefile based on proximity).</span>
@@ -1290,7 +1298,7 @@
 <div class="viewcode-block" id="edit_flowlines"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.edit_flowlines">[docs]</a><span class="k">def</span> <span class="nf">edit_flowlines</span><span class="p">(</span><span class="n">flowlines</span><span class="p">,</span> <span class="n">config_file</span><span class="p">,</span>
                    <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;COMID&#39;</span><span class="p">,</span> <span class="n">toid_column</span><span class="o">=</span><span class="s1">&#39;tocomid&#39;</span><span class="p">,</span>
                    <span class="n">logger</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Make edits to the flowlines in flowlines_file,</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make edits to the flowlines in flowlines_file,</span>
 <span class="sd">    as described in config_file.</span>
 
 <span class="sd">    Parameters</span>
@@ -1357,7 +1365,7 @@
         <span class="c1"># drop the IDs being added if they already exist</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">id_column</span><span class="p">])]</span>
 
-        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">statement</span><span class="p">(</span><span class="s1">&#39;added flowlines: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()),</span>
                                                                     <span class="mi">100</span><span class="p">)))</span>
@@ -1392,7 +1400,7 @@
 
 
 <div class="viewcode-block" id="recompute_asums_for_minor_distribs"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.recompute_asums_for_minor_distribs">[docs]</a><span class="k">def</span> <span class="nf">recompute_asums_for_minor_distribs</span><span class="p">(</span><span class="n">minor_distrib_comids</span><span class="p">,</span> <span class="n">fl_lengths</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">graph_r</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Reset arbolate sums for minor distributaries and</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reset arbolate sums for minor distributaries and</span>
 <span class="sd">    downstream segments in their path, to the next confluence.</span>
 
 <span class="sd">    Parameters</span>
@@ -1430,7 +1438,7 @@
 
 
 <div class="viewcode-block" id="fix_invalid_asums"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.fix_invalid_asums">[docs]</a><span class="k">def</span> <span class="nf">fix_invalid_asums</span><span class="p">(</span><span class="n">asums</span><span class="p">,</span> <span class="n">fl_lengths</span><span class="p">,</span> <span class="n">graph</span><span class="p">,</span> <span class="n">graph_r</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Recompute arbolate sum at any places in the network</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Recompute arbolate sum at any places in the network</span>
 <span class="sd">    where it decreases going downstream, and then for all lines</span>
 <span class="sd">    downstream of those locations. Decreases may be caused by</span>
 <span class="sd">    routing connections that weren&#39;t in the original NHDPlus data.</span>
@@ -1501,14 +1509,39 @@
     <span class="k">return</span> <span class="n">new_asums</span></div>
 
 
+<div class="viewcode-block" id="get_netcdf_crs_from_grid_mapping"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.get_netcdf_crs_from_grid_mapping">[docs]</a><span class="k">def</span> <span class="nf">get_netcdf_crs_from_grid_mapping</span><span class="p">(</span><span class="n">grid_mapping</span><span class="p">):</span>
+    <span class="n">crs</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">crs</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="o">.</span><span class="n">from_cf</span><span class="p">(</span><span class="n">grid_mapping</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">if</span> <span class="s1">&#39;crs_wkt&#39;</span> <span class="ow">in</span> <span class="n">grid_mapping</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">crs</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">(</span><span class="n">grid_mapping</span><span class="p">[</span><span class="s1">&#39;crs_wkt&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="c1"># Soil Water Balance Code output</span>
+    <span class="c1"># usually has a &quot;proj4_string&quot; entry</span>
+    <span class="k">if</span> <span class="s1">&#39;proj4_string&#39;</span> <span class="ow">in</span> <span class="n">grid_mapping</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">crs</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="p">(</span><span class="n">grid_mapping</span><span class="p">[</span><span class="s1">&#39;proj4_string&#39;</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="c1"># could add more crazy try/excepts here</span>
+    <span class="k">return</span> <span class="n">crs</span></div>
+    
+    
 <div class="viewcode-block" id="swb_runoff_to_csv"><a class="viewcode-back" href="../../api/sfrmaker.preprocessing.html#sfrmaker.preprocessing.swb_runoff_to_csv">[docs]</a><span class="k">def</span> <span class="nf">swb_runoff_to_csv</span><span class="p">(</span><span class="n">swb_runoff_netcdf_output</span><span class="p">,</span> <span class="n">nhdplus_catchments_file</span><span class="p">,</span>
                       <span class="n">runoff_output_variable</span><span class="o">=</span><span class="s1">&#39;runoff&#39;</span><span class="p">,</span>
                       <span class="n">swb_rejected_net_inf_output</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">rejected_net_inf_variable</span><span class="o">=</span><span class="s1">&#39;rejected_net_infiltration&#39;</span><span class="p">,</span>
                       <span class="n">catchment_id_col</span><span class="o">=</span><span class="s1">&#39;FEATUREID&#39;</span><span class="p">,</span>
+                      <span class="n">limit_runoff_to_area</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                      <span class="n">start_datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">end_datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">output_length_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
+                      <span class="n">include_xy_in_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">xy_crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">outfile</span><span class="o">=</span><span class="s1">&#39;swb_runoff_by_nhdplus_comid.csv&#39;</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Convert gridded runoff estimates from the USGS Soil Water Balance Code (SWB)</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert gridded runoff estimates from the USGS Soil Water Balance Code (SWB)</span>
 <span class="sd">    to a CSV format, associating each runoff value with a catchment ID. For the runoff to</span>
 <span class="sd">    be successfully mapped to the SFR network, the catchment IDs must correspond to line IDs</span>
 <span class="sd">    in the stream network, and each catchment must either be associated with a line, or</span>
@@ -1526,8 +1559,8 @@
 <span class="sd">        Shapefile of catchments with IDs (catchment_id_col). The catchments are rasterized</span>
 <span class="sd">        to the grid in swb_netcdf_output, so that each runoff value can be associated with</span>
 <span class="sd">        a catchment ID.</span>
-<span class="sd">    catchment_id_col : str, optional</span>
-<span class="sd">        Field in nhdplus_catchments_file with ID, by default &#39;FEATUREID&#39;. For the </span>
+<span class="sd">    catchment_id_col : str</span>
+<span class="sd">        Field in nhdplus_catchments_file with ID, by default &#39;FEATUREID&#39;. </span>
 <span class="sd">    runoff_output_variable : str, optional</span>
 <span class="sd">        Variable in swb_runoff_netcdf_output with runoff data, by default &#39;runoff&#39;</span>
 <span class="sd">    swb_rejected_net_inf_output : str or path-like</span>
@@ -1541,13 +1574,66 @@
 <span class="sd">    rejected_net_inf_variable : str, optional</span>
 <span class="sd">        Variable in swb_runoff_netcdf_output with runoff data, </span>
 <span class="sd">        by default &#39;rejected_net_infiltration&#39;</span>
+<span class="sd">    limit_runoff_to_area : str or path-like</span>
+<span class="sd">        Optionally limit runoff to an area defined by a polygon shapefile.</span>
+<span class="sd">        By default None, in which case runoff is aggregated for each</span>
+<span class="sd">        NHDPlus Catchment that intersections the grid in swb_runoff_netcdf_output.</span>
+<span class="sd">    start_datetime : str</span>
+<span class="sd">        Include runoff on or after this date in the output. Can be in any </span>
+<span class="sd">        string format used for time slicing in pandas or xarray.</span>
+<span class="sd">        By default, None (include all times in `swb_runoff_netcdf_output`).</span>
+<span class="sd">    end_datetime : str</span>
+<span class="sd">        Include runoff on or before this date in the output. Can be in any </span>
+<span class="sd">        string format used for time slicing in pandas or xarray.</span>
+<span class="sd">        By default, None (include all times in `swb_runoff_netcdf_output`).</span>
 <span class="sd">    output_length_units : str, optional</span>
 <span class="sd">        Input units are read from the &#39;units&#39; attribute of the netcdf_output_variable </span>
 <span class="sd">        in swb_netcdf_output; specify output length units so that the output CSV</span>
 <span class="sd">        file is in the same length units as the model. No time unit conversion is perfo</span>
 <span class="sd">        by default &#39;meters&#39;</span>
+<span class="sd">    include_xy_in_output : bool</span>
+<span class="sd">        Option to include approximate x, y coordinates of catchments in the</span>
+<span class="sd">        output. The x, y coordinates represent the average x and y values of</span>
+<span class="sd">        the SWB grid cells intersected by each catchment.</span>
+<span class="sd">    xy_crs :</span>
+<span class="sd">        Output coordinate reference system (CRS) for coordinates in outfile.</span>
+<span class="sd">        Only used if `include_xy_in_output=True`.</span>
+<span class="sd">        By default False, in which case the CRS for `swb_runoff_netcdf_output`</span>
+<span class="sd">        is used.</span>
 <span class="sd">    outfile : str, optional</span>
-<span class="sd">        [description], by default &#39;swb_runoff_by_nhdplus_comid.csv&#39;</span>
+<span class="sd">        Output CSV file with transient runoff volumes for each catchment </span>
+<span class="sd">        intersecting the SWB grid, by default &#39;swb_runoff_by_nhdplus_comid.csv&#39;</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    aggregated : DataFrame (also written to outfile)</span>
+<span class="sd">        DataFrame with columns:</span>
+<span class="sd">        </span>
+<span class="sd">        =================== =============================================================</span>
+<span class="sd">        time                time associated with each runoff volume</span>
+<span class="sd">        comid               catchment and flowline identifier</span>
+<span class="sd">        x                   (optional) approximate x-coordinate of catchment, in `xy_crs`</span>
+<span class="sd">        y                   (optional) approximate y-coordinate of catchment, in `xy_crs`</span>
+<span class="sd">        runoff_{L}3d        runoff volume, in model length units cubed per day</span>
+<span class="sd">        area_{L}2           total area of SWB cells intersected by catchment, in model length units cubed</span>
+<span class="sd">        =================== =============================================================</span>
+<span class="sd">    </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    </span>
+<span class="sd">    </span>
+<span class="sd">    Some notes on SWB output variables, as of 7/5/2023: </span>
+<span class="sd">    </span>
+<span class="sd">        * ``&#39;runoff_outside&#39;`` is the sum of ``&#39;runoff&#39;`` plus ``&#39;rejected_net_infiltration&#39;``. </span>
+<span class="sd">        * When routing is inactive in the SWB simulation, ``&#39;runoff_outside&#39;`` is computed </span>
+<span class="sd">          for every SWB grid cell. In this case, it can be supplied here to </span>
+<span class="sd">          ``swb_runoff_netcdf_output`` (and ``runoff_output_variable``), in lieu of supplying both </span>
+<span class="sd">          ``swb_runoff_netcdf_output`` and ``swb_rejected_net_inf_output``.</span>
+<span class="sd">        * When routing is active, ``&#39;runoff_outside&#39;`` represents only water that cannot </span>
+<span class="sd">          be moved downslope; in most cases it should be zero in the model interior. </span>
+<span class="sd">          In this case, one would most likely supply both ``swb_runoff_netcdf_output`` and </span>
+<span class="sd">          ``swb_rejected_net_inf_output``.</span>
+<span class="sd">    </span>
 <span class="sd">    &quot;&quot;&quot;</span>    
     <span class="n">outfile</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">outfile</span><span class="p">)</span>
     <span class="c1"># get an affine.Affine representation and shape </span>
@@ -1557,35 +1643,102 @@
         <span class="n">yul</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
         <span class="n">dx</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">dy</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="c1"># subset to time limits, if provided</span>
+        <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">start_datetime</span><span class="p">,</span> <span class="n">end_datetime</span><span class="p">))</span>
         <span class="n">ntimes</span><span class="p">,</span> <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">runoff_output_variable</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-        <span class="n">nc_crs</span> <span class="o">=</span> <span class="n">get_authority_crs</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;crs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;proj4_string&#39;</span><span class="p">])</span>
+        <span class="n">nc_crs</span> <span class="o">=</span> <span class="n">get_netcdf_crs_from_grid_mapping</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;crs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span>
         <span class="n">nc_bounds</span> <span class="o">=</span> <span class="p">(</span><span class="n">xul</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
                      <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">yul</span><span class="p">)</span>
         <span class="n">nc_bbox</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="n">nc_bounds</span><span class="p">)</span>
         <span class="n">nc_units</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">runoff_output_variable</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span>
     <span class="n">nc_trans</span> <span class="o">=</span> <span class="n">affine</span><span class="o">.</span><span class="n">Affine</span><span class="p">(</span><span class="n">dx</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">xul</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="n">dy</span><span class="p">,</span> <span class="n">yul</span><span class="p">)</span>
     
-    <span class="c1"># combine monthly runoff with monthly &quot;rejected_net_infiltration&quot;</span>
+    <span class="c1"># combine runoff with &quot;rejected_net_infiltration&quot;</span>
     <span class="k">if</span> <span class="n">swb_rejected_net_inf_output</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">swb_rejected_net_inf_output</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds2</span><span class="p">:</span> 
-            <span class="n">total_runoff</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;runoff&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">ds2</span><span class="p">[</span><span class="n">rejected_net_inf_variable</span><span class="p">]</span>
-            <span class="n">total_runoff</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;runoff&#39;</span>
+            <span class="n">nc_crs2</span> <span class="o">=</span> <span class="n">get_netcdf_crs_from_grid_mapping</span><span class="p">(</span><span class="n">ds2</span><span class="p">[</span><span class="s1">&#39;crs&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">nc_crs2</span> <span class="o">!=</span> <span class="n">nc_crs</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Files </span><span class="si">{</span><span class="n">swb_runoff_netcdf_output</span><span class="si">}</span><span class="s2"> (crs: </span><span class="si">{</span><span class="n">nc_crs</span><span class="si">}</span><span class="s2">) &quot;</span>
+                                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">swb_rejected_net_inf_output</span><span class="si">}</span><span class="s2"> (crs: </span><span class="si">{</span><span class="n">nc_crs2</span><span class="si">}</span><span class="s2">) have &quot;</span>
+                                 <span class="s2">&quot;different coordinate reference systems. Are these &quot;</span>
+                                 <span class="s2">&quot;from the same SWB simulation?&quot;</span><span class="p">)</span>
+            <span class="n">ds2</span> <span class="o">=</span> <span class="n">ds2</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">start_datetime</span><span class="p">,</span> <span class="n">end_datetime</span><span class="p">))</span>
+            <span class="n">total_runoff</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">runoff_output_variable</span><span class="p">]</span> <span class="o">+</span> <span class="n">ds2</span><span class="p">[</span><span class="n">rejected_net_inf_variable</span><span class="p">]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">total_runoff</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;runoff&#39;</span><span class="p">]</span>
-        
+        <span class="n">total_runoff</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">runoff_output_variable</span><span class="p">]</span>
+    <span class="n">total_runoff</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;runoff&#39;</span>
+    
+    <span class="c1"># plot average runoff, rejected net_inf, and total runoff</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span>
+                             <span class="p">)</span>
+    
+    <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;location&#39;</span><span class="p">:</span> <span class="s1">&#39;bottom&#39;</span><span class="p">}</span>
+    <span class="n">xlim</span> <span class="o">=</span> <span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">ds</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
+    
+    <span class="c1"># compute the means to get global non-zero min and maxes</span>
+    <span class="n">mean_runoff</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="n">runoff_output_variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">all_values</span> <span class="o">=</span> <span class="p">[</span><span class="n">mean_runoff</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mean_runoff</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="n">swb_rejected_net_inf_output</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mean_rjnet</span> <span class="o">=</span> <span class="n">ds2</span><span class="p">[</span><span class="n">rejected_net_inf_variable</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">all_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_rjnet</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mean_rjnet</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">mean_total_runoff</span> <span class="o">=</span> <span class="n">total_runoff</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">all_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mean_total_runoff</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">mean_total_runoff</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">])</span>
+    <span class="n">non_zero_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">all_values</span><span class="p">)</span>
+    <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">non_zero_values</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">non_zero_values</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+    <span class="n">mean_runoff</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="n">cbar_kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xlim</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">swb_rejected_net_inf_output</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+        <span class="n">mean_rjnet</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="n">cbar_kwargs</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xlim</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">)</span>
+    <span class="n">cbar_kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">runoff_output_variable</span><span class="si">}</span><span class="s1"> + &#39;</span>
+                          <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rejected_net_inf_variable</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">mean_total_runoff</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="n">cbar_kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xlim</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">top</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+    <span class="n">times</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average values for </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+                 <span class="n">y</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">outfile</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;runoff_comparison.pdf&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
     <span class="c1"># Read in the NHDPlus catchments </span>
     <span class="c1"># first reproject the SWB netcdf bounding box to lat/lon (NAD83)</span>
     <span class="c1"># with a 10 km buffer</span>
-    <span class="n">nc_bbox_4269</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">nc_bbox</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1e4</span><span class="p">),</span> <span class="n">nc_crs</span><span class="p">,</span> <span class="mi">4269</span><span class="p">)</span>
+    <span class="n">shapefile_crs</span> <span class="o">=</span> <span class="n">get_shapefile_crs</span><span class="p">(</span><span class="n">nhdplus_catchments_file</span><span class="p">)</span>
+    <span class="n">nc_bbox</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">nc_bbox</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mf">1e4</span><span class="p">),</span> <span class="n">nc_crs</span><span class="p">,</span> <span class="n">shapefile_crs</span><span class="p">)</span>
     <span class="c1"># read the catchments intersecting the buffered bbox</span>
-    <span class="n">catchments</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">nhdplus_catchments_file</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">nc_bbox_4269</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span>
+    <span class="n">catchments</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">nhdplus_catchments_file</span><span class="p">,</span> 
+                               <span class="n">bbox</span><span class="o">=</span><span class="n">nc_bbox</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span>
+                               <span class="n">dtypes</span><span class="o">=</span><span class="p">{</span><span class="n">catchment_id_col</span><span class="p">:</span> <span class="nb">int</span><span class="p">})</span>
     <span class="c1">#  reproject to the SWB output CRS (probably 5070)</span>
     <span class="c1">#  this assumes the SWB output has a valid crs!</span>
-    <span class="n">catchments</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">nc_crs</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1">#catchments.to_file(outpath / nhdplus_catchments.name)</span>
+    <span class="k">if</span> <span class="n">shapefile_crs</span> <span class="o">!=</span> <span class="n">nc_crs</span><span class="p">:</span>
+        <span class="n">catchments</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">nc_crs</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
     <span class="c1"># rasterize the catchments unto the NetCDF file grid</span>
-    <span class="n">features_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">catchments</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">],</span> <span class="n">catchments</span><span class="p">[</span><span class="n">catchment_id_col</span><span class="p">]))</span>
+    <span class="n">features_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">catchments</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">],</span> 
+                             <span class="n">catchments</span><span class="p">[</span><span class="n">catchment_id_col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)))</span>
     <span class="n">rasterized</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">rasterize</span><span class="p">(</span><span class="n">features_list</span><span class="p">,</span> <span class="n">out_shape</span><span class="o">=</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">),</span> 
                                     <span class="n">transform</span><span class="o">=</span><span class="n">nc_trans</span><span class="p">)</span>
     <span class="n">out_text_array</span> <span class="o">=</span> <span class="n">outfile</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;nhdplus_catchments.dat&#39;</span>
@@ -1593,16 +1746,45 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;wrote </span><span class="si">{</span><span class="n">out_text_array</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
     <span class="n">write_raster</span><span class="p">(</span><span class="n">out_text_array</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.tif&#39;</span><span class="p">),</span> <span class="n">rasterized</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
                  <span class="n">xul</span><span class="o">=</span><span class="n">xul</span><span class="p">,</span> <span class="n">yul</span><span class="o">=</span><span class="n">yul</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">nc_crs</span><span class="p">)</span>
-    <span class="n">masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">rasterized</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">rasterized</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masked</span><span class="p">)</span>
+    
+    <span class="c1"># normalize colors</span>
+    <span class="n">unique_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">rasterized</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">unique_values</span><span class="p">)</span>
+    <span class="n">mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_values</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+                       <span class="p">))</span>
+    <span class="n">to_show</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">mapping</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">rasterized</span><span class="o">.</span><span class="n">ravel</span><span class="p">()],</span>
+                         <span class="n">rasterized</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">to_show</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">rasterized</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masked</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gist_earth&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rasterized NHDPlus catchments&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">out_text_array</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.pdf&#39;</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wrote </span><span class="si">{</span><span class="n">out_text_array</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.pdf&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
-    <span class="c1"># transpose the SWB runoff results from xarray DataSet to DataFrame</span>
+ 
+     <span class="c1"># transpose the SWB runoff results from xarray DataSet to DataFrame</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">total_runoff</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;comid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rasterized</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">*</span> <span class="n">ntimes</span>
+    
+    <span class="c1"># optionally limit runoff to user-defined polygon area</span>
+    <span class="k">if</span> <span class="n">limit_runoff_to_area</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">roff_area</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">limit_runoff_to_area</span><span class="p">)</span>
+        <span class="n">roff_area</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">nc_crs</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">roff_area_ids</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">roff_area</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">features_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">roff_area</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">],</span> <span class="n">roff_area_ids</span><span class="p">))</span>
+        <span class="n">allow_runoff</span> <span class="o">=</span> <span class="n">rasterio</span><span class="o">.</span><span class="n">features</span><span class="o">.</span><span class="n">rasterize</span><span class="p">(</span><span class="n">features_list</span><span class="p">,</span> <span class="n">out_shape</span><span class="o">=</span><span class="p">(</span><span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">),</span> 
+                                        <span class="n">transform</span><span class="o">=</span><span class="n">nc_trans</span><span class="p">)</span>     
+        <span class="n">loc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">allow_runoff</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">ntimes</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">loc</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">runoff_area_outfile</span> <span class="o">=</span> <span class="n">outfile</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;runoff_area.tif&#39;</span>
+        <span class="n">write_raster</span><span class="p">(</span><span class="n">runoff_area_outfile</span><span class="p">,</span> <span class="n">allow_runoff</span><span class="p">,</span> <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                    <span class="n">xul</span><span class="o">=</span><span class="n">xul</span><span class="p">,</span> <span class="n">yul</span><span class="o">=</span><span class="n">yul</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">nc_crs</span><span class="p">)</span>
+        <span class="n">masked</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ma</span><span class="o">.</span><span class="n">masked_array</span><span class="p">(</span><span class="n">allow_runoff</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">allow_runoff</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">masked</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Rasterized runoff area&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">runoff_area_outfile</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.pdf&#39;</span><span class="p">))</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wrote </span><span class="si">{</span><span class="n">runoff_area_outfile</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s1">&#39;.pdf&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
     <span class="c1"># SWB runoff is in average daily inches over each cell</span>
     <span class="c1"># convert to average daily volume for each cell</span>
     <span class="c1"># then sum by comid to get average daily volume by comid</span>
@@ -1611,12 +1793,99 @@
     <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;area_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">dx</span> <span class="o">*</span> <span class="n">dy</span><span class="p">)</span>  <span class="c1"># cell area in m3</span>
     <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;runoff_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;runoff&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">convert_length_units</span><span class="p">(</span><span class="n">nc_units</span><span class="p">,</span> <span class="n">output_length_units</span><span class="p">)</span>
     <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;runoff_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">3d&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;runoff_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">d&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">df</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;area_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">2&#39;</span><span class="p">]</span>
-    <span class="n">bycomid_month</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;comid&#39;</span><span class="p">])</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="n">bycomid_month</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>  <span class="c1"># preserve times</span>
-    <span class="n">aggregated</span> <span class="o">=</span> <span class="n">bycomid_month</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="n">bycomid_time</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;comid&#39;</span><span class="p">])</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">bycomid_time</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>  <span class="c1"># preserve times</span>
+    <span class="c1"># sum the runoff for all cells intersecting each catchment</span>
+    <span class="c1"># (at each time)</span>
+    <span class="n">aggregated</span> <span class="o">=</span> <span class="n">bycomid_time</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
     <span class="n">data_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data_cols</span><span class="p">:</span>
-        <span class="n">aggregated</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">data_cols</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">aggregated</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">c</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">include_xy_in_output</span><span class="p">:</span>
+        <span class="n">aggregated</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bycomid_time</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span>
+        <span class="n">aggregated</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bycomid_time</span><span class="o">.</span><span class="n">mean</span><span class="p">()[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">xy_crs</span> <span class="o">!=</span> <span class="n">nc_crs</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">aggregated</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">],</span> <span class="n">aggregated</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]),</span> <span class="n">nc_crs</span><span class="p">,</span> <span class="n">xy_crs</span><span class="p">)</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="n">aggregated</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>          
+
+    <span class="c1"># remap aggregated runoff back to COMIDs </span>
+    <span class="c1"># and compare to gridded total runoff from SWB</span>
+    <span class="n">geoms</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">catchments</span><span class="p">[</span><span class="n">catchment_id_col</span><span class="p">],</span> <span class="n">catchments</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]))</span>
+    <span class="c1"># get the mean for each catchment through time</span>
+    <span class="n">comid_runoff_means</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">aggregated</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;comid&#39;</span><span class="p">)[</span><span class="s1">&#39;runoff_m3d&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;mean_roff&#39;</span><span class="p">]</span>
+    <span class="n">comid_runoff_means</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geoms</span><span class="p">[</span><span class="n">comid</span><span class="p">]</span> 
+                                       <span class="k">for</span> <span class="n">comid</span> <span class="ow">in</span> <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+    <span class="c1"># keep unconverted linear runoff from SWB for diagnostic/QC purposes</span>
+    <span class="c1"># (for example, this allows for direct comparison of a catchment intersecting </span>
+    <span class="c1"># a single SWB cell to the SWB output)</span>
+    <span class="n">comid_runoff_means</span><span class="p">[</span><span class="s1">&#39;runoff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">aggregated</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;comid&#39;</span><span class="p">)[</span><span class="s1">&#39;runoff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span>
+    <span class="n">comid_runoff_means</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">comid_runoff_means</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">catchments</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">),</span> 
+                             <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">layout</span><span class="o">=</span><span class="s1">&#39;constrained&#39;</span><span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">non_zero</span> <span class="o">=</span> <span class="n">comid_runoff_means</span><span class="p">[</span><span class="s1">&#39;mean_roff&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="n">catchments_norm</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">LogNorm</span><span class="p">(</span>
+        <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">non_zero</span><span class="p">,</span> <span class="s1">&#39;mean_roff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span>
+        <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">non_zero</span><span class="p">,</span> <span class="s1">&#39;mean_roff&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">column</span><span class="o">=</span><span class="s1">&#39;mean_roff&#39;</span><span class="p">,</span> <span class="n">legend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">catchments_norm</span><span class="p">,</span>
+        <span class="n">legend_kwds</span><span class="o">=</span><span class="p">{</span>
+            <span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Mean runoff mapped to catchments, &#39;</span>
+                      <span class="sa">f</span><span class="s1">&#39;in </span><span class="si">{</span><span class="n">output_length_units</span><span class="si">}</span><span class="s1">$^3$/day&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;orientation&#39;</span><span class="p">:</span> <span class="s1">&#39;horizontal&#39;</span>
+                     <span class="p">},</span>
+        <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> 
+    <span class="n">xlim</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+    <span class="n">ylim</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()</span>
+    <span class="n">aspect</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">cbar_kwargs</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Mean SWB </span><span class="si">{</span><span class="n">runoff_output_variable</span><span class="si">}</span><span class="s1"> + &#39;</span>
+                            <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rejected_net_inf_variable</span><span class="si">}</span><span class="s1">, in </span><span class="si">{</span><span class="n">nc_units</span><span class="si">}</span><span class="s1">/day&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">limit_runoff_to_area</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plot_array</span> <span class="o">=</span> <span class="n">mean_total_runoff</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">allow_runoff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">plot_array</span> <span class="o">=</span> <span class="n">mean_total_runoff</span>
+    <span class="n">plot_array</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">cbar_kwargs</span><span class="o">=</span><span class="n">cbar_kwargs</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">*</span><span class="n">xlim</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_xticklabels</span><span class="p">(),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
+    <span class="c1">#ax.set_ylim(*ylim)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+        <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;0.5&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+    <span class="n">mean_total_runoff_pdf</span> <span class="o">=</span> <span class="n">outfile</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;mean_total_runoff_comparison.pdf&#39;</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Average values for </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="c1">#plt.subplots_adjust(top=0.1)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">mean_total_runoff_pdf</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wrote </span><span class="si">{</span><span class="n">mean_total_runoff_pdf</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+       
+    <span class="c1"># export to GIS layers as well</span>
+    <span class="n">mean_total_runoff_shp</span> <span class="o">=</span> <span class="n">outfile</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;mean_total_runoff_by_catchment.shp&#39;</span>
+    <span class="n">comid_runoff_means</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="n">mean_total_runoff_shp</span><span class="p">)</span> 
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wrote </span><span class="si">{</span><span class="n">mean_total_runoff_shp</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">mean_total_runoff_raster</span> <span class="o">=</span> <span class="n">outfile</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s1">&#39;mean_total_runoff_on_swb_grid.tif&#39;</span>
+    <span class="k">if</span> <span class="n">limit_runoff_to_area</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output_array</span> <span class="o">=</span> <span class="n">mean_total_runoff</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">allow_runoff</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">output_array</span> <span class="o">=</span> <span class="n">mean_total_runoff</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">write_raster</span><span class="p">(</span><span class="n">mean_total_runoff_raster</span><span class="p">,</span> 
+                 <span class="n">output_array</span><span class="p">,</span>
+                 <span class="n">nodata</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+                 <span class="n">xul</span><span class="o">=</span><span class="n">xul</span><span class="p">,</span> <span class="n">yul</span><span class="o">=</span><span class="n">yul</span><span class="p">,</span> <span class="n">dx</span><span class="o">=</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="o">=</span><span class="n">dy</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">nc_crs</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wrote </span><span class="si">{</span><span class="n">mean_total_runoff_raster</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        
     <span class="c1"># drop comids with zero total runoff</span>
     <span class="c1"># (keep intermittent zero values; </span>
     <span class="c1">#  otherwise SFR package will continue previous value)</span>
@@ -1624,9 +1893,15 @@
     <span class="n">drop_comids</span> <span class="o">=</span> <span class="n">comid_runoff_totals</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">comid_runoff_totals</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span>
     <span class="n">keep_rows</span> <span class="o">=</span> <span class="o">~</span><span class="n">aggregated</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">drop_comids</span><span class="p">)</span>
     <span class="n">aggregated</span> <span class="o">=</span> <span class="n">aggregated</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">keep_rows</span><span class="p">]</span>
-    <span class="n">aggregated</span> <span class="o">=</span> <span class="n">aggregated</span><span class="p">[[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;runoff_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">3d&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;area_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">2&#39;</span><span class="p">]]</span>
+    <span class="n">output_cols</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">include_xy_in_output</span><span class="p">:</span>
+        <span class="n">output_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span>
+    <span class="n">output_cols</span> <span class="o">+=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;runoff_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">3d&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;area_</span><span class="si">{</span><span class="n">L</span><span class="si">}</span><span class="s1">2&#39;</span><span class="p">]</span>
+    <span class="n">aggregated</span> <span class="o">=</span> <span class="n">aggregated</span><span class="p">[</span><span class="n">output_cols</span><span class="p">]</span>
     <span class="n">aggregated</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">float_format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%g</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;wrote </span><span class="si">{</span><span class="n">outfile</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span></div>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;wrote </span><span class="si">{</span><span class="n">outfile</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">aggregated</span></div>
 </pre></div>
 
            </div>
@@ -1637,7 +1912,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Mar 27, 2023.
+      <span class="lastupdated">Last updated on Jul 24, 2023.
       </span></p>
   </div>
 
