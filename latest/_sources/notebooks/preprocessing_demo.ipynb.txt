@@ -19,10 +19,10 @@
    "id": "08783e35",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:36.902980Z",
-     "iopub.status.busy": "2023-09-28T21:07:36.902747Z",
-     "iopub.status.idle": "2023-09-28T21:07:38.536000Z",
-     "shell.execute_reply": "2023-09-28T21:07:38.535254Z"
+     "iopub.execute_input": "2023-10-17T20:39:31.842307Z",
+     "iopub.status.busy": "2023-10-17T20:39:31.842022Z",
+     "iopub.status.idle": "2023-10-17T20:39:33.796888Z",
+     "shell.execute_reply": "2023-10-17T20:39:33.795743Z"
     }
    },
    "outputs": [],
@@ -51,10 +51,10 @@
    "id": "f61d69a1",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:38.539655Z",
-     "iopub.status.busy": "2023-09-28T21:07:38.539249Z",
-     "iopub.status.idle": "2023-09-28T21:07:38.543807Z",
-     "shell.execute_reply": "2023-09-28T21:07:38.542964Z"
+     "iopub.execute_input": "2023-10-17T20:39:33.801553Z",
+     "iopub.status.busy": "2023-10-17T20:39:33.800706Z",
+     "iopub.status.idle": "2023-10-17T20:39:33.807250Z",
+     "shell.execute_reply": "2023-10-17T20:39:33.806374Z"
     }
    },
    "outputs": [],
@@ -93,10 +93,10 @@
    "id": "84909bed",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:38.547193Z",
-     "iopub.status.busy": "2023-09-28T21:07:38.546136Z",
-     "iopub.status.idle": "2023-09-28T21:07:38.812783Z",
-     "shell.execute_reply": "2023-09-28T21:07:38.812048Z"
+     "iopub.execute_input": "2023-10-17T20:39:33.810957Z",
+     "iopub.status.busy": "2023-10-17T20:39:33.810417Z",
+     "iopub.status.idle": "2023-10-17T20:39:34.280111Z",
+     "shell.execute_reply": "2023-10-17T20:39:34.277519Z"
     }
    },
    "outputs": [
@@ -121,73 +121,72 @@
       "--> building dataframe... (may take a while for large shapefiles)\n",
       "\n",
       "reading ../tylerforks/NHDPlus/NHDPlusAttributes/elevslope.dbf...\n",
-      "--> building dataframe... (may take a while for large shapefiles)\n",
-      "writing output/flowlines_gt3km.shp... Done\n"
+      "--> building dataframe... (may take a while for large shapefiles)\n"
      ]
     },
     {
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
       "  if LooseVersion(fiona.__gdal_version__) < LooseVersion(\"3.0.0\"):\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
       "  if LooseVersion(fiona.__gdal_version__) < LooseVersion(\"3.0.0\"):\n"
      ]
     },
@@ -195,6 +194,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
+      "writing output/flowlines_gt3km.shp... Done\n",
       "writing output/PlusFlowlineVAA_gt3km.dbf... Done\n",
       "writing output/PlusFlow_gt3km.dbf... Done\n",
       "writing output/elevslope_gt3km.dbf... Done\n"
@@ -226,10 +226,10 @@
    "id": "ec5ad987",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:38.815761Z",
-     "iopub.status.busy": "2023-09-28T21:07:38.815317Z",
-     "iopub.status.idle": "2023-09-28T21:07:38.823745Z",
-     "shell.execute_reply": "2023-09-28T21:07:38.823073Z"
+     "iopub.execute_input": "2023-10-17T20:39:34.284328Z",
+     "iopub.status.busy": "2023-10-17T20:39:34.283650Z",
+     "iopub.status.idle": "2023-10-17T20:39:34.292019Z",
+     "shell.execute_reply": "2023-10-17T20:39:34.291321Z"
     }
    },
    "outputs": [
@@ -266,10 +266,10 @@
    "id": "20e6d318",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:38.827598Z",
-     "iopub.status.busy": "2023-09-28T21:07:38.826997Z",
-     "iopub.status.idle": "2023-09-28T21:07:39.277958Z",
-     "shell.execute_reply": "2023-09-28T21:07:39.277224Z"
+     "iopub.execute_input": "2023-10-17T20:39:34.295447Z",
+     "iopub.status.busy": "2023-10-17T20:39:34.295162Z",
+     "iopub.status.idle": "2023-10-17T20:39:34.833014Z",
+     "shell.execute_reply": "2023-10-17T20:39:34.832346Z"
     }
    },
    "outputs": [
@@ -335,10 +335,10 @@
    "id": "7ce511f7",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:39.281231Z",
-     "iopub.status.busy": "2023-09-28T21:07:39.280940Z",
-     "iopub.status.idle": "2023-09-28T21:07:39.877608Z",
-     "shell.execute_reply": "2023-09-28T21:07:39.876674Z"
+     "iopub.execute_input": "2023-10-17T20:39:34.836947Z",
+     "iopub.status.busy": "2023-10-17T20:39:34.836112Z",
+     "iopub.status.idle": "2023-10-17T20:39:35.575882Z",
+     "shell.execute_reply": "2023-10-17T20:39:35.575209Z"
     }
    },
    "outputs": [
@@ -366,13 +366,13 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
       "  if LooseVersion(fiona.__gdal_version__) < LooseVersion(\"3.0.0\"):\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
       "  if LooseVersion(fiona.__gdal_version__) < LooseVersion(\"3.0.0\"):\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
       "  if LooseVersion(fiona.__gdal_version__) < LooseVersion(\"3.0.0\"):\n",
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:117: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.\n",
       "  if LooseVersion(fiona.__gdal_version__) < LooseVersion(\"3.0.0\"):\n"
      ]
     }
@@ -411,10 +411,10 @@
    "id": "d659de74",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:39.880939Z",
-     "iopub.status.busy": "2023-09-28T21:07:39.880576Z",
-     "iopub.status.idle": "2023-09-28T21:07:39.906638Z",
-     "shell.execute_reply": "2023-09-28T21:07:39.905872Z"
+     "iopub.execute_input": "2023-10-17T20:39:35.579705Z",
+     "iopub.status.busy": "2023-10-17T20:39:35.578835Z",
+     "iopub.status.idle": "2023-10-17T20:39:35.613209Z",
+     "shell.execute_reply": "2023-10-17T20:39:35.612464Z"
     }
    },
    "outputs": [
@@ -663,10 +663,10 @@
    "id": "50dba987",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:39.910108Z",
-     "iopub.status.busy": "2023-09-28T21:07:39.909486Z",
-     "iopub.status.idle": "2023-09-28T21:07:40.144078Z",
-     "shell.execute_reply": "2023-09-28T21:07:40.143483Z"
+     "iopub.execute_input": "2023-10-17T20:39:35.616879Z",
+     "iopub.status.busy": "2023-10-17T20:39:35.616186Z",
+     "iopub.status.idle": "2023-10-17T20:39:35.864383Z",
+     "shell.execute_reply": "2023-10-17T20:39:35.863581Z"
     }
    },
    "outputs": [
@@ -711,10 +711,10 @@
    "id": "39a289bb",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:40.147191Z",
-     "iopub.status.busy": "2023-09-28T21:07:40.146836Z",
-     "iopub.status.idle": "2023-09-28T21:07:40.229697Z",
-     "shell.execute_reply": "2023-09-28T21:07:40.228790Z"
+     "iopub.execute_input": "2023-10-17T20:39:35.867924Z",
+     "iopub.status.busy": "2023-10-17T20:39:35.867444Z",
+     "iopub.status.idle": "2023-10-17T20:39:35.959451Z",
+     "shell.execute_reply": "2023-10-17T20:39:35.958570Z"
     }
    },
    "outputs": [
@@ -733,7 +733,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.11/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
       "  props['geometry'] = line.get('geometry', None)\n"
      ]
     }
@@ -750,10 +750,10 @@
    "id": "a60e8b64",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2023-09-28T21:07:40.232662Z",
-     "iopub.status.busy": "2023-09-28T21:07:40.232403Z",
-     "iopub.status.idle": "2023-09-28T21:07:40.412968Z",
-     "shell.execute_reply": "2023-09-28T21:07:40.412351Z"
+     "iopub.execute_input": "2023-10-17T20:39:35.962801Z",
+     "iopub.status.busy": "2023-10-17T20:39:35.962098Z",
+     "iopub.status.idle": "2023-10-17T20:39:36.151255Z",
+     "shell.execute_reply": "2023-10-17T20:39:36.150423Z"
     }
    },
    "outputs": [
@@ -799,7 +799,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.11.5"
+   "version": "3.12.0"
   }
  },
  "nbformat": 4,
