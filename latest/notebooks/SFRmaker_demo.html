@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basic usage of SFRmaker in a scripting context &mdash; SFRmaker 0.11.1.post13.dev0+gf681dbf documentation</title>
+  <title>Basic usage of SFRmaker in a scripting context &mdash; SFRmaker 0.11.1.post13.dev0+g2c4daff documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -16,7 +16,7 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=9c7ba1cc"></script>
+        <script src="../_static/documentation_options.js?v=f3c2e429"></script>
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -43,7 +43,7 @@
             SFRmaker
           </a>
               <div class="version">
-                0.11.1.post13.dev0+gf681dbf
+                0.11.1.post13.dev0+g2c4daff
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -193,7 +193,7 @@ for basins:
 reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
 --&gt; building dataframe... (may take a while for large shapefiles)
 
-load finished in 0.13s
+load finished in 0.12s
 
 Getting routing information from NHDPlus Plusflow table...
 finished in 0.03s
@@ -234,7 +234,7 @@ reading ../tylerforks/NHDPlus/NHDPlusAttributes/PlusFlow.dbf...
 load finished in 0.08s
 
 Getting routing information from NHDPlus Plusflow table...
-finished in 0.09s
+finished in 0.03s
 
 </pre></div></div>
 </div>
@@ -341,7 +341,7 @@ reading ../tylerforks/active_area.shp...
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.image.AxesImage at 0x7f4e2f434ec0&gt;
+&lt;matplotlib.image.AxesImage at 0x7f9a8f841cd0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -396,7 +396,7 @@ MODFLOW 5 layer(s) 111 row(s) 160 column(s) 1 stress period(s)
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-SFRmaker version 0.11.1.post13.dev0+gf681dbf
+SFRmaker version 0.11.1.post13.dev0+g2c4daff
 
 Creating sfr dataset...
 
@@ -408,7 +408,7 @@ Creating grid class instance from flopy Grid instance...
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-grid class created in 0.40s
+grid class created in 0.42s
 
 Model grid information
 structured grid
@@ -432,7 +432,7 @@ EPSG:26715
 Culling hydrography to active area...
 starting lines: 45
 remaining lines: 42
-finished in 0.01s
+finished in 0.00s
 
 
 Intersecting 42 flowlines with 17,760 grid cells...
@@ -445,7 +445,7 @@ Building spatial index...
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-finished in 0.92s
+finished in 0.93s
 
 Intersecting 42 features...</div></div>
 </div>
@@ -598,7 +598,7 @@ end{sphinxVerbatim}</p>
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-finished in 0.48s
+finished in 0.47s
 
 Computing widths...
 
@@ -620,7 +620,7 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 
-Time to create sfr dataset: 2.11s
+Time to create sfr dataset: 2.12s
 
 </pre></div></div>
 </div>
@@ -1023,7 +1023,7 @@ running rasterstats.zonal_stats on buffered LineStrings...
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-finished in 5.16s
+finished in 5.11s
 
 
 Smoothing elevations...
@@ -1267,7 +1267,7 @@ wrote tf_SFR.chk
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SFRmaker v. 0.11.1.post13.dev0+gf681dbf
+SFRmaker v. 0.11.1.post13.dev0+g2c4daff
 
 Running Flopy v. 3.6.0.dev0 diagnostics...
 passed.
@@ -1292,6 +1292,13 @@ At segments:
 
 
 Checking for model cells with multiple non-zero SFR conductances...
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 24 model cells with multiple non-zero SFR conductances found.
 This may lead to circular routing between collocated reaches.
 Nodes with overlapping conductances:
@@ -1356,13 +1363,6 @@ Checking for streambed tops of less than -10...
 passed.
 
 Checking for streambed tops of greater than 15000...
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 passed.
 
 Checking segment_data for downstream rises in streambed elevation...
@@ -1410,16 +1410,9 @@ wrote /home/runner/work/sfrmaker/sfrmaker/examples/Notebooks/../tylerforks/tyler
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-SFRmaker v. 0.11.1.post13.dev0+gf681dbf
+SFRmaker v. 0.11.1.post13.dev0+g2c4daff
 
 Running Flopy v. 3.6.0.dev0 diagnostics...
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 passed.
 
 Checking for continuity in segment and reach numbering...
@@ -1431,6 +1424,13 @@ passed.
 Checking for circular routing...
 passed.
 
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
 Checking reach connections for proximity...
 5 segments with non-adjacent reaches found.
 At segments:
@@ -1534,13 +1534,6 @@ passed.
 
 wrote tf_SFR.chk
 converting segment data to period data...
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 converting reach and segment data to package data...
 </pre></div></div>
 </div>
