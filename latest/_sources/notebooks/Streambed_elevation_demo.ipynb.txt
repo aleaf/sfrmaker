@@ -12,10 +12,10 @@
    "execution_count": 1,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T17:07:57.535560Z",
-     "iopub.status.busy": "2024-01-15T17:07:57.535399Z",
-     "iopub.status.idle": "2024-01-15T17:07:58.574580Z",
-     "shell.execute_reply": "2024-01-15T17:07:58.574145Z"
+     "iopub.execute_input": "2024-01-15T21:35:29.312327Z",
+     "iopub.status.busy": "2024-01-15T21:35:29.312163Z",
+     "iopub.status.idle": "2024-01-15T21:35:30.325419Z",
+     "shell.execute_reply": "2024-01-15T21:35:30.324879Z"
     }
    },
    "outputs": [],
@@ -43,10 +43,10 @@
    "execution_count": 2,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T17:07:58.577293Z",
-     "iopub.status.busy": "2024-01-15T17:07:58.576680Z",
-     "iopub.status.idle": "2024-01-15T17:08:00.972281Z",
-     "shell.execute_reply": "2024-01-15T17:08:00.971836Z"
+     "iopub.execute_input": "2024-01-15T21:35:30.328233Z",
+     "iopub.status.busy": "2024-01-15T21:35:30.327736Z",
+     "iopub.status.idle": "2024-01-15T21:35:32.681711Z",
+     "shell.execute_reply": "2024-01-15T21:35:32.681184Z"
     }
    },
    "outputs": [
@@ -74,7 +74,7 @@
       "finished in 0.03s\n",
       "\n",
       "\n",
-      "SFRmaker version 0.11.1.post13.dev0+g2c4daff\n",
+      "SFRmaker version 0.11.2.post0.dev0+g2c4daff\n",
       "\n",
       "Creating sfr dataset...\n",
       "\n",
@@ -85,7 +85,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "grid class created in 0.39s\n",
+      "grid class created in 0.36s\n",
       "\n",
       "Model grid information\n",
       "structured grid\n",
@@ -167,7 +167,7 @@
       "40\r",
       "41\r",
       "42\n",
-      "finished in 0.13s\n",
+      "finished in 0.14s\n",
       "\n",
       "Setting up reach data... (may take a few minutes for large grids)\n"
      ]
@@ -198,7 +198,7 @@
       "active area defined by: all cells\n",
       "\n",
       "\n",
-      "Time to create sfr dataset: 2.07s\n",
+      "Time to create sfr dataset: 2.04s\n",
       "\n"
      ]
     }
@@ -271,10 +271,10 @@
    "execution_count": 3,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T17:08:00.974391Z",
-     "iopub.status.busy": "2024-01-15T17:08:00.974044Z",
-     "iopub.status.idle": "2024-01-15T17:08:11.369358Z",
-     "shell.execute_reply": "2024-01-15T17:08:11.368791Z"
+     "iopub.execute_input": "2024-01-15T21:35:32.683787Z",
+     "iopub.status.busy": "2024-01-15T21:35:32.683610Z",
+     "iopub.status.idle": "2024-01-15T21:35:43.019045Z",
+     "shell.execute_reply": "2024-01-15T21:35:43.018562Z"
     }
    },
    "outputs": [
@@ -289,7 +289,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "finished in 5.09s\n",
+      "finished in 5.05s\n",
       "\n",
       "running rasterstats.zonal_stats on buffered LineStrings...\n"
      ]
@@ -298,7 +298,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "finished in 5.07s\n",
+      "finished in 5.05s\n",
       "\n",
       "\n",
       "Smoothing elevations...\n",
@@ -330,10 +330,10 @@
    "execution_count": 4,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T17:08:11.371512Z",
-     "iopub.status.busy": "2024-01-15T17:08:11.371167Z",
-     "iopub.status.idle": "2024-01-15T17:08:11.418625Z",
-     "shell.execute_reply": "2024-01-15T17:08:11.418141Z"
+     "iopub.execute_input": "2024-01-15T21:35:43.020891Z",
+     "iopub.status.busy": "2024-01-15T21:35:43.020733Z",
+     "iopub.status.idle": "2024-01-15T21:35:43.066647Z",
+     "shell.execute_reply": "2024-01-15T21:35:43.066199Z"
     }
    },
    "outputs": [],
@@ -360,10 +360,10 @@
    "execution_count": 5,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T17:08:11.420608Z",
-     "iopub.status.busy": "2024-01-15T17:08:11.420439Z",
-     "iopub.status.idle": "2024-01-15T17:08:17.780188Z",
-     "shell.execute_reply": "2024-01-15T17:08:17.779692Z"
+     "iopub.execute_input": "2024-01-15T21:35:43.068355Z",
+     "iopub.status.busy": "2024-01-15T21:35:43.068202Z",
+     "iopub.status.idle": "2024-01-15T21:35:49.336431Z",
+     "shell.execute_reply": "2024-01-15T21:35:49.335989Z"
     }
    },
    "outputs": [
