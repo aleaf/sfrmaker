@@ -35,7 +35,7 @@ class Mf6SFR:
                          'BUDGET FILEOUT model.sfr.cbc',
                          'STAGE FILEOUT model.sfr.stage.bin']
 
-        An appropriate unit_conversion is written by default.
+        Appropriate unit conversion options are written by default.
         See MODFLOW-6 documentation for other options.
         By default None.
 
@@ -64,7 +64,8 @@ class Mf6SFR:
     cols = ['rno', 'cellid', 'k', 'i', 'j', 'rlen', 'rwid', 'rgrd',
             'rtp', 'rbth', 'rhk', 'man', 'ncon', 'ustrf', 'ndv', 'idomain', 'line_id']
     def __init__(self, ModflowSfr2=None, SFRData=None,
-                 period_data=None, idomain=None,
+                 period_data=None, idomain=None, 
+                 length_conversion=1.0, time_conversion=86400,
                  options=None, auxiliary_line_numbers=True):
 
         # instantiate with SFRData instance instead of ModflowSfr2 instance
@@ -94,7 +95,8 @@ class Mf6SFR:
         self.ModflowSfr2.reach_data.sort(order=['iseg', 'ireach'])
 
         self.structured = self.ModflowSfr2.parent.structured
-        self.unit_conversion = ModflowSfr2.const
+        self.length_conversion = length_conversion
+        self.time_conversion = time_conversion
         self.nreaches = len(ModflowSfr2.reach_data)
         self.nper = ModflowSfr2.nper
 
@@ -151,8 +153,10 @@ class Mf6SFR:
         if options is not None:
             for opt in options:
                 options_block += '  {}\n'.format(opt)
-        if 'unit_conversion' not in options_block:
-            options_block += '  unit_conversion  {}\n'.format(self.unit_conversion)
+        if 'length_conversion' not in options_block:
+            options_block += '  length_conversion  {}\n'.format(self.length_conversion)
+        if 'time_conversion' not in options_block:
+            options_block += '  time_conversion  {}\n'.format(self.time_conversion)
         if 'auxiliary' not in options_block and self.auxiliary_line_numbers:
             options_block += '  auxiliary line_id\n'
         options_block += 'END Options\n'
@@ -278,7 +282,7 @@ class Mf6SFR:
                          'BUDGET FILEOUT model.sfr.cbc',
                          'STAGE FILEOUT model.sfr.stage.bin']
 
-            An appropriate unit_conversion is written by default.
+            Appropriate unit conversion options are written by default.
             See MODFLOW-6 documentation for other options.
             By default None.
         external_files_path : str, optional

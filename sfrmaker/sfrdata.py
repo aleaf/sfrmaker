@@ -149,6 +149,8 @@ class SFRData(DataPackage):
         self._period_data = None
         self._observations = None
         self._observations_filename = None
+        self.length_conversion = self.len_const[self._lenuni]
+        self.time_conversion = self.time_const[self._itmuni]
 
         # convert any modflow6 kwargs to modflow5
         kwargs = {SFRData.mf5names[k] if k in SFRData.mf6names else k:
@@ -701,15 +703,18 @@ class SFRData(DataPackage):
         #    self._ModflowSfr2.parent = model
         return self._ModflowSfr2
 
-    def create_mf6sfr(self, model=None, unit_conversion=None,
+    def create_mf6sfr(self, model=None, 
+                      length_conversion=None, time_conversion=None,
                       stage_filerecord=None,
                       budget_filerecord=None,
                       flopy_rno_input_is_zero_based=True,
                       **kwargs
                       ):
 
-        if unit_conversion is None:
-            unit_conversion = self.const
+        if length_conversion is None:
+            length_conversion = self.length_conversion
+        if time_conversion is None:
+            time_conversion = self.time_conversion
         if stage_filerecord is None:
             stage_filerecord = '{}.sfr.stage.bin'.format(self.package_name)
         if budget_filerecord is None:
@@ -741,7 +746,8 @@ class SFRData(DataPackage):
 
         # update the ModflowSfr2 instance in case the SFR dataset has changed
         self.create_modflow_sfr2()
-        sfr6 = Mf6SFR(self.modflow_sfr2)
+        sfr6 = Mf6SFR(self.modflow_sfr2, length_conversion=length_conversion, 
+                      time_conversion=time_conversion)
 
         # package data
         # An error occurred when storing data "packagedata" in a recarray.
@@ -796,9 +802,11 @@ class SFRData(DataPackage):
             #                     "Use sfrdata.write_package(version='mf6') instead.")
             pass
 
-        mf6sfr = mf6.ModflowGwfsfr(model=m, unit_conversion=unit_conversion,
+        mf6sfr = mf6.ModflowGwfsfr(model=m, 
                                    stage_filerecord=stage_filerecord,
                                    budget_filerecord=budget_filerecord,
+                                   length_conversion=length_conversion,
+                                   time_conversion=time_conversion,
                                    nreaches=len(self.reach_data),
                                    packagedata=packagedata,
                                    connectiondata=connectiondata,

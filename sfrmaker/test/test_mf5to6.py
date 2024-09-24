@@ -30,7 +30,8 @@ def mf6sfr_instance_SFRdata(shellmound_sfrdata):
                                       'STAGE FILEOUT sr.stage.bin',
                                      ],
                                      ['auxiliary line_id',
-                                      'unit_conversion 1.0']
+                                      'length_conversion 1.0',
+                                      'time_conversion 86400']
                                      ),
                          )
 def test_init(options, shellmound_ModflowSfr2):
@@ -40,8 +41,10 @@ def test_init(options, shellmound_ModflowSfr2):
     if options is not None:
         expected_keys = expected_keys[:1] + [' '.join(item.split()[:-1]) if len(item.split()) > 1 else item 
                         for item in options]
-    if 'unit_conversion' not in expected_keys:
-        expected_keys.append('unit_conversion')
+    if 'length_conversion' not in expected_keys:
+        expected_keys.append('length_conversion')
+    if 'time_conversion' not in expected_keys:
+        expected_keys.append('time_conversion')
     if 'auxiliary' not in expected_keys:
         expected_keys.append('auxiliary')
     expected_keys.append('END')

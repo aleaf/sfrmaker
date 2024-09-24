@@ -205,6 +205,9 @@ def test_write_mf6_package(shellmound_sfrdata, mf6sfr, outdir):
     sfr_package_file = os.path.join(outdir, 'test.package_file.sfr')
     shellmound_sfrdata.write_package(filename=sfr_package_file, version='mf6')
     with open(sfr_package_file) as src:
+        alltext = src.read()
+        assert 'unit_conversion' not in alltext, "deprecated in MODFLOW 6.4.2"
+    with open(sfr_package_file) as src:
         for line in src:
             if 'budget' in line.lower() or 'stage' in line.lower():
                 _, _, fpath = line.strip().split()
@@ -214,9 +217,16 @@ def test_write_mf6_package(shellmound_sfrdata, mf6sfr, outdir):
                 assert path == ''
                 assert fname.replace('.cbc', '').replace('.stage.bin', '') == \
                        os.path.split(sfr_package_file)[1]
-            elif 'unit_conversion' in line.lower():
-                _, conversion = line.strip().split()
-                assert np.allclose(float(conversion), shellmound_sfrdata.const)
+            elif 'length_conversion' in line.lower():
+                
+                _, length_conversion = line.strip().split()
+                assert np.allclose(float(length_conversion), 
+                                   shellmound_sfrdata.length_conversion)
+            elif 'time_conversion' in line.lower():
+                
+                _, time_conversion = line.strip().split()
+                assert np.allclose(float(time_conversion), 
+                                   shellmound_sfrdata.time_conversion)
             if 'end options' in line.lower():
                 break
 
