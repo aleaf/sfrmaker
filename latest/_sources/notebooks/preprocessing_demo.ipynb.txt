@@ -19,10 +19,10 @@
    "id": "08783e35",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:28.650026Z",
-     "iopub.status.busy": "2024-10-18T15:13:28.649869Z",
-     "iopub.status.idle": "2024-10-18T15:13:29.680617Z",
-     "shell.execute_reply": "2024-10-18T15:13:29.680177Z"
+     "iopub.execute_input": "2024-10-18T18:26:42.687737Z",
+     "iopub.status.busy": "2024-10-18T18:26:42.687573Z",
+     "iopub.status.idle": "2024-10-18T18:26:43.874479Z",
+     "shell.execute_reply": "2024-10-18T18:26:43.873901Z"
     }
    },
    "outputs": [],
@@ -51,10 +51,10 @@
    "id": "f61d69a1",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:29.682494Z",
-     "iopub.status.busy": "2024-10-18T15:13:29.682196Z",
-     "iopub.status.idle": "2024-10-18T15:13:29.684766Z",
-     "shell.execute_reply": "2024-10-18T15:13:29.684378Z"
+     "iopub.execute_input": "2024-10-18T18:26:43.876823Z",
+     "iopub.status.busy": "2024-10-18T18:26:43.876238Z",
+     "iopub.status.idle": "2024-10-18T18:26:43.879008Z",
+     "shell.execute_reply": "2024-10-18T18:26:43.878621Z"
     }
    },
    "outputs": [],
@@ -93,10 +93,10 @@
    "id": "84909bed",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:29.686267Z",
-     "iopub.status.busy": "2024-10-18T15:13:29.685969Z",
-     "iopub.status.idle": "2024-10-18T15:13:29.854900Z",
-     "shell.execute_reply": "2024-10-18T15:13:29.854351Z"
+     "iopub.execute_input": "2024-10-18T18:26:43.880458Z",
+     "iopub.status.busy": "2024-10-18T18:26:43.880294Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.072534Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.071994Z"
     }
    },
    "outputs": [
@@ -220,10 +220,10 @@
    "id": "ec5ad987",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:29.856578Z",
-     "iopub.status.busy": "2024-10-18T15:13:29.856257Z",
-     "iopub.status.idle": "2024-10-18T15:13:29.861120Z",
-     "shell.execute_reply": "2024-10-18T15:13:29.860761Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.074587Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.074225Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.079429Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.079014Z"
     }
    },
    "outputs": [
@@ -260,10 +260,10 @@
    "id": "20e6d318",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:29.862711Z",
-     "iopub.status.busy": "2024-10-18T15:13:29.862400Z",
-     "iopub.status.idle": "2024-10-18T15:13:30.081032Z",
-     "shell.execute_reply": "2024-10-18T15:13:30.080508Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.081288Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.080955Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.319848Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.319301Z"
     }
    },
    "outputs": [
@@ -329,10 +329,10 @@
    "id": "7ce511f7",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:30.082836Z",
-     "iopub.status.busy": "2024-10-18T15:13:30.082529Z",
-     "iopub.status.idle": "2024-10-18T15:13:30.484824Z",
-     "shell.execute_reply": "2024-10-18T15:13:30.484268Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.321671Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.321323Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.750791Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.750230Z"
     }
    },
    "outputs": [
@@ -411,10 +411,10 @@
    "id": "d659de74",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:30.486374Z",
-     "iopub.status.busy": "2024-10-18T15:13:30.486216Z",
-     "iopub.status.idle": "2024-10-18T15:13:30.500899Z",
-     "shell.execute_reply": "2024-10-18T15:13:30.500522Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.752496Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.752312Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.768694Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.768263Z"
     }
    },
    "outputs": [
@@ -663,10 +663,10 @@
    "id": "50dba987",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:30.502352Z",
-     "iopub.status.busy": "2024-10-18T15:13:30.502092Z",
-     "iopub.status.idle": "2024-10-18T15:13:30.611538Z",
-     "shell.execute_reply": "2024-10-18T15:13:30.611053Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.770495Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.770128Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.888253Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.887757Z"
     }
    },
    "outputs": [
@@ -711,21 +711,13 @@
    "id": "39a289bb",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:30.613352Z",
-     "iopub.status.busy": "2024-10-18T15:13:30.612960Z",
-     "iopub.status.idle": "2024-10-18T15:13:30.661113Z",
-     "shell.execute_reply": "2024-10-18T15:13:30.660631Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.889959Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.889780Z",
+     "iopub.status.idle": "2024-10-18T18:26:44.944971Z",
+     "shell.execute_reply": "2024-10-18T18:26:44.944438Z"
     }
    },
    "outputs": [
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
-      "  props['geometry'] = line.get('geometry', None)\n"
-     ]
-    },
     {
      "name": "stdout",
      "output_type": "stream",
@@ -742,6 +734,14 @@
       "starting lines: 19\n",
       "remaining lines: 11\n"
      ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "/home/runner/micromamba/envs/sfrmaker_ci/lib/python3.12/site-packages/gisutils/shapefile.py:278: FionaDeprecationWarning: instances of this class -- CRS, geometry, and feature objects -- will become immutable in fiona version 2.0\n",
+      "  props['geometry'] = line.get('geometry', None)\n"
+     ]
     }
    ],
    "source": [
@@ -756,10 +756,10 @@
    "id": "a60e8b64",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-10-18T15:13:30.662889Z",
-     "iopub.status.busy": "2024-10-18T15:13:30.662511Z",
-     "iopub.status.idle": "2024-10-18T15:13:30.743139Z",
-     "shell.execute_reply": "2024-10-18T15:13:30.742677Z"
+     "iopub.execute_input": "2024-10-18T18:26:44.947057Z",
+     "iopub.status.busy": "2024-10-18T18:26:44.946684Z",
+     "iopub.status.idle": "2024-10-18T18:26:45.044702Z",
+     "shell.execute_reply": "2024-10-18T18:26:45.044119Z"
     }
    },
    "outputs": [
