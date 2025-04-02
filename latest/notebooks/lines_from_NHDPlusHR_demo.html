@@ -6,15 +6,17 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using SFRmaker with NHDPlus High Resolution &mdash; SFRmaker 0.11.2.post8.dev0+g5138354 documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=7ab3649f" />
+  <title>Using SFRmaker with NHDPlus High Resolution &mdash; SFRmaker 0.11.3.post42.dev0+g05f105f documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
 
   
-      <script src="../_static/documentation_options.js?v=8c574e7a"></script>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=f045fe6e"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -24,9 +26,7 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sfrmaker concepts and methods" href="../concepts.html" />
-    <link rel="prev" title="Preprocessing hydrography" href="preprocessing_demo.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -51,38 +51,14 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../philosophy.html"> Philosophy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html"> Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html"> Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">User Guide</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../inputs.html"> Input Requirements</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html"> Using SFRmaker with a configuration file</a></li>
-<li class="toctree-l1"><a class="reference internal" href="SFRmaker_demo.html"> Basic Usage in a scripting context</a></li>
-<li class="toctree-l1"><a class="reference internal" href="preprocessing_demo.html"> Preprocessing NHDPlus version 2 data</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#"> Using SFRmaker with NHDPlus High Resolution</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#1.-Preview-NHDPlusHR-geodatabases">1. Preview NHDPlusHR geodatabases</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Plot-the-raw-NHD-HR-lines-from-the-two-geodatabases">Plot the raw NHD HR lines from the two geodatabases</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Note:-NHDPlusHR-fileGDBs-have-EPSG:4269-CRS">Note: NHDPlusHR fileGDBs have EPSG:4269 CRS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#2.-Filter-network-using-shapefile-boundary">2. Filter network using shapefile boundary</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#3.-Option-to-remove-reaches-with-unwated-FCodes">3. Option to remove reaches with unwated FCodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#4.-Make-an-sfrmaker.lines-instance-using-from_nhdplus_hr">4. Make an <code class="docutils literal notranslate"><span class="pre">sfrmaker.lines</span></code> instance using <code class="docutils literal notranslate"><span class="pre">from_nhdplus_hr</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#visualize-the-SFR-network">visualize the SFR network</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#5.-Create-a-streamflow-routing-dataset-and-write-an-SFR-package-input-file-for-MODDLOW">5. Create a streamflow routing dataset and write an SFR package input file for MODDLOW</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#write-the-sfr-data-set-to-a-MODFLOW-SFR-file">write the sfr data set to a MODFLOW SFR file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Finally,-we-can-review-our-completed-SFR-network">Finally, we can review our completed SFR network</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="preprocessing_demo.html"> Preprocessing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../concepts.html"> Concepts and methods</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sfrmaker_tools.html"> Stand-alone tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sfrmaker_tools.html"> Other stand-alone tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting.html"> Troubleshooting</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
@@ -122,21 +98,21 @@
            <div itemprop="articleBody">
              
   <section id="Using-SFRmaker-with-NHDPlus-High-Resolution">
-<h1>Using SFRmaker with NHDPlus High Resolution<a class="headerlink" href="#Using-SFRmaker-with-NHDPlus-High-Resolution" title="Link to this heading">¶</a></h1>
+<h1>Using SFRmaker with NHDPlus High Resolution<a class="headerlink" href="#Using-SFRmaker-with-NHDPlus-High-Resolution" title="Link to this heading"></a></h1>
 <p>This notebook demostrates how to use <code class="docutils literal notranslate"><span class="pre">sfrmaker</span></code> to build an SFR package with an NHDPlus HR file geodatabase (or set of file geodatabases) obtained from the USGS National Map download client.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
-<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">box</span>
-<span class="kn">from</span> <span class="nn">flopy.discretization</span> <span class="kn">import</span> <span class="n">StructuredGrid</span>
-<span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">sfrmaker</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpatches</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">box</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">flopy.discretization</span><span class="w"> </span><span class="kn">import</span> <span class="n">StructuredGrid</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">geopandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gpd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sfrmaker</span>
 <br/></pre></div>
 </div>
 </div>
@@ -154,12 +130,12 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&#39;0.8.0.post22.dev0+gacbd390&#39;
+&#39;0.11.3.post42.dev0+g05f105f&#39;
 </pre></div></div>
 </div>
 <p>In this demo, two HUC-4 file geodatabases (HUC0202 and HUC0204; each clipped to a reduced size) are used to make a single SFR network. NHDPlusHR networks for HUC-4 drainage basins are avaialble from the national map downloader as file geodatabases: <a class="reference external" href="https://apps.nationalmap.gov/downloader/#/">https://apps.nationalmap.gov/downloader/#/</a></p>
 <section id="1.-Preview-NHDPlusHR-geodatabases">
-<h2>1. Preview NHDPlusHR geodatabases<a class="headerlink" href="#1.-Preview-NHDPlusHR-geodatabases" title="Link to this heading">¶</a></h2>
+<h2>1. Preview NHDPlusHR geodatabases<a class="headerlink" href="#1.-Preview-NHDPlusHR-geodatabases" title="Link to this heading"></a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
@@ -175,7 +151,7 @@
 </div>
 </div>
 <section id="Plot-the-raw-NHD-HR-lines-from-the-two-geodatabases">
-<h3>Plot the raw NHD HR lines from the two geodatabases<a class="headerlink" href="#Plot-the-raw-NHD-HR-lines-from-the-two-geodatabases" title="Link to this heading">¶</a></h3>
+<h3>Plot the raw NHD HR lines from the two geodatabases<a class="headerlink" href="#Plot-the-raw-NHD-HR-lines-from-the-two-geodatabases" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -196,7 +172,7 @@
 </div>
 </div>
 <section id="Note:-NHDPlusHR-fileGDBs-have-EPSG:4269-CRS">
-<h4>Note: NHDPlusHR fileGDBs have EPSG:4269 CRS<a class="headerlink" href="#Note:-NHDPlusHR-fileGDBs-have-EPSG:4269-CRS" title="Link to this heading">¶</a></h4>
+<h4>Note: NHDPlusHR fileGDBs have EPSG:4269 CRS<a class="headerlink" href="#Note:-NHDPlusHR-fileGDBs-have-EPSG:4269-CRS" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -212,14 +188,14 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-epsg:4269
+EPSG:4269
 </pre></div></div>
 </div>
 </section>
 </section>
 </section>
 <section id="2.-Filter-network-using-shapefile-boundary">
-<h2>2. Filter network using shapefile boundary<a class="headerlink" href="#2.-Filter-network-using-shapefile-boundary" title="Link to this heading">¶</a></h2>
+<h2>2. Filter network using shapefile boundary<a class="headerlink" href="#2.-Filter-network-using-shapefile-boundary" title="Link to this heading"></a></h2>
 <p>The network can be filterd using a shapefile of the model domain</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -267,7 +243,7 @@ epsg:4269
 </div>
 </section>
 <section id="3.-Option-to-remove-reaches-with-unwated-FCodes">
-<h2>3. Option to remove reaches with unwated FCodes<a class="headerlink" href="#3.-Option-to-remove-reaches-with-unwated-FCodes" title="Link to this heading">¶</a></h2>
+<h2>3. Option to remove reaches with unwated FCodes<a class="headerlink" href="#3.-Option-to-remove-reaches-with-unwated-FCodes" title="Link to this heading"></a></h2>
 <p>NHDPlusHR flowlines include feature codes (FCodes) that describe reach attributes. In certain cases, a user may not wish to include certain types of features present in the NHDPlusHR geodatabase in the SFR network. A complete list of FCodes is show below:</p>
 <p><img alt="title" src="../_images/fcodes.png" /></p>
 <p><strong>Look at FCodes in ``gdb2``</strong></p>
@@ -371,7 +347,7 @@ epsg:4269
       <td>0204</td>
       <td>1.0</td>
       <td>0.04889</td>
-      <td>MULTILINESTRING Z ((-74.62398 41.83019 0.00000...</td>
+      <td>MULTILINESTRING Z ((-74.62398 41.83019 0, -74....</td>
     </tr>
   </tbody>
 </table>
@@ -398,7 +374,7 @@ epsg:4269
 </div>
 </section>
 <section id="4.-Make-an-sfrmaker.lines-instance-using-from_nhdplus_hr">
-<h2>4. Make an <code class="docutils literal notranslate"><span class="pre">sfrmaker.lines</span></code> instance using <code class="docutils literal notranslate"><span class="pre">from_nhdplus_hr</span></code><a class="headerlink" href="#4.-Make-an-sfrmaker.lines-instance-using-from_nhdplus_hr" title="Link to this heading">¶</a></h2>
+<h2>4. Make an <code class="docutils literal notranslate"><span class="pre">sfrmaker.lines</span></code> instance using <code class="docutils literal notranslate"><span class="pre">from_nhdplus_hr</span></code><a class="headerlink" href="#4.-Make-an-sfrmaker.lines-instance-using-from_nhdplus_hr" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
@@ -423,7 +399,7 @@ filtering flowlines...
 Getting routing information from NHDPlus HR Plusflow table...
 finished in 0.00s
 
-finished in 0.25s
+finished in 0.05s
 
 reading ../neversink_rondout/NHDPLUS_HR_2.gdb...
 filtering flowlines...
@@ -431,10 +407,10 @@ filtering flowlines...
 Getting routing information from NHDPlus HR Plusflow table...
 finished in 0.00s
 
-finished in 0.25s
+finished in 0.04s
 
 
-load finished in 0.51s
+load finished in 0.09s
 
 </pre></div></div>
 </div>
@@ -485,8 +461,8 @@ load finished in 0.51s
   <tbody>
     <tr>
       <th>0</th>
-      <td>1.000070e+13</td>
-      <td>1.000070e+13</td>
+      <td>10000700020952</td>
+      <td>10000700059483</td>
       <td>0</td>
       <td>12161.86061</td>
       <td>0</td>
@@ -494,12 +470,12 @@ load finished in 0.51s
       <td>303.83</td>
       <td>303.83</td>
       <td>West Branch Beer Kill</td>
-      <td>MULTILINESTRING Z ((-74.53136 41.74642 0.00000...</td>
+      <td>MULTILINESTRING Z ((-74.53136 41.74642 0, -74....</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1.000070e+13</td>
-      <td>1.000070e+13</td>
+      <td>10000700020954</td>
+      <td>10000700020809</td>
       <td>0</td>
       <td>37.00000</td>
       <td>0</td>
@@ -507,12 +483,12 @@ load finished in 0.51s
       <td>371.90</td>
       <td>371.65</td>
       <td></td>
-      <td>MULTILINESTRING Z ((-74.53914 41.77121 0.00000...</td>
+      <td>MULTILINESTRING Z ((-74.53914 41.77121 0, -74....</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1.000070e+13</td>
-      <td>1.000070e+13</td>
+      <td>10000700020955</td>
+      <td>10000700069227</td>
       <td>0</td>
       <td>2521.00000</td>
       <td>0</td>
@@ -520,12 +496,12 @@ load finished in 0.51s
       <td>357.43</td>
       <td>357.43</td>
       <td>Beer Kill</td>
-      <td>MULTILINESTRING Z ((-74.54092 41.78192 0.00000...</td>
+      <td>MULTILINESTRING Z ((-74.54092 41.78192 0, -74....</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1.000070e+13</td>
-      <td>1.000070e+13</td>
+      <td>10000700020956</td>
+      <td>10000700040140</td>
       <td>0</td>
       <td>6013.47549</td>
       <td>0</td>
@@ -533,12 +509,12 @@ load finished in 0.51s
       <td>340.63</td>
       <td>331.49</td>
       <td>Botsford Brook</td>
-      <td>MULTILINESTRING Z ((-74.52677 41.79471 0.00000...</td>
+      <td>MULTILINESTRING Z ((-74.52677 41.79471 0, -74....</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>1.000070e+13</td>
-      <td>1.000070e+13</td>
+      <td>10000700020968</td>
+      <td>10000700069232</td>
       <td>0</td>
       <td>3427.44672</td>
       <td>0</td>
@@ -546,14 +522,14 @@ load finished in 0.51s
       <td>350.75</td>
       <td>350.75</td>
       <td>Botsford Brook</td>
-      <td>MULTILINESTRING Z ((-74.52519 41.80244 0.00000...</td>
+      <td>MULTILINESTRING Z ((-74.52519 41.80244 0, -74....</td>
     </tr>
   </tbody>
 </table>
 </div></div>
 </div>
 <section id="visualize-the-SFR-network">
-<h3>visualize the SFR network<a class="headerlink" href="#visualize-the-SFR-network" title="Link to this heading">¶</a></h3>
+<h3>visualize the SFR network<a class="headerlink" href="#visualize-the-SFR-network" title="Link to this heading"></a></h3>
 <p>The extent is limited to lines that intersect the bounding box of the supplied model boundary shapefile. Note: the aqueduct pipeline (highlighted above) in the north central part of the network was also removed.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -587,7 +563,7 @@ load finished in 0.51s
 </section>
 </section>
 <section id="5.-Create-a-streamflow-routing-dataset-and-write-an-SFR-package-input-file-for-MODDLOW">
-<h2>5. Create a streamflow routing dataset and write an SFR package input file for MODDLOW<a class="headerlink" href="#5.-Create-a-streamflow-routing-dataset-and-write-an-SFR-package-input-file-for-MODDLOW" title="Link to this heading">¶</a></h2>
+<h2>5. Create a streamflow routing dataset and write an SFR package input file for MODDLOW<a class="headerlink" href="#5.-Create-a-streamflow-routing-dataset-and-write-an-SFR-package-input-file-for-MODDLOW" title="Link to this heading"></a></h2>
 <div class="line-block">
 <div class="line"><strong>This requires an ``sfrmaker.lines`` instance (created in step 4) and a ``sfrmaker.grid`` instance</strong></div>
 <div class="line">we can start by building a synthetic Flopy strucutred grid</div>
@@ -627,7 +603,7 @@ reading ../neversink_rondout/Model_Extent.shp...
 setting isfr values...
 Intersecting 1 features...
 1
-finished in 0.16s
+finished in 0.12s
 </pre></div></div>
 </div>
 <p><strong>Note: The model grid is in a different CRS (EPSG: 5070) from the NHD_HR dataset (EPSG: 4269). sfrmaker reprojects the sfr lines to the modelgrid during the ``to_sfr`` method.</strong></p>
@@ -645,7 +621,7 @@ finished in 0.16s
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 
-SFRmaker version 0.8.0.post22.dev0+gacbd390
+SFRmaker version 0.11.3.post42.dev0+g05f105f
 
 Creating sfr dataset...
 Model grid information
@@ -660,7 +636,6 @@ bounds: 1742953.02, 2279064.25, 1764953.02, 2295064.25
 active area defined by: ../neversink_rondout/Model_Extent.shp
 
 None
-Warning: No length units specified in CRS for input LineStrings or length units not recognizeddefaulting to meters.
 
 reprojecting hydrography from
 EPSG:4269
@@ -672,20 +647,20 @@ Culling hydrography to active area...
 simplification tolerance: 2000.00
 starting lines: 384
 remaining lines: 359
-finished in 0.05s
+finished in 0.01s
 
 
 Intersecting 359 flowlines with 35,200 grid cells...
 
 Building spatial index...
-finished in 4.13s
+finished in 1.10s
 
 Intersecting 359 features...
 359
-finished in 0.20s
+finished in 0.04s
 
 Setting up reach data... (may take a few minutes for large grids)
-finished in 0.45s
+finished in 0.13s
 
 Computing widths...
 
@@ -707,12 +682,12 @@ bounds: 1742953.02, 2279064.25, 1764953.02, 2295064.25
 active area defined by: ../neversink_rondout/Model_Extent.shp
 
 
-Time to create sfr dataset: 5.50s
+Time to create sfr dataset: 1.62s
 
 </pre></div></div>
 </div>
 <section id="write-the-sfr-data-set-to-a-MODFLOW-SFR-file">
-<h3>write the sfr data set to a MODFLOW SFR file<a class="headerlink" href="#write-the-sfr-data-set-to-a-MODFLOW-SFR-file" title="Link to this heading">¶</a></h3>
+<h3>write the sfr data set to a MODFLOW SFR file<a class="headerlink" href="#write-the-sfr-data-set-to-a-MODFLOW-SFR-file" title="Link to this heading"></a></h3>
 <p>Now, we can write the sfr data set to a MODFLOW SFR file. Normally, one likely would pass a Flopy model instance to <code class="docutils literal notranslate"><span class="pre">lines.to_sfr</span></code>. Here, no model instance is passed – the package is written independent of a model for illustrative purposes.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
@@ -747,7 +722,7 @@ No non-zero values of flow to export!
 </div>
 </section>
 <section id="Finally,-we-can-review-our-completed-SFR-network">
-<h3>Finally, we can review our completed SFR network<a class="headerlink" href="#Finally,-we-can-review-our-completed-SFR-network" title="Link to this heading">¶</a></h3>
+<h3>Finally, we can review our completed SFR network<a class="headerlink" href="#Finally,-we-can-review-our-completed-SFR-network" title="Link to this heading"></a></h3>
 <p>below, we plot sfr routing and outlets</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
@@ -798,16 +773,13 @@ No non-zero values of flow to export!
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="preprocessing_demo.html" class="btn btn-neutral float-left" title="Preprocessing hydrography" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../concepts.html" class="btn btn-neutral float-right" title="Sfrmaker concepts and methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Oct 18, 2024.
+      <span class="lastupdated">Last updated on Apr 02, 2025.
       </span></p>
   </div>
 
