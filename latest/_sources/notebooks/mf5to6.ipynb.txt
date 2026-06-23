@@ -14,10 +14,10 @@
    "execution_count": 1,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-03-04T21:13:11.924473Z",
-     "iopub.status.busy": "2026-03-04T21:13:11.924055Z",
-     "iopub.status.idle": "2026-03-04T21:13:15.077605Z",
-     "shell.execute_reply": "2026-03-04T21:13:15.075851Z"
+     "iopub.execute_input": "2026-06-23T15:45:02.001010Z",
+     "iopub.status.busy": "2026-06-23T15:45:02.000595Z",
+     "iopub.status.idle": "2026-06-23T15:45:05.384209Z",
+     "shell.execute_reply": "2026-06-23T15:45:05.359838Z"
     }
    },
    "outputs": [
@@ -48,10 +48,10 @@
    "execution_count": 2,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-03-04T21:13:15.111761Z",
-     "iopub.status.busy": "2026-03-04T21:13:15.111172Z",
-     "iopub.status.idle": "2026-03-04T21:13:15.238913Z",
-     "shell.execute_reply": "2026-03-04T21:13:15.237340Z"
+     "iopub.execute_input": "2026-06-23T15:45:05.427711Z",
+     "iopub.status.busy": "2026-06-23T15:45:05.426813Z",
+     "iopub.status.idle": "2026-06-23T15:45:05.603547Z",
+     "shell.execute_reply": "2026-06-23T15:45:05.601820Z"
     }
    },
    "outputs": [
@@ -90,7 +90,7 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.14.3"
+   "version": "3.14.6"
   }
  },
  "nbformat": 4,
