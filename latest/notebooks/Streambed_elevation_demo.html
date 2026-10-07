@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demonstration of how sfrmaker handles streambed elevations &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>Demonstration of how sfrmaker handles streambed elevations &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -16,7 +16,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,21 +142,21 @@
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># DEM for sampling streambed top elevations</span>
-<span class="n">dem</span> <span class="o">=</span> <span class="s1">&#39;../tylerforks/dem_26715.tif&#39;</span>
+<span class="n">dem</span> <span class="o">=</span> <span class="s1">'../tylerforks/dem_26715.tif'</span>
 
 <span class="c1"># output folder</span>
-<span class="n">outdir</span> <span class="o">=</span> <span class="s1">&#39;temp/&#39;</span>
+<span class="n">outdir</span> <span class="o">=</span> <span class="s1">'temp/'</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">outdir</span><span class="p">):</span>
     <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">outdir</span><span class="p">)</span>
 
 <span class="c1"># make an instance of the sfrmaker.Lines class from NHDPlus data</span>
 <span class="c1"># use a shapefile of the model grid to filter what is read in</span>
 <span class="c1"># (only flowlines within the bounding box of the grid are read)</span>
-<span class="n">lns</span> <span class="o">=</span> <span class="n">Lines</span><span class="o">.</span><span class="n">from_nhdplus_v2</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="s1">&#39;../tylerforks/NHDPlus/&#39;</span><span class="p">,</span>
-                            <span class="n">bbox_filter</span><span class="o">=</span><span class="s1">&#39;../tylerforks/grid.shp&#39;</span><span class="p">)</span>
+<span class="n">lns</span> <span class="o">=</span> <span class="n">Lines</span><span class="o">.</span><span class="n">from_nhdplus_v2</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="s1">'../tylerforks/NHDPlus/'</span><span class="p">,</span>
+                            <span class="n">bbox_filter</span><span class="o">=</span><span class="s1">'../tylerforks/grid.shp'</span><span class="p">)</span>
 
 <span class="c1"># load the model using flopy</span>
-<span class="n">m</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;tf.nam&#39;</span><span class="p">,</span> <span class="n">model_ws</span><span class="o">=</span><span class="s1">&#39;../tylerforks/tylerforks&#39;</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'tf.nam'</span><span class="p">,</span> <span class="n">model_ws</span><span class="o">=</span><span class="s1">'../tylerforks/tylerforks'</span><span class="p">)</span>
 
 <span class="c1"># Make a flopy StructuredGrid instance</span>
 <span class="c1"># delr and delc have to specified in meters (consistent with projected CRS)</span>
@@ -176,9 +176,9 @@
 <span class="c1"># 1) as argued with model_length_units= (below)</span>
 <span class="c1"># 2) units attached to sfrmaker.StructuredGrid instance</span>
 <span class="c1"># 3) units attached to DIS package of flopy model</span>
-<span class="c1"># if the grid or model dis package have valid units, any conversions should &quot;just work&quot;</span>
+<span class="c1"># if the grid or model dis package have valid units, any conversions should "just work"</span>
 <span class="c1"># in any case, specifying units in the to_sfr call guarantees that the correct units will be used</span>
-<span class="n">sfr</span> <span class="o">=</span> <span class="n">lns</span><span class="o">.</span><span class="n">to_sfr</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">mg</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">model_length_units</span><span class="o">=</span><span class="s1">&#39;feet&#39;</span><span class="p">)</span>
+<span class="n">sfr</span> <span class="o">=</span> <span class="n">lns</span><span class="o">.</span><span class="n">to_sfr</span><span class="p">(</span><span class="n">grid</span><span class="o">=</span><span class="n">mg</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">m</span><span class="p">,</span> <span class="n">model_length_units</span><span class="o">=</span><span class="s1">'feet'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -192,18 +192,18 @@ loading NHDPlus v2 hydrography data...
 for basins:
 ../tylerforks/NHDPlus/
 
-load finished in 0.07s
+load finished in 0.15s
 
 Getting routing information from NHDPlus Plusflow table...
-finished in 0.01s
+finished in 0.02s
 
 
-SFRmaker version 0.11.3.post84.dev0+gb727251
+SFRmaker version 0.11.3.post90.dev0+g02a2bb8
 
 Creating sfr dataset...
 
 Creating grid class instance from flopy Grid instance...
-grid class created in 0.24s
+grid class created in 0.44s
 
 Model grid information
 structured grid
@@ -233,21 +233,20 @@ finished in 0.00s
 Intersecting 42 flowlines with 17,760 grid cells...
 
 Building spatial index...
-finished in 0.81s
+finished in 0.98s
 
 Intersecting 42 features...
 42
-finished in 0.11s
+finished in 0.03s
 
 Setting up reach data... (may take a few minutes for large grids)
-finished in 0.31s
+finished in 0.12s
 
 Computing widths...
 
 Dropping 48 reaches with length &lt; 12.50 feet...
 
 Repairing routing connections...
-enforcing best segment numbering...
 
 Setting up segment data...
 Model grid information
@@ -262,7 +261,7 @@ bounds: 682688.00, 5139052.00, 694880.00, 5147510.20
 active area defined by: all cells
 
 
-Time to create sfr dataset: 1.65s
+Time to create sfr dataset: 1.74s
 
 </pre></div></div>
 </div>
@@ -305,8 +304,8 @@ For each level:
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_sampled_elevs</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">sample_reach_elevations</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;buffers&#39;</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">smooth_sampled_elevs</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">sample_reach_elevations</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;buffers&#39;</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">raw_sampled_elevs</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">sample_reach_elevations</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'buffers'</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">smooth_sampled_elevs</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">sample_reach_elevations</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'buffers'</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -316,14 +315,14 @@ For each level:
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 4.32s
+finished in 5.06s
 
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 4.49s
+finished in 5.00s
 
 
 Smoothing elevations...
-finished in 0.07s
+finished in 0.11s
 </pre></div></div>
 </div>
 </section>
@@ -336,7 +335,7 @@ supplying a table of streambed top measurements with x, y locations. Suppose we 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../tylerforks/streambed_elevations.csv&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'../tylerforks/streambed_elevations.csv'</span><span class="p">)</span>
 <br/></pre></div>
 </div>
 </div>
@@ -390,8 +389,8 @@ supplying a table of streambed top measurements with x, y locations. Suppose we 
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smooth_elevs_with_field_measurements</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">sample_reach_elevations</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;buffers&#39;</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-                                                                   <span class="n">elevation_data</span><span class="o">=</span><span class="s1">&#39;../tylerforks/streambed_elevations.csv&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">smooth_elevs_with_field_measurements</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">sample_reach_elevations</span><span class="p">(</span><span class="n">dem</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">'buffers'</span><span class="p">,</span> <span class="n">smooth</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                                                                   <span class="n">elevation_data</span><span class="o">=</span><span class="s1">'../tylerforks/streambed_elevations.csv'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -401,11 +400,11 @@ supplying a table of streambed top measurements with x, y locations. Suppose we 
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 running rasterstats.zonal_stats on buffered LineStrings...
-finished in 3.74s
+finished in 5.00s
 
 
 Smoothing elevations...
-finished in 0.07s
+finished in 0.10s
 </pre></div></div>
 </div>
 </section>
@@ -431,23 +430,23 @@ finished in 0.07s
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">segments</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">reach_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;iseg&#39;</span><span class="p">)</span>
+<span class="n">segments</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">reach_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'iseg'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">iseg</span><span class="p">,</span> <span class="n">srd</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">srd</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;dist&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">srd</span><span class="o">.</span><span class="n">rchlen</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;NHDPlus elevations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">strtop</span>
-    <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;rno&#39;</span><span class="p">,</span> <span class="s1">&#39;iseg&#39;</span><span class="p">,</span> <span class="s1">&#39;ireach&#39;</span><span class="p">,</span> <span class="s1">&#39;dist&#39;</span><span class="p">,</span> <span class="s1">&#39;NHDPlus elevations&#39;</span><span class="p">]])</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'dist'</span><span class="p">]</span> <span class="o">=</span> <span class="n">srd</span><span class="o">.</span><span class="n">rchlen</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'NHDPlus elevations'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">strtop</span>
+    <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">'i'</span><span class="p">,</span> <span class="s1">'j'</span><span class="p">,</span> <span class="s1">'rno'</span><span class="p">,</span> <span class="s1">'iseg'</span><span class="p">,</span> <span class="s1">'ireach'</span><span class="p">,</span> <span class="s1">'dist'</span><span class="p">,</span> <span class="s1">'NHDPlus elevations'</span><span class="p">]])</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Model top&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">i</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">j</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Raw sampled elevations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">raw_sampled_elevs</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span>
-                              <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Smoothed sampled elevations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">smooth_sampled_elevs</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span>
-                              <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Smoothed sampled with field meas.&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">smooth_elevs_with_field_measurements</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span>
-                                           <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Smoothed sampled elevations&#39;</span><span class="p">]</span> <span class="o">/=</span> <span class="mf">.3048</span> <span class="c1"># convert from meters to feet</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Raw sampled elevations&#39;</span><span class="p">]</span> <span class="o">/=</span> <span class="mf">.3048</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;Smoothed sampled with field meas.&#39;</span><span class="p">]</span> <span class="o">/=</span> <span class="mf">.3048</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Model top'</span><span class="p">]</span> <span class="o">=</span> <span class="n">sfr</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">top</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">i</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">j</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Raw sampled elevations'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">raw_sampled_elevs</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span>
+                              <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Smoothed sampled elevations'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">smooth_sampled_elevs</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span>
+                              <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Smoothed sampled with field meas.'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">smooth_elevs_with_field_measurements</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span>
+                                           <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">]</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Smoothed sampled elevations'</span><span class="p">]</span> <span class="o">/=</span> <span class="mf">.3048</span> <span class="c1"># convert from meters to feet</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Raw sampled elevations'</span><span class="p">]</span> <span class="o">/=</span> <span class="mf">.3048</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'Smoothed sampled with field meas.'</span><span class="p">]</span> <span class="o">/=</span> <span class="mf">.3048</span>
 </pre></div>
 </div>
 </div>
@@ -455,21 +454,21 @@ finished in 0.07s
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segments</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;iseg&#39;</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segments</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'iseg'</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">iseg</span><span class="p">,</span> <span class="n">srd</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
     <span class="n">srd</span> <span class="o">=</span> <span class="n">srd</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">srd</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">srd</span><span class="o">.</span><span class="n">dist</span>
-    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Model top&#39;</span><span class="p">,</span> <span class="s1">&#39;NHDPlus elevations&#39;</span><span class="p">,</span> <span class="s1">&#39;Raw sampled elevations&#39;</span><span class="p">,</span> <span class="s1">&#39;Smoothed sampled elevations&#39;</span><span class="p">]</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Model top'</span><span class="p">,</span> <span class="s1">'NHDPlus elevations'</span><span class="p">,</span> <span class="s1">'Raw sampled elevations'</span><span class="p">,</span> <span class="s1">'Smoothed sampled elevations'</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">iseg</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
-        <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;Smoothed sampled with field meas.&#39;</span><span class="p">)</span>
+        <span class="n">cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'Smoothed sampled with field meas.'</span><span class="p">)</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">srd</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Distance along stream profile, in feet&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Streambed Elevation, in feet&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Segment </span><span class="si">{</span><span class="n">iseg</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Distance along stream profile, in feet'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Streambed Elevation, in feet'</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Segment </span><span class="si">{</span><span class="n">iseg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
     <span class="c1"># save the profile that begins with segment 1</span>
     <span class="k">if</span> <span class="n">iseg</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;streambed_elevations_comp.pdf&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">'streambed_elevations_comp.pdf'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -791,7 +790,7 @@ finished in 0.07s
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

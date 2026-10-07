@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.lines &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>sfrmaker.lines &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -14,7 +14,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -122,7 +122,7 @@
 <div class="viewcode-block" id="Lines">
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Lines</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Class for working with linestring feature input.</span>
+<span class="w">    </span><span class="sd">"""Class for working with linestring feature input.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -143,13 +143,13 @@
 <span class="sd">        ========================= =============================================================</span>
 <span class="sd">    asum_units : str, optional</span>
 <span class="sd">        Length units for values in ``arbolate_sum_column2``; </span>
-<span class="sd">        by default &#39;km&#39;.</span>
+<span class="sd">        by default 'km'.</span>
 <span class="sd">    width_units : str, optional</span>
 <span class="sd">        Length units for values in ``width1_column`` and ``width2_column``; </span>
-<span class="sd">        by default &#39;meters&#39;.</span>
+<span class="sd">        by default 'meters'.</span>
 <span class="sd">    elevation_units : str, optional</span>
 <span class="sd">        Length units for values in ``up_elevation_column`` and ``dn_elevation_column``; </span>
-<span class="sd">        by default &#39;meters&#39;.</span>
+<span class="sd">        by default 'meters'.</span>
 <span class="sd">    length_units : str, optional</span>
 <span class="sd">        Length units for linestrings in df, if CRS is not specified.</span>
 <span class="sd">        by default, None</span>
@@ -162,9 +162,9 @@
 <span class="sd">        - PROJ keyword arguments for parameters</span>
 <span class="sd">        - JSON string with PROJ parameters</span>
 <span class="sd">        - CRS WKT string</span>
-<span class="sd">        - An authority string [i.e. &#39;epsg:4326&#39;]</span>
+<span class="sd">        - An authority string [i.e. 'epsg:4326']</span>
 <span class="sd">        - An EPSG integer code [i.e. 4326]</span>
-<span class="sd">        - A tuple of (&quot;auth_name&quot;: &quot;auth_code&quot;) [i.e (&#39;epsg&#39;, &#39;4326&#39;)]</span>
+<span class="sd">        - A tuple of ("auth_name": "auth_code") [i.e ('epsg', '4326')]</span>
 <span class="sd">        - An object with a `to_wkt` method.</span>
 <span class="sd">        - A :class:`pyproj.crs.CRS` class</span>
 <span class="sd">    prjfile: str, optional</span>
@@ -185,43 +185,43 @@
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
 <span class="sd">    crs : :class:`sfrmaker.gis.CRS` instance</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                <span class="n">asum_units</span><span class="o">=</span><span class="s1">&#39;km&#39;</span><span class="p">,</span>
-                <span class="n">width_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                <span class="n">elevation_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
+                <span class="n">asum_units</span><span class="o">=</span><span class="s1">'km'</span><span class="p">,</span>
+                <span class="n">width_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
+                <span class="n">elevation_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
                 <span class="n">length_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                 <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;attr_length_units&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">'attr_length_units'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;attr_length_units argument is deprecated, &quot;</span>
-            <span class="s2">&quot;use width_units or asum_units instead&quot;</span><span class="p">,</span>
+            <span class="s2">"attr_length_units argument is deprecated, "</span>
+            <span class="s2">"use width_units or asum_units instead"</span><span class="p">,</span>
             <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
         <span class="p">)</span>
-            <span class="n">asum_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;attr_length_units&#39;</span><span class="p">]</span>
-            <span class="n">width_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;attr_length_units&#39;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="s1">&#39;attr_height_units&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">asum_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'attr_length_units'</span><span class="p">]</span>
+            <span class="n">width_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'attr_length_units'</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">'attr_height_units'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;attr_height_units argument is deprecated, &quot;</span>
-            <span class="s2">&quot;use elevation_units instead&quot;</span><span class="p">,</span>
+            <span class="s2">"attr_height_units argument is deprecated, "</span>
+            <span class="s2">"use elevation_units instead"</span><span class="p">,</span>
             <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
         <span class="p">)</span>
-            <span class="n">elevation_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;attr_height_units&#39;</span><span class="p">]</span>
+            <span class="n">elevation_units</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'attr_height_units'</span><span class="p">]</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">asum_units</span> <span class="o">=</span> <span class="n">asum_units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">width_units</span> <span class="o">=</span> <span class="n">width_units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elevation_units</span> <span class="o">=</span> <span class="n">elevation_units</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">get_crs</span><span class="p">(</span><span class="n">prjfile</span><span class="o">=</span><span class="n">prjfile</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">&#39;crs&#39;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s1">'crs'</span><span class="p">):</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">crs</span>
         <span class="k">elif</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">crs</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Coordinate reference system (CRS) attached to &#39;</span>
-                             <span class="s1">&#39;input DataFrame is different than CRS supplied &#39;</span>
-                             <span class="s1">&#39;as argument to sfrmaker.Lines!&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Coordinate reference system (CRS) attached to '</span>
+                             <span class="s1">'input DataFrame is different than CRS supplied '</span>
+                             <span class="s1">'as argument to sfrmaker.Lines!'</span><span class="p">)</span>
             
         <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span> <span class="o">=</span> <span class="n">length_units</span>
 
@@ -239,27 +239,27 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">geometry_length_units</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Length units of reach LineString geometries.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""Length units of reach LineString geometries.</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">is_geographic</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Flowline geometries need to be in a &#39;</span>
-                                <span class="s1">&#39;projected coordinate system; supply a model grid &#39;</span>
-                                <span class="s1">&#39;with a projected CRS to the Lines.to_sfr() method or &#39;</span>
-                                <span class="s1">&#39;run Lines.to_crs() to reproject the flowlines.&#39;</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'Flowline geometries need to be in a '</span>
+                                <span class="s1">'projected coordinate system; supply a model grid '</span>
+                                <span class="s1">'with a projected CRS to the Lines.to_sfr() method or '</span>
+                                <span class="s1">'run Lines.to_crs() to reproject the flowlines.'</span>
                                 <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span> <span class="o">=</span> <span class="n">get_crs_units</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">axis_info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unit_name</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Warning: No length units specified in CRS for input LineStrings &quot;</span>
-                  <span class="s2">&quot;or length units not recognized. &quot;</span>
-                  <span class="s2">&quot;Check coordinate reference (e.g. .prj file) or enter length_units.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Warning: No length units specified in CRS for input LineStrings "</span>
+                  <span class="s2">"or length units not recognized. "</span>
+                  <span class="s2">"Check coordinate reference (e.g. .prj file) or enter length_units."</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_geometry_length_units</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">routing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of routing connections from ids (keys)</span>
+<span class="w">        </span><span class="sd">"""Dictionary of routing connections from ids (keys)</span>
 <span class="sd">        to to_ids (values).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_df_routing</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># Goal is to incorporate any updates in line dataframe</span>
             <span class="c1"># into routing dictionary</span>
@@ -269,7 +269,7 @@
             <span class="c1"># recorded different routing information in the dataframe</span>
             <span class="c1"># compared to a cached copy (_current_df_routing)</span>
             <span class="c1"># if the routing dictionary was updated more recently,</span>
-            <span class="c1"># we can assume that updates haven&#39;t been made to the routing</span>
+            <span class="c1"># we can assume that updates haven't been made to the routing</span>
             <span class="c1"># in the dataframe</span>
             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_last_routing_dict_update</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> \
                 <span class="bp">self</span><span class="o">.</span><span class="n">_last_routing_dict_update</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_current_df_routing_time</span><span class="p">:</span>
@@ -295,20 +295,20 @@
                     <span class="n">routing</span> <span class="o">=</span> <span class="n">pick_toids</span><span class="p">(</span><span class="n">routing</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">elevup</span><span class="p">)</span>
                 <span class="c1"># set toids not in routing dataset to 0</span>
                 <span class="c1"># (outlet condition)</span>
-                <span class="n">routing</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">routing</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;0&#39;</span> 
+                <span class="n">routing</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">routing</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">else</span> <span class="s1">'0'</span> 
                             <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">routing</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">routing</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="s1">&#39;0&#39;</span><span class="p">}</span>
+                <span class="n">routing</span> <span class="o">=</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="s1">'0'</span><span class="p">}</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_routing</span> <span class="o">=</span> <span class="n">routing</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_last_routing_dict_update</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_routing</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">paths</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Dictionary of paths, where each value is a list</span>
+<span class="w">        </span><span class="sd">"""Dictionary of paths, where each value is a list</span>
 <span class="sd">        of downstream lines constituting a flow path to an outlet</span>
 <span class="sd">        for a given line (key).</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        """</span>        
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_paths</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_paths</span><span class="p">()</span>
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_paths</span>
@@ -336,7 +336,7 @@
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.cull">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">cull</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">feature</span><span class="p">,</span> <span class="n">simplify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
              <span class="n">feature_crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cull linework; retaining only the</span>
+<span class="w">        </span><span class="sd">"""Cull linework; retaining only the</span>
 <span class="sd">        lines that intersect a polygon feature.</span>
 
 <span class="sd">        Parameters</span>
@@ -361,9 +361,9 @@
 <span class="sd">              - PROJ keyword arguments for parameters</span>
 <span class="sd">              - JSON string with PROJ parameters</span>
 <span class="sd">              - CRS WKT string</span>
-<span class="sd">              - An authority string [i.e. &#39;epsg:4326&#39;]</span>
+<span class="sd">              - An authority string [i.e. 'epsg:4326']</span>
 <span class="sd">              - An EPSG integer code [i.e. 4326]</span>
-<span class="sd">              - A tuple of (&quot;auth_name&quot;: &quot;auth_code&quot;) [i.e (&#39;epsg&#39;, &#39;4326&#39;)]</span>
+<span class="sd">              - A tuple of ("auth_name": "auth_code") [i.e ('epsg', '4326')]</span>
 <span class="sd">              - An object with a `to_wkt` method.</span>
 <span class="sd">              - A :class:`pyproj.crs.CRS` class</span>
 <span class="sd">        inplace : bool</span>
@@ -375,45 +375,45 @@
 <span class="sd">        df : DataFrame</span>
 <span class="sd">            Version of the :py:attr:`Lines.df` DataFrame</span>
 <span class="sd">            containing only the lines that intersect the ``feature``.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Culling hydrography to active area...&#39;</span><span class="p">)</span>
+<span class="sd">        """</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Culling hydrography to active area...'</span><span class="p">)</span>
         <span class="n">ta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
         <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">feature</span> <span class="o">=</span> <span class="n">read_polygon_feature</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
                                        <span class="n">feature_crs</span><span class="o">=</span><span class="n">feature_crs</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">simplify</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;simplification tolerance: </span><span class="si">{:.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tol</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'simplification tolerance: </span><span class="si">{:.2f}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tol</span><span class="p">))</span>
             <span class="n">feature_s</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">simplify</span><span class="p">(</span><span class="n">tol</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="n">tol</span><span class="p">)</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">feature_s</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># in case feature is invalid, might fix</span>
 
         <span class="n">lines</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;starting lines: </span><span class="si">{:,d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'starting lines: </span><span class="si">{:,d}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">lines</span><span class="p">)))</span>
         <span class="c1"># isn = np.array([g.intersection(feature_s) for g in lines])</span>
-        <span class="c1"># df[&#39;geometry&#39;] = isn</span>
+        <span class="c1"># df['geometry'] = isn</span>
         <span class="c1"># drop = np.array([g.is_empty for g in isn])</span>
         <span class="c1"># df = df.loc[~drop]</span>
         <span class="n">intersects</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">feature_s</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">intersects</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No lines in active area. Check CRS for lines, grid and active area polygon.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'No lines in active area. Check CRS for lines, grid and active area polygon.'</span><span class="p">)</span>
 
         <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">intersects</span><span class="p">]</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="p">]</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">feature</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="p">]</span>
         <span class="n">drop</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">is_empty</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">tolist</span><span class="p">()])</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">drop</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">drop</span><span class="p">]</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;remaining lines: </span><span class="si">{:,d}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'remaining lines: </span><span class="si">{:,d}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)))</span>
         <span class="k">if</span> <span class="n">inplace</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">df</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finished in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ta</span><span class="p">))</span></div>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"finished in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ta</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="Lines.intersect">
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.intersect">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">intersect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">size_thresh</span><span class="o">=</span><span class="mf">1e5</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Intersect linework with a model grid.</span>
+<span class="w">        </span><span class="sd">"""Intersect linework with a model grid.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -430,10 +430,10 @@
 <span class="sd">        reach_data : DataFrame</span>
 <span class="sd">            DataFrame containing intersected reaches with grid cell information</span>
 <span class="sd">            and original linework IDs.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         <span class="kn">from</span><span class="w"> </span><span class="nn">.gis</span><span class="w"> </span><span class="kn">import</span> <span class="n">intersect</span><span class="p">,</span> <span class="n">intersect_rtree</span>
 
-        <span class="c1"># to_crs the flowlines if they aren&#39;t in same CRS as grid</span>
+        <span class="c1"># to_crs the flowlines if they aren't in same CRS as grid</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">!=</span> <span class="n">grid</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
 
@@ -442,11 +442,11 @@
         <span class="n">id_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
         <span class="n">ncells</span><span class="p">,</span> <span class="n">nlines</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">grid_polygons</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">stream_linework</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Intersecting </span><span class="si">{:,d}</span><span class="s2"> flowlines with </span><span class="si">{:,d}</span><span class="s2"> grid cells...&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlines</span><span class="p">,</span> <span class="n">ncells</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Intersecting </span><span class="si">{:,d}</span><span class="s2"> flowlines with </span><span class="si">{:,d}</span><span class="s2"> grid cells..."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">nlines</span><span class="p">,</span> <span class="n">ncells</span><span class="p">))</span>
         <span class="c1"># building the spatial index takes a while</span>
         <span class="c1"># only use spatial index if number of tests exceeds size_thresh</span>
         <span class="n">size</span> <span class="o">=</span> <span class="n">ncells</span> <span class="o">*</span> <span class="n">nlines</span>
-        <span class="c1"># don&#39;t spend time on a spatial index if it isn&#39;t created and problem is small</span>
+        <span class="c1"># don't spend time on a spatial index if it isn't created and problem is small</span>
         <span class="k">if</span> <span class="n">size</span> <span class="o">&lt;</span> <span class="n">size_thresh</span> <span class="ow">and</span> <span class="n">grid</span><span class="o">.</span><span class="n">_idx</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">grid_intersections</span> <span class="o">=</span> <span class="n">intersect</span><span class="p">(</span><span class="n">grid_polygons</span><span class="p">,</span> <span class="n">stream_linework</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
@@ -457,22 +457,22 @@
         <span class="n">reach_data</span> <span class="o">=</span> <span class="n">setup_reach_data</span><span class="p">(</span><span class="n">stream_linework</span><span class="p">,</span> <span class="n">id_list</span><span class="p">,</span>
                                       <span class="n">grid_intersections</span><span class="p">,</span> <span class="n">grid_polygons</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">.001</span><span class="p">)</span>
 
-        <span class="n">column_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;node&#39;</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="s1">&#39;j&#39;</span><span class="p">,</span> <span class="s1">&#39;rno&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;ireach&#39;</span><span class="p">,</span> <span class="s1">&#39;iseg&#39;</span><span class="p">,</span> <span class="s1">&#39;line_id&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+        <span class="n">column_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'node'</span><span class="p">,</span> <span class="s1">'k'</span><span class="p">,</span> <span class="s1">'i'</span><span class="p">,</span> <span class="s1">'j'</span><span class="p">,</span> <span class="s1">'rno'</span><span class="p">,</span>
+                        <span class="s1">'ireach'</span><span class="p">,</span> <span class="s1">'iseg'</span><span class="p">,</span> <span class="s1">'line_id'</span><span class="p">,</span> <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'geometry'</span><span class="p">]</span>
 
         <span class="c1"># transfer names</span>
         <span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
-        <span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">line_id</span><span class="p">]</span> <span class="k">for</span> <span class="n">line_id</span> <span class="ow">in</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">line_id</span><span class="p">]</span>
+        <span class="n">reach_data</span><span class="p">[</span><span class="s1">'name'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">names</span><span class="p">[</span><span class="n">line_id</span><span class="p">]</span> <span class="k">for</span> <span class="n">line_id</span> <span class="ow">in</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">line_id</span><span class="p">]</span>
 
         <span class="c1"># assign rows and columns from node</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">StructuredGrid</span><span class="p">):</span>
-            <span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;k&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;i&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">reach_data</span><span class="o">.</span><span class="n">node</span> <span class="o">/</span> <span class="n">grid</span><span class="o">.</span><span class="n">ncol</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-            <span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;j&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">values</span> <span class="o">%</span> <span class="n">grid</span><span class="o">.</span><span class="n">ncol</span>
+            <span class="n">reach_data</span><span class="p">[</span><span class="s1">'k'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="n">reach_data</span><span class="p">[</span><span class="s1">'i'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">reach_data</span><span class="o">.</span><span class="n">node</span> <span class="o">/</span> <span class="n">grid</span><span class="o">.</span><span class="n">ncol</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+            <span class="n">reach_data</span><span class="p">[</span><span class="s1">'j'</span><span class="p">]</span> <span class="o">=</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">values</span> <span class="o">%</span> <span class="n">grid</span><span class="o">.</span><span class="n">ncol</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">column_order</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-            <span class="n">column_order</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span>
-            <span class="n">column_order</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">)</span>
+            <span class="n">column_order</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'k'</span><span class="p">)</span>
+            <span class="n">column_order</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'i'</span><span class="p">)</span>
+            <span class="n">column_order</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">'j'</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">reach_data</span><span class="p">[</span><span class="n">column_order</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
 
 
@@ -487,7 +487,7 @@
 
         <span class="c1"># one to many routing is not supported</span>
         <span class="n">to_one</span> <span class="o">=</span> <span class="n">is_to_one</span><span class="p">(</span><span class="n">routing</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-        <span class="k">assert</span> <span class="n">to_one</span><span class="p">,</span> <span class="s2">&quot;routing is still one-to-many&quot;</span>
+        <span class="k">assert</span> <span class="n">to_one</span><span class="p">,</span> <span class="s2">"routing is still one-to-many"</span>
         <span class="c1"># if not to_one:</span>
         <span class="c1">#    routing = pick_toids(routing, elevup)</span>
         <span class="n">valid_ids</span> <span class="o">=</span> <span class="n">routing</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
@@ -495,7 +495,7 @@
         <span class="c1"># all paths terminating in invalid toids (outside of the model)</span>
         <span class="c1"># will be none; set invalid toids = 0</span>
         <span class="c1"># TODO: write a test for pick_toids if some IDs route to more than one connection</span>
-        <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">routing</span><span class="o">.</span><span class="n">items</span><span class="p">()]),</span> <span class="s2">&quot;one to many routing not supported&quot;</span>
+        <span class="k">assert</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">([</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">routing</span><span class="o">.</span><span class="n">items</span><span class="p">()]),</span> <span class="s2">"one to many routing not supported"</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">toid</span> <span class="o">=</span> <span class="p">[</span><span class="n">routing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="n">routing</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">in</span> <span class="n">valid_ids</span> <span class="k">else</span> <span class="mi">0</span>
                         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">tolist</span><span class="p">()]</span></div>
 
@@ -504,7 +504,7 @@
 <div class="viewcode-block" id="Lines.to_crs">
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.to_crs">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">to_crs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dest_crs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Reproject the LineStrings in :py:attr:`Lines.df` to</span>
+<span class="w">        </span><span class="sd">"""Reproject the LineStrings in :py:attr:`Lines.df` to</span>
 <span class="sd">        a different Coordinate Reference System.</span>
 
 <span class="sd">        Parameters</span>
@@ -520,19 +520,19 @@
 <span class="sd">              - PROJ keyword arguments for parameters</span>
 <span class="sd">              - JSON string with PROJ parameters</span>
 <span class="sd">              - CRS WKT string</span>
-<span class="sd">              - An authority string [i.e. &#39;epsg:4326&#39;]</span>
+<span class="sd">              - An authority string [i.e. 'epsg:4326']</span>
 <span class="sd">              - An EPSG integer code [i.e. 4326]</span>
-<span class="sd">              - A tuple of (&quot;auth_name&quot;: &quot;auth_code&quot;) [i.e (&#39;epsg&#39;, &#39;4326&#39;)]</span>
+<span class="sd">              - A tuple of ("auth_name": "auth_code") [i.e ('epsg', '4326')]</span>
 <span class="sd">              - An object with a `to_wkt` method.</span>
 <span class="sd">              - A :class:`pyproj.crs.CRS` class</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">        """</span>        
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No crs for flowlines.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"No crs for flowlines."</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">dest_crs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No destination CRS to project flowlines to.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"No destination CRS to project flowlines to."</span><span class="p">)</span>
 
         <span class="n">dest_crs</span> <span class="o">=</span> <span class="n">get_authority_crs</span><span class="p">(</span><span class="n">dest_crs</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">reprojecting hydrography from</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">to</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">reprojecting hydrography from</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">to</span><span class="se">\n</span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span>
                                                                      <span class="n">dest_crs</span><span class="p">))</span>
         <span class="n">reprojected</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">dest_crs</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">reprojected</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">is_valid</span><span class="p">:</span>
@@ -540,33 +540,33 @@
             <span class="c1"># where PROJ reaches out to the web for projection grids</span>
             <span class="c1"># an invalid reproject can result if there is an SSL issue</span>
             <span class="c1"># https://pyproj4.github.io/pyproj/stable/api/network.html</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;Reprojection failed. This could be due to an SSL issue &#39;</span>
-                          <span class="s1">&#39;preventing pyproj from accessing the PROJ Network &#39;</span>
-                          <span class="s1">&#39;(see https://pyproj4.github.io/pyproj/stable/api/network.html). &#39;</span>
-                          <span class="s1">&#39;Trying with pyproj.network.set_network_enabled(False). &#39;</span>
-                          <span class="s1">&#39;Are you currently on an internal network or VPN? &#39;</span>
-                          <span class="s1">&#39;You might consider re-running this script off of the network.&#39;</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">'Reprojection failed. This could be due to an SSL issue '</span>
+                          <span class="s1">'preventing pyproj from accessing the PROJ Network '</span>
+                          <span class="s1">'(see https://pyproj4.github.io/pyproj/stable/api/network.html). '</span>
+                          <span class="s1">'Trying with pyproj.network.set_network_enabled(False). '</span>
+                          <span class="s1">'Are you currently on an internal network or VPN? '</span>
+                          <span class="s1">'You might consider re-running this script off of the network.'</span><span class="p">)</span>
             <span class="n">pyproj</span><span class="o">.</span><span class="n">network</span><span class="o">.</span><span class="n">set_network_enabled</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
             <span class="n">reprojected</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">dest_crs</span><span class="p">)</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">reprojected</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">is_valid</span><span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid reprojection; check CRS for lines and grid.&quot;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"Invalid reprojection; check CRS for lines and grid."</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Reprojection with with pyproj.network.set_network_enabled(False) &#39;</span>
-                      <span class="s1">&#39;succeeded, but please check the results for accuracy.&#39;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">'Reprojection with with pyproj.network.set_network_enabled(False) '</span>
+                      <span class="s1">'succeeded, but please check the results for accuracy.'</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="n">reprojected</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="n">dest_crs</span></div>
 
 
 <div class="viewcode-block" id="Lines.write_shapefile">
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.write_shapefile">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">write_shapefile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outshp</span><span class="o">=</span><span class="s1">&#39;flowlines.shp&#39;</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write a shapefile of :py:attr:`Lines.df`.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write_shapefile</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">outshp</span><span class="o">=</span><span class="s1">'flowlines.shp'</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""Write a shapefile of :py:attr:`Lines.df`.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        outshp : str, optional</span>
-<span class="sd">            Shapefile name, by default &#39;flowlines.shp&#39;</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
+<span class="sd">            Shapefile name, by default 'flowlines.shp'</span>
+<span class="sd">        """</span>        
         <span class="n">df2shp</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span> <span class="n">outshp</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span></div>
 
 
@@ -574,21 +574,21 @@
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.from_shapefile">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_shapefile</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">shapefile</span><span class="p">,</span>
-                       <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
-                       <span class="n">routing_column</span><span class="o">=</span><span class="s1">&#39;toid&#39;</span><span class="p">,</span>
-                       <span class="n">arbolate_sum_column2</span><span class="o">=</span><span class="s1">&#39;asum2&#39;</span><span class="p">,</span>
-                       <span class="n">asum_units</span><span class="o">=</span><span class="s1">&#39;km&#39;</span><span class="p">,</span>
-                       <span class="n">width1_column</span><span class="o">=</span><span class="s1">&#39;width1&#39;</span><span class="p">,</span>
-                       <span class="n">width2_column</span><span class="o">=</span><span class="s1">&#39;width2&#39;</span><span class="p">,</span>
-                       <span class="n">width_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                       <span class="n">up_elevation_column</span><span class="o">=</span><span class="s1">&#39;elevup&#39;</span><span class="p">,</span>
-                       <span class="n">dn_elevation_column</span><span class="o">=</span><span class="s1">&#39;elevdn&#39;</span><span class="p">,</span>
-                       <span class="n">elevation_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
+                       <span class="n">id_column</span><span class="o">=</span><span class="s1">'id'</span><span class="p">,</span>
+                       <span class="n">routing_column</span><span class="o">=</span><span class="s1">'toid'</span><span class="p">,</span>
+                       <span class="n">arbolate_sum_column2</span><span class="o">=</span><span class="s1">'asum2'</span><span class="p">,</span>
+                       <span class="n">asum_units</span><span class="o">=</span><span class="s1">'km'</span><span class="p">,</span>
+                       <span class="n">width1_column</span><span class="o">=</span><span class="s1">'width1'</span><span class="p">,</span>
+                       <span class="n">width2_column</span><span class="o">=</span><span class="s1">'width2'</span><span class="p">,</span>
+                       <span class="n">width_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
+                       <span class="n">up_elevation_column</span><span class="o">=</span><span class="s1">'elevup'</span><span class="p">,</span>
+                       <span class="n">dn_elevation_column</span><span class="o">=</span><span class="s1">'elevdn'</span><span class="p">,</span>
+                       <span class="n">elevation_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
                        <span class="n">length_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">name_column</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                       <span class="n">name_column</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span>
                        <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a Lines instance from a shapefile.</span>
+<span class="w">        </span><span class="sd">"""Create a Lines instance from a shapefile.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -596,37 +596,37 @@
 <span class="sd">            Input shapefile</span>
 <span class="sd">        id_column : str, optional</span>
 <span class="sd">            Attribute field with line identifiers, </span>
-<span class="sd">            by default &#39;id&#39;</span>
+<span class="sd">            by default 'id'</span>
 <span class="sd">        routing_column : str, optional</span>
 <span class="sd">            Attribute field with downstream routing connections,</span>
-<span class="sd">            by default &#39;toid&#39;</span>
+<span class="sd">            by default 'toid'</span>
 <span class="sd">        arbolate_sum_column2 : str, optional</span>
 <span class="sd">            Attribute field with arbolate sums at downstream ends of lines, </span>
-<span class="sd">            by default &#39;asum2&#39;</span>
+<span class="sd">            by default 'asum2'</span>
 <span class="sd">        asum_units : str, optional</span>
 <span class="sd">            Length units for values in ``arbolate_sum_column2``; </span>
-<span class="sd">            by default &#39;km&#39;.</span>
+<span class="sd">            by default 'km'.</span>
 <span class="sd">        width1_column : str, optional</span>
 <span class="sd">            Attribute field with channel widths at upstream ends of lines,</span>
-<span class="sd">            by default &#39;width1&#39;</span>
+<span class="sd">            by default 'width1'</span>
 <span class="sd">        width2_column : str, optional</span>
 <span class="sd">            Attribute field with channel widths at downstream ends of lines, </span>
-<span class="sd">            by default &#39;width2&#39;</span>
+<span class="sd">            by default 'width2'</span>
 <span class="sd">        width_units : str, optional</span>
 <span class="sd">            Length units for values in ``width1_column`` and ``width2_column``; </span>
-<span class="sd">            by default &#39;meters&#39;.</span>
+<span class="sd">            by default 'meters'.</span>
 <span class="sd">        up_elevation_column : str, optional</span>
 <span class="sd">            Attribute field with elevations at upstream ends of lines, </span>
-<span class="sd">            by default &#39;elevup&#39;</span>
+<span class="sd">            by default 'elevup'</span>
 <span class="sd">        dn_elevation_column : str, optional</span>
 <span class="sd">            Attribute field with elevations at downstream ends of lines,</span>
-<span class="sd">            by default &#39;elevdn&#39;</span>
+<span class="sd">            by default 'elevdn'</span>
 <span class="sd">        elevation_units : str, optional</span>
 <span class="sd">            Length units for values in ``up_elevation_column`` and ``dn_elevation_column``; </span>
-<span class="sd">            by default &#39;meters&#39;.</span>
+<span class="sd">            by default 'meters'.</span>
 <span class="sd">        name_column : str, optional</span>
 <span class="sd">            Attribute field with feature names, </span>
-<span class="sd">            by default &#39;name&#39;</span>
+<span class="sd">            by default 'name'</span>
 <span class="sd">        bbox_filter : tuple, optional</span>
 <span class="sd">            (xmin, ymin, xmax, ymax) bounding box to filter which records </span>
 <span class="sd">            are read from the shapefile. By default None.</span>
@@ -639,9 +639,9 @@
 <span class="sd">            - PROJ keyword arguments for parameters</span>
 <span class="sd">            - JSON string with PROJ parameters</span>
 <span class="sd">            - CRS WKT string</span>
-<span class="sd">            - An authority string [i.e. &#39;epsg:4326&#39;]</span>
+<span class="sd">            - An authority string [i.e. 'epsg:4326']</span>
 <span class="sd">            - An EPSG integer code [i.e. 4326]</span>
-<span class="sd">            - A tuple of (&quot;auth_name&quot;: &quot;auth_code&quot;) [i.e (&#39;epsg&#39;, &#39;4326&#39;)]</span>
+<span class="sd">            - A tuple of ("auth_name": "auth_code") [i.e ('epsg', '4326')]</span>
 <span class="sd">            - An object with a `to_wkt` method.</span>
 <span class="sd">            - A :class:`pyproj.crs.CRS` class</span>
 <span class="sd">        prjfile: str, optional</span>
@@ -669,17 +669,17 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        lines : :class:`Lines` instance</span>
-<span class="sd">        &quot;&quot;&quot;</span>        
-        <span class="k">if</span> <span class="s1">&#39;filter&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+<span class="sd">        """</span>        
+        <span class="k">if</span> <span class="s1">'filter'</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;filter argument is deprecated, &quot;</span>
-            <span class="s2">&quot;use bbox_filter instead&quot;</span><span class="p">,</span>
+            <span class="s2">"filter argument is deprecated, "</span>
+            <span class="s2">"use bbox_filter instead"</span><span class="p">,</span>
             <span class="ne">PendingDeprecationWarning</span><span class="p">,</span>
         <span class="p">)</span>
-            <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span>
+            <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s1">'filter'</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">prjfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">prjfile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">shapefile</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;.prj&#39;</span><span class="p">)</span>
+            <span class="n">prjfile</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">shapefile</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.shp'</span><span class="p">,</span> <span class="s1">'.prj'</span><span class="p">)</span>
             <span class="n">prjfile</span> <span class="o">=</span> <span class="n">prjfile</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">prjfile</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
 
         <span class="k">if</span> <span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">prjfile</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -692,9 +692,9 @@
 
         <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">shapefile</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox_filter</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">id_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;id_column: </span><span class="si">{</span><span class="n">id_column</span><span class="si">}</span><span class="s2"> not in </span><span class="si">{</span><span class="n">shapefile</span><span class="si">}</span><span class="s2"> attribute fields&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s1">&#39;geometry&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;No feature geometries found in </span><span class="si">{</span><span class="n">shapefile</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"id_column: </span><span class="si">{</span><span class="n">id_column</span><span class="si">}</span><span class="s2"> not in </span><span class="si">{</span><span class="n">shapefile</span><span class="si">}</span><span class="s2"> attribute fields"</span><span class="p">)</span>
+        <span class="k">if</span> <span class="s1">'geometry'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No feature geometries found in </span><span class="si">{</span><span class="n">shapefile</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 
         <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span>   
                                   <span class="n">id_column</span><span class="o">=</span><span class="n">id_column</span><span class="p">,</span>
@@ -716,62 +716,62 @@
 <a class="viewcode-back" href="../../api/sfrmaker.lines.html#sfrmaker.lines.Lines.from_dataframe">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">from_dataframe</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span>
-                       <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span>
-                       <span class="n">routing_column</span><span class="o">=</span><span class="s1">&#39;toid&#39;</span><span class="p">,</span>
-                       <span class="n">arbolate_sum_column2</span><span class="o">=</span><span class="s1">&#39;asum2&#39;</span><span class="p">,</span>
-                       <span class="n">asum_units</span><span class="o">=</span><span class="s1">&#39;km&#39;</span><span class="p">,</span>
-                       <span class="n">width1_column</span><span class="o">=</span><span class="s1">&#39;width1&#39;</span><span class="p">,</span>
-                       <span class="n">width2_column</span><span class="o">=</span><span class="s1">&#39;width2&#39;</span><span class="p">,</span>
-                       <span class="n">width_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                       <span class="n">up_elevation_column</span><span class="o">=</span><span class="s1">&#39;elevup&#39;</span><span class="p">,</span>
-                       <span class="n">dn_elevation_column</span><span class="o">=</span><span class="s1">&#39;elevdn&#39;</span><span class="p">,</span>
-                       <span class="n">elevation_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
+                       <span class="n">id_column</span><span class="o">=</span><span class="s1">'id'</span><span class="p">,</span>
+                       <span class="n">routing_column</span><span class="o">=</span><span class="s1">'toid'</span><span class="p">,</span>
+                       <span class="n">arbolate_sum_column2</span><span class="o">=</span><span class="s1">'asum2'</span><span class="p">,</span>
+                       <span class="n">asum_units</span><span class="o">=</span><span class="s1">'km'</span><span class="p">,</span>
+                       <span class="n">width1_column</span><span class="o">=</span><span class="s1">'width1'</span><span class="p">,</span>
+                       <span class="n">width2_column</span><span class="o">=</span><span class="s1">'width2'</span><span class="p">,</span>
+                       <span class="n">width_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
+                       <span class="n">up_elevation_column</span><span class="o">=</span><span class="s1">'elevup'</span><span class="p">,</span>
+                       <span class="n">dn_elevation_column</span><span class="o">=</span><span class="s1">'elevdn'</span><span class="p">,</span>
+                       <span class="n">elevation_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
                        <span class="n">length_units</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">geometry_column</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">,</span>
-                       <span class="n">name_column</span><span class="o">=</span><span class="s1">&#39;name&#39;</span><span class="p">,</span>
+                       <span class="n">geometry_column</span><span class="o">=</span><span class="s1">'geometry'</span><span class="p">,</span>
+                       <span class="n">name_column</span><span class="o">=</span><span class="s1">'name'</span><span class="p">,</span>
                        <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;[summary]</span>
+<span class="w">        </span><span class="sd">"""[summary]</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        df : DataFrame</span>
 <span class="sd">            Pandas DataFrame or Geopandas GeoDataFrame</span>
 <span class="sd">            with flowline information, including</span>
-<span class="sd">            shapely :class:`LineStrings &lt;LineString&gt;` in a `&#39;geometry&#39;` column.</span>
+<span class="sd">            shapely :class:`LineStrings &lt;LineString&gt;` in a `'geometry'` column.</span>
 <span class="sd">        id_column : str, optional</span>
 <span class="sd">            Attribute field with line identifiers, </span>
-<span class="sd">            by default &#39;id&#39;</span>
+<span class="sd">            by default 'id'</span>
 <span class="sd">        routing_column : str, optional</span>
 <span class="sd">            Attribute field with downstream routing connections,</span>
-<span class="sd">            by default &#39;toid&#39;</span>
+<span class="sd">            by default 'toid'</span>
 <span class="sd">        arbolate_sum_column2 : str, optional</span>
 <span class="sd">            Attribute field with arbolate sums at downstream ends of lines, </span>
-<span class="sd">            by default &#39;asum2&#39;</span>
+<span class="sd">            by default 'asum2'</span>
 <span class="sd">        asum_units : str, optional</span>
 <span class="sd">            Length units for values in ``arbolate_sum_column2``; </span>
-<span class="sd">            by default &#39;km&#39;.</span>
+<span class="sd">            by default 'km'.</span>
 <span class="sd">        width1_column : str, optional</span>
 <span class="sd">            Attribute field with channel widths at upstream ends of lines,</span>
-<span class="sd">            by default &#39;width1&#39;</span>
+<span class="sd">            by default 'width1'</span>
 <span class="sd">        width2_column : str, optional</span>
 <span class="sd">            Attribute field with channel widths at downstream ends of lines, </span>
-<span class="sd">            by default &#39;width2&#39;</span>
+<span class="sd">            by default 'width2'</span>
 <span class="sd">        width_units : str, optional</span>
 <span class="sd">            Length units for values in ``width1_column`` and ``width2_column``; </span>
-<span class="sd">            by default &#39;meters&#39;.</span>
+<span class="sd">            by default 'meters'.</span>
 <span class="sd">        up_elevation_column : str, optional</span>
 <span class="sd">            Attribute field with elevations at upstream ends of lines, </span>
-<span class="sd">            by default &#39;elevup&#39;</span>
+<span class="sd">            by default 'elevup'</span>
 <span class="sd">        dn_elevation_column : str, optional</span>
 <span class="sd">            Attribute field with elevations at downstream ends of lines,</span>
-<span class="sd">            by default &#39;elevdn&#39;</span>
+<span class="sd">            by default 'elevdn'</span>
 <span class="sd">        elevation_units : str, optional</span>
 <span class="sd">            Length units for values in ``up_elevation_column`` and ``dn_elevation_column``; </span>
-<span class="sd">            by default &#39;meters&#39;.</span>
+<span class="sd">            by default 'meters'.</span>
 <span class="sd">        name_column : str, optional</span>
 <span class="sd">            Attribute field with feature names, </span>
-<span class="sd">            by default &#39;name&#39;</span>
+<span class="sd">            by default 'name'</span>
 <span class="sd">        crs : obj, optional</span>
 <span class="sd">            Coordinate reference object for ``df``. This argument is only needed</span>
 <span class="sd">            if ``df`` is not a GeoDataFrame with a valid attached coordinate reference.</span>
@@ -781,9 +781,9 @@
 <span class="sd">            - PROJ keyword arguments for parameters</span>
 <span class="sd">            - JSON string with PROJ parameters</span>
 <span class="sd">            - CRS WKT string</span>
-<span class="sd">            - An authority string [i.e. &#39;epsg:4326&#39;]</span>
+<span class="sd">            - An authority string [i.e. 'epsg:4326']</span>
 <span class="sd">            - An EPSG integer code [i.e. 4326]</span>
-<span class="sd">            - A tuple of (&quot;auth_name&quot;: &quot;auth_code&quot;) [i.e (&#39;epsg&#39;, &#39;4326&#39;)]</span>
+<span class="sd">            - A tuple of ("auth_name": "auth_code") [i.e ('epsg', '4326')]</span>
 <span class="sd">            - An object with a `to_wkt` method.</span>
 <span class="sd">            - A :class:`pyproj.crs.CRS` class</span>
 <span class="sd">        prjfile: str, optional</span>
@@ -808,22 +808,22 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        lines : :class:`Lines` instance</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">assert</span> <span class="n">geometry_column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> \
-            <span class="s2">&quot;No feature geometries found: dataframe column &#39;</span><span class="si">{}</span><span class="s2">&#39; doesn&#39;t exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geometry_column</span><span class="p">)</span>
+            <span class="s2">"No feature geometries found: dataframe column '</span><span class="si">{}</span><span class="s2">' doesn't exist."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">geometry_column</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">routing_column</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span> \
-            <span class="s2">&quot;No routing information found; dataframe column &#39;</span><span class="si">{}</span><span class="s2">&#39; doesn&#39;t exist.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">routing_column</span><span class="p">)</span>
+            <span class="s2">"No routing information found; dataframe column '</span><span class="si">{}</span><span class="s2">' doesn't exist."</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">routing_column</span><span class="p">)</span>
 
         <span class="c1"># rename the columns for consistency</span>
-        <span class="n">rename_cols</span> <span class="o">=</span> <span class="p">{</span><span class="n">id_column</span><span class="p">:</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span>
-                       <span class="n">routing_column</span><span class="p">:</span> <span class="s1">&#39;toid&#39;</span><span class="p">,</span>
-                       <span class="n">arbolate_sum_column2</span><span class="p">:</span> <span class="s1">&#39;asum2&#39;</span><span class="p">,</span>
-                       <span class="n">width1_column</span><span class="p">:</span> <span class="s1">&#39;width1&#39;</span><span class="p">,</span>
-                       <span class="n">width2_column</span><span class="p">:</span> <span class="s1">&#39;width2&#39;</span><span class="p">,</span>
-                       <span class="n">up_elevation_column</span><span class="p">:</span> <span class="s1">&#39;elevup&#39;</span><span class="p">,</span>
-                       <span class="n">dn_elevation_column</span><span class="p">:</span> <span class="s1">&#39;elevdn&#39;</span><span class="p">,</span>
-                       <span class="n">name_column</span><span class="p">:</span> <span class="s1">&#39;name&#39;</span><span class="p">}</span>
+        <span class="n">rename_cols</span> <span class="o">=</span> <span class="p">{</span><span class="n">id_column</span><span class="p">:</span> <span class="s1">'id'</span><span class="p">,</span>
+                       <span class="n">routing_column</span><span class="p">:</span> <span class="s1">'toid'</span><span class="p">,</span>
+                       <span class="n">arbolate_sum_column2</span><span class="p">:</span> <span class="s1">'asum2'</span><span class="p">,</span>
+                       <span class="n">width1_column</span><span class="p">:</span> <span class="s1">'width1'</span><span class="p">,</span>
+                       <span class="n">width2_column</span><span class="p">:</span> <span class="s1">'width2'</span><span class="p">,</span>
+                       <span class="n">up_elevation_column</span><span class="p">:</span> <span class="s1">'elevup'</span><span class="p">,</span>
+                       <span class="n">dn_elevation_column</span><span class="p">:</span> <span class="s1">'elevdn'</span><span class="p">,</span>
+                       <span class="n">name_column</span><span class="p">:</span> <span class="s1">'name'</span><span class="p">}</span>
 
         <span class="c1"># dictionary for assigning new column names</span>
         <span class="n">rename_cols</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">rename_cols</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="n">v</span> <span class="o">!=</span> <span class="n">k</span><span class="p">}</span>
@@ -835,18 +835,18 @@
         <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">rename_cols</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         
         <span class="c1"># convert IDs to strings</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_id_column_to_strings</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_id_column_to_strings</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">])</span>
         <span class="c1"># if reading from NHDPlus, to-ids may already be in lists</span>
-        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;toid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;toid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_id_column_to_strings</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;toid&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'toid'</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">'toid'</span><span class="p">]</span> <span class="o">=</span> <span class="n">convert_id_column_to_strings</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'toid'</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;toid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">toid</span><span class="p">))</span> <span class="k">for</span> <span class="n">toid</span> <span class="ow">in</span> <span class="n">toids</span><span class="p">]</span> <span class="k">for</span> <span class="n">toids</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;toid&#39;</span><span class="p">]]</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">'toid'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[[</span><span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">toid</span><span class="p">))</span> <span class="k">for</span> <span class="n">toid</span> <span class="ow">in</span> <span class="n">toids</span><span class="p">]</span> <span class="k">for</span> <span class="n">toids</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">'toid'</span><span class="p">]]</span>
 
-        <span class="n">column_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;toid&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;asum1&#39;</span><span class="p">,</span> <span class="s1">&#39;asum2&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;width1&#39;</span><span class="p">,</span> <span class="s1">&#39;width2&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;elevup&#39;</span><span class="p">,</span> <span class="s1">&#39;elevdn&#39;</span><span class="p">,</span>
-                        <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+        <span class="n">column_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'id'</span><span class="p">,</span> <span class="s1">'toid'</span><span class="p">,</span>
+                        <span class="s1">'asum1'</span><span class="p">,</span> <span class="s1">'asum2'</span><span class="p">,</span>
+                        <span class="s1">'width1'</span><span class="p">,</span> <span class="s1">'width2'</span><span class="p">,</span>
+                        <span class="s1">'elevup'</span><span class="p">,</span> <span class="s1">'elevdn'</span><span class="p">,</span>
+                        <span class="s1">'name'</span><span class="p">,</span> <span class="s1">'geometry'</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">column_order</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
                 <span class="n">df</span><span class="p">[</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -869,7 +869,7 @@
                         <span class="n">NHDFlowlines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PlusFlowlineVAA</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">PlusFlow</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">elevslope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ==========</span>
 <span class="sd">        NHDPlus_paths : str or list of strings</span>
@@ -877,8 +877,8 @@
 <span class="sd">            to include, assuming the file structure is the same as</span>
 <span class="sd">            downloaded from the NHDPlus version 2 website. For example::</span>
 <span class="sd">            </span>
-<span class="sd">                NHDPlus_paths=[&#39;/NHDPlusGL/NHDPlus04/&#39;,</span>
-<span class="sd">                               &#39;/NHDPlusMS/NHDPlus07/&#39;]    </span>
+<span class="sd">                NHDPlus_paths=['/NHDPlusGL/NHDPlus04/',</span>
+<span class="sd">                               '/NHDPlusMS/NHDPlus07/']    </span>
 <span class="sd">                                     </span>
 <span class="sd">            for the Great Lakes (04) and Upper Mississippi (07) basins.      </span>
 <span class="sd">        NHDFlowlines : str or list of strings.</span>
@@ -902,22 +902,22 @@
 <span class="sd">            Bounding box (tuple) or shapefile of model stream network area.</span>
 <span class="sd">        crs : obj, optional</span>
 <span class="sd">            Coordinate reference object for ``df``. This argument is only needed</span>
-<span class="sd">            if the input flowlines don&#39;t have a valid projection file.</span>
+<span class="sd">            if the input flowlines don't have a valid projection file.</span>
 <span class="sd">            Can be any of:</span>
 <span class="sd">            - PROJ string</span>
 <span class="sd">            - Dictionary of PROJ parameters</span>
 <span class="sd">            - PROJ keyword arguments for parameters</span>
 <span class="sd">            - JSON string with PROJ parameters</span>
 <span class="sd">            - CRS WKT string</span>
-<span class="sd">            - An authority string [i.e. &#39;epsg:4326&#39;]</span>
+<span class="sd">            - An authority string [i.e. 'epsg:4326']</span>
 <span class="sd">            - An EPSG integer code [i.e. 4326]</span>
-<span class="sd">            - A tuple of (&quot;auth_name&quot;: &quot;auth_code&quot;) [i.e (&#39;epsg&#39;, &#39;4326&#39;)]</span>
+<span class="sd">            - A tuple of ("auth_name": "auth_code") [i.e ('epsg', '4326')]</span>
 <span class="sd">            - An object with a `to_wkt` method.</span>
 <span class="sd">            - A :class:`pyproj.crs.CRS` class</span>
 <span class="sd">        prjfile: str, optional</span>
 <span class="sd">            ESRI-style projection file with coordinate reference information for ``df``. </span>
 <span class="sd">            This argument is only needed</span>
-<span class="sd">            if the input flowlines don&#39;t have a valid projection file.</span>
+<span class="sd">            if the input flowlines don't have a valid projection file.</span>
 <span class="sd">        **kwargs : dict, optional</span>
 <span class="sd">            Support for deprecated keyword options.</span>
 
@@ -931,7 +931,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        lines : :class:`Lines` instance</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         
         <span class="n">df</span> <span class="o">=</span> <span class="n">load_nhdplus_v2</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="n">NHDPlus_paths</span><span class="p">,</span>
                              <span class="n">NHDFlowlines</span><span class="o">=</span><span class="n">NHDFlowlines</span><span class="p">,</span> <span class="n">PlusFlowlineVAA</span><span class="o">=</span><span class="n">PlusFlowlineVAA</span><span class="p">,</span>
@@ -943,20 +943,20 @@
             <span class="n">prjfile</span> <span class="o">=</span> <span class="n">get_prj_file</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="p">,</span> <span class="n">NHDFlowlines</span><span class="p">)</span>
 
         <span class="c1"># convert arbolate sums from km to m</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;arbolate_s&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;length_km&#39;</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;arbolate_s&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">'asum1'</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'arbolate_s'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'length_km'</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">'asum2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'arbolate_s'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
 
         <span class="c1"># convert comid end elevations from cm to m</span>
-        <span class="k">if</span> <span class="s1">&#39;maxelevsmo&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;elevup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;maxelevsmo&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
-        <span class="k">if</span> <span class="s1">&#39;minelevsmo&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;elevdn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;minelevsmo&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
+        <span class="k">if</span> <span class="s1">'maxelevsmo'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">'elevup'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'maxelevsmo'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
+        <span class="k">if</span> <span class="s1">'minelevsmo'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">'elevdn'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'minelevsmo'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
 
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;comid&#39;</span><span class="p">,</span>
-                                  <span class="n">routing_column</span><span class="o">=</span><span class="s1">&#39;tocomid&#39;</span><span class="p">,</span>
-                                  <span class="n">name_column</span><span class="o">=</span><span class="s1">&#39;gnis_name&#39;</span><span class="p">,</span>
-                                  <span class="n">asum_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                                  <span class="n">elevation_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_column</span><span class="o">=</span><span class="s1">'comid'</span><span class="p">,</span>
+                                  <span class="n">routing_column</span><span class="o">=</span><span class="s1">'tocomid'</span><span class="p">,</span>
+                                  <span class="n">name_column</span><span class="o">=</span><span class="s1">'gnis_name'</span><span class="p">,</span>
+                                  <span class="n">asum_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
+                                  <span class="n">elevation_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
                                   <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">prjfile</span><span class="o">=</span><span class="n">prjfile</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 
@@ -966,7 +966,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">from_nhdplus_hr</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">NHDPlusHR_paths</span><span class="p">,</span> <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                         <span class="n">drop_fcodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_ftypes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop_NHDPlusIDs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                         <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">"""</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ==========</span>
 <span class="sd">        NHDPlusHR_paths : str or list of strings</span>
@@ -975,8 +975,8 @@
 <span class="sd">            the same as when downloaded from the USGS National Map Downloader tool </span>
 <span class="sd">            (v2.0) website (https://apps.nationalmap.gov/downloader/#/). For example::</span>
 <span class="sd">            </span>
-<span class="sd">                NHDPlusHR_paths=[&#39;/NHDPLUS_HR_1/NHDPLUS_H_0202_HU4_GDB.gdb&#39;,</span>
-<span class="sd">                                    &#39;/NHDPLUS_HR_2/NHDPLUS_H_0204_HU4_GDB.gdb&#39;] </span>
+<span class="sd">                NHDPlusHR_paths=['/NHDPLUS_HR_1/NHDPLUS_H_0202_HU4_GDB.gdb',</span>
+<span class="sd">                                    '/NHDPLUS_HR_2/NHDPLUS_H_0204_HU4_GDB.gdb'] </span>
 <span class="sd">                                                </span>
 <span class="sd">            for the 4-digit Hydrologic Units 0202 and 0204.      </span>
 <span class="sd">        bbox_filter : tuple or str, optional</span>
@@ -1008,7 +1008,7 @@
 <span class="sd">        Returns</span>
 <span class="sd">        ==========</span>
 <span class="sd">        lines : :class:`Lines` instance</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
         
         <span class="n">df</span> <span class="o">=</span> <span class="n">load_nhdplus_hr</span><span class="p">(</span><span class="n">NHDPlusHR_paths</span><span class="p">,</span> <span class="n">bbox_filter</span><span class="o">=</span><span class="n">bbox_filter</span><span class="p">,</span> <span class="n">drop_fcodes</span><span class="o">=</span><span class="n">drop_fcodes</span><span class="p">,</span> 
                              <span class="n">drop_ftypes</span><span class="o">=</span><span class="n">drop_ftypes</span><span class="p">,</span> <span class="n">drop_NHDPlusIDs</span><span class="o">=</span><span class="n">drop_NHDPlusIDs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1036,23 +1036,23 @@
         <span class="c1">#    proj_str = crs.to_proj4()</span>
 
         <span class="c1"># convert arbolate sums from km to m</span>
-        <span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;arbolate_s&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
+        <span class="n">df</span><span class="p">[</span><span class="s1">'asum2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'arbolate_s'</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1000</span>
 
         <span class="c1"># convert NHDPlusID end elevations from cm to m</span>
-        <span class="k">if</span> <span class="s1">&#39;maxelevsmo&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;elevup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;maxelevsmo&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
-        <span class="k">if</span> <span class="s1">&#39;minelevsmo&#39;</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;elevdn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;minelevsmo&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
+        <span class="k">if</span> <span class="s1">'maxelevsmo'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">'elevup'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'maxelevsmo'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
+        <span class="k">if</span> <span class="s1">'minelevsmo'</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">'elevdn'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'minelevsmo'</span><span class="p">]</span> <span class="o">/</span> <span class="mf">100.</span>
 
-        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_column</span><span class="o">=</span><span class="s1">&#39;nhdplusid&#39;</span><span class="p">,</span>
-                                  <span class="n">routing_column</span><span class="o">=</span><span class="s1">&#39;to_nhdpid&#39;</span><span class="p">,</span>
-                                  <span class="n">name_column</span><span class="o">=</span><span class="s1">&#39;gnis_name&#39;</span><span class="p">,</span>
-                                  <span class="n">arbolate_sum_column2</span><span class="o">=</span><span class="s1">&#39;asum2&#39;</span><span class="p">,</span>
-                                  <span class="n">asum_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                                  <span class="n">up_elevation_column</span><span class="o">=</span><span class="s1">&#39;elevup&#39;</span><span class="p">,</span>
-                                  <span class="n">dn_elevation_column</span><span class="o">=</span><span class="s1">&#39;elevdn&#39;</span><span class="p">,</span>
-                                  <span class="n">elevation_units</span><span class="o">=</span><span class="s1">&#39;meters&#39;</span><span class="p">,</span>
-                                  <span class="n">geometry_column</span><span class="o">=</span><span class="s1">&#39;geometry&#39;</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">id_column</span><span class="o">=</span><span class="s1">'nhdplusid'</span><span class="p">,</span>
+                                  <span class="n">routing_column</span><span class="o">=</span><span class="s1">'to_nhdpid'</span><span class="p">,</span>
+                                  <span class="n">name_column</span><span class="o">=</span><span class="s1">'gnis_name'</span><span class="p">,</span>
+                                  <span class="n">arbolate_sum_column2</span><span class="o">=</span><span class="s1">'asum2'</span><span class="p">,</span>
+                                  <span class="n">asum_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
+                                  <span class="n">up_elevation_column</span><span class="o">=</span><span class="s1">'elevup'</span><span class="p">,</span>
+                                  <span class="n">dn_elevation_column</span><span class="o">=</span><span class="s1">'elevdn'</span><span class="p">,</span>
+                                  <span class="n">elevation_units</span><span class="o">=</span><span class="s1">'meters'</span><span class="p">,</span>
+                                  <span class="n">geometry_column</span><span class="o">=</span><span class="s1">'geometry'</span><span class="p">)</span></div>
 
 
 
@@ -1061,8 +1061,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">to_sfr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">active_area</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">isfr</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-               <span class="n">model_length_units</span><span class="o">=</span><span class="s1">&#39;undefined&#39;</span><span class="p">,</span>
-               <span class="n">model_time_units</span><span class="o">=</span><span class="s1">&#39;days&#39;</span><span class="p">,</span>
+               <span class="n">model_length_units</span><span class="o">=</span><span class="s1">'undefined'</span><span class="p">,</span>
+               <span class="n">model_time_units</span><span class="o">=</span><span class="s1">'days'</span><span class="p">,</span>
                <span class="n">minimum_reach_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">width_from_asum_a_param</span><span class="o">=</span><span class="mf">0.1193</span><span class="p">,</span>
                <span class="n">width_from_asum_b_param</span><span class="o">=</span><span class="mf">0.5032</span><span class="p">,</span>
@@ -1071,7 +1071,7 @@
                <span class="n">add_outlets</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">package_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Create a streamflow routing dataset from the information</span>
+<span class="w">        </span><span class="sd">"""Create a streamflow routing dataset from the information</span>
 <span class="sd">        in sfrmaker.lines class instance and a supplied sfrmaker.grid class instance.</span>
 
 <span class="sd">        Parameters</span>
@@ -1090,11 +1090,11 @@
 <span class="sd">            By default, None, in which case the model ibound or idomain array will be used.</span>
 <span class="sd">        model : flopy.modflow.Modflow or flopy.mf6.ModflowGwf, optional</span>
 <span class="sd">            Flopy model instance</span>
-<span class="sd">        model_length_units : str; e.g. {&#39;ft&#39;, &#39;feet&#39;, &#39;meters&#39;, etc.}, optional</span>
+<span class="sd">        model_length_units : str; e.g. {'ft', 'feet', 'meters', etc.}, optional</span>
 <span class="sd">            Length units of the model. While SFRmaker will try to read these</span>
 <span class="sd">            from a supplied grid (first) and then a supplied model (second),</span>
 <span class="sd">            it is good practice to specify them explicitly here.</span>
-<span class="sd">        model_time_units : str; e.g. {&#39;d&#39;, &#39;days&#39;}, optional</span>
+<span class="sd">        model_time_units : str; e.g. {'d', 'days'}, optional</span>
 <span class="sd">            Time units for model. By default, days.</span>
 <span class="sd">        minimum_reach_length : float, optional</span>
 <span class="sd">            Minimum reach length to retain. Default is to compute</span>
@@ -1133,28 +1133,28 @@
 <span class="sd">        -------</span>
 <span class="sd">        sfrdata : sfrmaker.SFRData instance</span>
 
-<span class="sd">        &quot;&quot;&quot;</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">SFRmaker version </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sfrmaker</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Creating sfr dataset...&quot;</span><span class="p">)</span>
+<span class="sd">        """</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">SFRmaker version </span><span class="si">{}</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sfrmaker</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Creating sfr dataset..."</span><span class="p">)</span>
         <span class="n">totim</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">flopy</span> <span class="ow">and</span> <span class="n">active_area</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">isfr</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="s1">&#39;mf6&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">model</span><span class="o">.</span><span class="n">version</span> <span class="o">==</span> <span class="s1">'mf6'</span><span class="p">:</span>
                 <span class="n">isfr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">idomain</span><span class="o">.</span><span class="n">array</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">isfr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">bas6</span><span class="o">.</span><span class="n">ibound</span><span class="o">.</span><span class="n">array</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
         <span class="c1"># get an SFRmaker StructuredGrid instance of the model grid</span>
         <span class="k">if</span> <span class="n">flopy</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">flopy</span><span class="o">.</span><span class="n">discretization</span><span class="o">.</span><span class="n">StructuredGrid</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Creating grid class instance from flopy Grid instance...&#39;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Creating grid class instance from flopy Grid instance...'</span><span class="p">)</span>
             <span class="n">ta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
             <span class="n">grid</span> <span class="o">=</span> <span class="n">StructuredGrid</span><span class="o">.</span><span class="n">from_modelgrid</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">active_area</span><span class="o">=</span><span class="n">active_area</span><span class="p">,</span> <span class="n">isfr</span><span class="o">=</span><span class="n">isfr</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;grid class created in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ta</span><span class="p">))</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"grid class created in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ta</span><span class="p">))</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">grid</span><span class="o">.</span><span class="n">Grid</span><span class="p">):</span>
             <span class="k">pass</span>
         <span class="k">elif</span> <span class="n">flopy</span> <span class="ow">and</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">grid</span> <span class="o">=</span> <span class="n">StructuredGrid</span><span class="o">.</span><span class="n">from_modelgrid</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">modelgrid</span><span class="p">,</span> <span class="n">active_area</span><span class="o">=</span><span class="n">active_area</span><span class="p">,</span> <span class="n">isfr</span><span class="o">=</span><span class="n">isfr</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Unrecognized input for grid: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'Unrecognized input for grid: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">grid</span><span class="p">))</span>
 
         <span class="c1"># print grid information to screen</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">grid</span><span class="p">)</span>
@@ -1162,7 +1162,7 @@
         <span class="c1"># print model information to screen</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
-        <span class="c1"># reproject the flowlines if they aren&#39;t in same CRS as grid</span>
+        <span class="c1"># reproject the flowlines if they aren't in same CRS as grid</span>
         <span class="c1"># this also needs to be done before </span>
         <span class="c1"># the geometry_length_units property is computed</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="o">!=</span> <span class="n">grid</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
@@ -1185,7 +1185,7 @@
             <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                 <span class="n">package_name</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">name</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">package_name</span> <span class="o">=</span> <span class="s1">&#39;model&#39;</span>
+                <span class="n">package_name</span> <span class="o">=</span> <span class="s1">'model'</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">make_routing_one_to_one</span><span class="p">()</span>
 
@@ -1197,75 +1197,75 @@
         <span class="c1">#  that are not in the rotated area of reaches; need lines data</span>
         <span class="c1">#  to be consistent with reach data because it becomes the basis for </span>
         <span class="c1">#  segment data)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">rd</span><span class="p">[</span><span class="s1">&#39;line_id&#39;</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">new_outlets</span> <span class="o">=</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;toid&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">new_outlets</span><span class="p">,</span> <span class="s1">&#39;toid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">rd</span><span class="p">[</span><span class="s1">'line_id'</span><span class="p">])]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">new_outlets</span> <span class="o">=</span> <span class="o">~</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'toid'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">new_outlets</span><span class="p">,</span> <span class="s1">'toid'</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
         
         <span class="c1"># update the routing again</span>
         <span class="n">routing</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">routing</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         
         <span class="c1"># length of intersected line fragments (in model units)</span>
-        <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;rchlen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">rd</span><span class="o">.</span><span class="n">geometry</span><span class="p">])</span> <span class="o">*</span> <span class="n">crs_units_conversion</span>
+        <span class="n">rd</span><span class="p">[</span><span class="s1">'rchlen'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">rd</span><span class="o">.</span><span class="n">geometry</span><span class="p">])</span> <span class="o">*</span> <span class="n">crs_units_conversion</span>
 
-        <span class="c1"># compute arbolate sums for original LineStrings if they weren&#39;t provided</span>
+        <span class="c1"># compute arbolate sums for original LineStrings if they weren't provided</span>
         <span class="c1"># output all asums in meters</span>
-        <span class="k">if</span> <span class="s1">&#39;asum2&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">'asum2'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'asum2'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">line_lengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="p">])</span> <span class="o">*</span> \
                 <span class="n">convert_length_units</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_length_units</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">asum_units</span><span class="p">)</span>
             <span class="n">line_lengths_lookup</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">line_lengths</span><span class="p">))</span>
             <span class="n">asums</span> <span class="o">=</span> <span class="n">arbolate_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
                                  <span class="n">lengths</span><span class="o">=</span><span class="n">line_lengths_lookup</span><span class="p">,</span>
                                  <span class="n">routing</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">routing</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">asums</span><span class="p">[</span><span class="n">line_id</span><span class="p">]</span> <span class="k">for</span> <span class="n">line_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'asum2'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">asums</span><span class="p">[</span><span class="n">line_id</span><span class="p">]</span> <span class="k">for</span> <span class="n">line_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'id'</span><span class="p">]]</span>
 
         <span class="c1"># populate starting asums (asum1)</span>
-        <span class="k">if</span> <span class="s1">&#39;asum1&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">'asum1'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'asum1'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">length_conversion</span> <span class="o">=</span> <span class="n">convert_length_units</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_length_units</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">asum_units</span><span class="p">)</span>
             <span class="n">line_lengths</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">length</span> <span class="o">*</span> <span class="n">length_conversion</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;asum2&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">line_lengths</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'asum1'</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'asum2'</span><span class="p">]</span> <span class="o">-</span> <span class="n">line_lengths</span>
             
         <span class="n">asum1s</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">asum1</span><span class="p">))</span>
 
         <span class="c1"># compute arbolate sum at reach midpoints</span>
-        <span class="n">lengths</span> <span class="o">=</span> <span class="n">rd</span><span class="p">[[</span><span class="s1">&#39;line_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ireach&#39;</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">lengths</span><span class="p">[</span><span class="s1">&#39;rchlen&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">geometry</span><span class="p">]</span>
-        <span class="n">groups</span> <span class="o">=</span> <span class="n">lengths</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;line_id&#39;</span><span class="p">)</span>  <span class="c1"># fragments grouped by parent line</span>
+        <span class="n">lengths</span> <span class="o">=</span> <span class="n">rd</span><span class="p">[[</span><span class="s1">'line_id'</span><span class="p">,</span> <span class="s1">'ireach'</span><span class="p">,</span> <span class="s1">'geometry'</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">lengths</span><span class="p">[</span><span class="s1">'rchlen'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">length</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">geometry</span><span class="p">]</span>
+        <span class="n">groups</span> <span class="o">=</span> <span class="n">lengths</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'line_id'</span><span class="p">)</span>  <span class="c1"># fragments grouped by parent line</span>
 
         <span class="n">reach_cumsums</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="c1">#ordered_ids = rd.line_id.loc[rd.line_id.diff() != 0].values</span>
-        <span class="n">ordered_ids</span> <span class="o">=</span> <span class="n">lengths</span><span class="p">[</span><span class="s1">&#39;line_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="n">ordered_ids</span> <span class="o">=</span> <span class="n">lengths</span><span class="p">[</span><span class="s1">'line_id'</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">line_id</span> <span class="ow">in</span> <span class="n">ordered_ids</span><span class="p">:</span>
-            <span class="n">grp</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">line_id</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;ireach&#39;</span><span class="p">)</span>
+            <span class="n">grp</span> <span class="o">=</span> <span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="n">line_id</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'ireach'</span><span class="p">)</span>
             <span class="n">dist</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">grp</span><span class="o">.</span><span class="n">rchlen</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">grp</span><span class="o">.</span><span class="n">rchlen</span><span class="o">.</span><span class="n">values</span>
             <span class="n">reach_cumsums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dist</span><span class="p">)</span>
         <span class="n">reach_cumsums</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">reach_cumsums</span><span class="p">)</span>
         <span class="n">segment_asums</span> <span class="o">=</span> <span class="p">[</span><span class="n">asum1s</span><span class="p">[</span><span class="n">line_id</span><span class="p">]</span> <span class="k">for</span> <span class="n">line_id</span> <span class="ow">in</span> <span class="n">lengths</span><span class="o">.</span><span class="n">line_id</span><span class="p">]</span>
         <span class="n">reach_asums</span> <span class="o">=</span> <span class="n">segment_asums</span> <span class="o">+</span> <span class="n">reach_cumsums</span> <span class="o">*</span>\
             <span class="n">convert_length_units</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">geometry_length_units</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">asum_units</span><span class="p">)</span>
-        <span class="c1"># maintain positive asums; lengths in NHD often aren&#39;t exactly equal to feature lengths</span>
+        <span class="c1"># maintain positive asums; lengths in NHD often aren't exactly equal to feature lengths</span>
         <span class="c1"># reach_asums[reach_asums &lt; 0.] = 0</span>
-        <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;asum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">reach_asums</span>
+        <span class="n">rd</span><span class="p">[</span><span class="s1">'asum'</span><span class="p">]</span> <span class="o">=</span> <span class="n">reach_asums</span>
             
-        <span class="c1"># estimate widths if they aren&#39;t supplied</span>
+        <span class="c1"># estimate widths if they aren't supplied</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">width1</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Computing widths...&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">"Computing widths..."</span><span class="p">)</span>
             <span class="n">width</span> <span class="o">=</span> <span class="n">width_from_arbolate_sum</span><span class="p">(</span><span class="n">reach_asums</span><span class="p">,</span>
                                             <span class="n">a</span><span class="o">=</span><span class="n">width_from_asum_a_param</span><span class="p">,</span>
                                             <span class="n">b</span><span class="o">=</span><span class="n">width_from_asum_b_param</span><span class="p">,</span>
                                             <span class="n">minimum_width</span><span class="o">=</span><span class="n">minimum_reach_width</span><span class="p">,</span>
                                             <span class="n">input_units</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">asum_units</span><span class="p">,</span> 
                                             <span class="n">output_units</span><span class="o">=</span><span class="n">model_length_units</span><span class="p">)</span>
-            <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">width</span>
-            <span class="n">rd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rd</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="n">minimum_reach_width</span><span class="p">,</span> <span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">minimum_reach_width</span>
+            <span class="n">rd</span><span class="p">[</span><span class="s1">'width'</span><span class="p">]</span> <span class="o">=</span> <span class="n">width</span>
+            <span class="n">rd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rd</span><span class="o">.</span><span class="n">width</span> <span class="o">&lt;</span> <span class="n">minimum_reach_width</span><span class="p">,</span> <span class="s1">'width'</span><span class="p">]</span> <span class="o">=</span> <span class="n">minimum_reach_width</span>
 
             <span class="c1"># assign width1 and width2 back to segment data</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;width1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">width_from_arbolate_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">asum1</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'width1'</span><span class="p">]</span> <span class="o">=</span> <span class="n">width_from_arbolate_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">asum1</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                                             <span class="n">a</span><span class="o">=</span><span class="n">width_from_asum_a_param</span><span class="p">,</span>
                                             <span class="n">b</span><span class="o">=</span><span class="n">width_from_asum_b_param</span><span class="p">,</span>
                                             <span class="n">minimum_width</span><span class="o">=</span><span class="n">minimum_reach_width</span><span class="p">,</span>
                                             <span class="n">input_units</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">asum_units</span><span class="p">,</span>
                                             <span class="n">output_units</span><span class="o">=</span><span class="n">model_length_units</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;width2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">width_from_arbolate_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">asum2</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="s1">'width2'</span><span class="p">]</span> <span class="o">=</span> <span class="n">width_from_arbolate_sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">asum2</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
                                                         <span class="n">a</span><span class="o">=</span><span class="n">width_from_asum_a_param</span><span class="p">,</span>
                                                         <span class="n">b</span><span class="o">=</span><span class="n">width_from_asum_b_param</span><span class="p">,</span>
                                                         <span class="n">minimum_width</span><span class="o">=</span><span class="n">minimum_reach_width</span><span class="p">,</span>
@@ -1276,32 +1276,32 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="c1"># verify that each linestring has only 1 segment associated with it</span>
             <span class="c1"># (interpolation might be wrong for multiple segments otherwise)</span>
-            <span class="k">assert</span> <span class="n">rd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;line_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iseg</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
+            <span class="k">assert</span> <span class="n">rd</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'line_id'</span><span class="p">)</span><span class="o">.</span><span class="n">iseg</span><span class="o">.</span><span class="n">nunique</span><span class="p">()</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span>
             <span class="c1"># sort the linestring and reach data so that they are aligned</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">rd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;line_id&#39;</span><span class="p">,</span> <span class="s1">&#39;ireach&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-            <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;width&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">interpolate_to_reaches</span><span class="p">(</span><span class="n">reach_data</span><span class="o">=</span><span class="n">rd</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'id'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">rd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'line_id'</span><span class="p">,</span> <span class="s1">'ireach'</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">rd</span><span class="p">[</span><span class="s1">'width'</span><span class="p">]</span> <span class="o">=</span> <span class="n">interpolate_to_reaches</span><span class="p">(</span><span class="n">reach_data</span><span class="o">=</span><span class="n">rd</span><span class="p">,</span>
                                                  <span class="n">segment_data</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>
-                                                 <span class="n">segvar1</span><span class="o">=</span><span class="s1">&#39;width1&#39;</span><span class="p">,</span> <span class="n">segvar2</span><span class="o">=</span><span class="s1">&#39;width2&#39;</span><span class="p">,</span>
-                                                 <span class="n">reach_data_group_col</span><span class="o">=</span><span class="s1">&#39;line_id&#39;</span><span class="p">,</span>
-                                                 <span class="n">segment_data_group_col</span><span class="o">=</span><span class="s1">&#39;id&#39;</span>
+                                                 <span class="n">segvar1</span><span class="o">=</span><span class="s1">'width1'</span><span class="p">,</span> <span class="n">segvar2</span><span class="o">=</span><span class="s1">'width2'</span><span class="p">,</span>
+                                                 <span class="n">reach_data_group_col</span><span class="o">=</span><span class="s1">'line_id'</span><span class="p">,</span>
+                                                 <span class="n">segment_data_group_col</span><span class="o">=</span><span class="s1">'id'</span>
                                                  <span class="p">)</span> <span class="o">*</span> <span class="n">width_units_conversion</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;width1&#39;</span><span class="p">,</span> <span class="s1">&#39;width2&#39;</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">width_units_conversion</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s1">'width1'</span><span class="p">,</span> <span class="s1">'width2'</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">width_units_conversion</span>
 
         <span class="c1"># discard very small reaches; redo numbering</span>
         <span class="c1"># set minimum reach length based on cell size</span>
         <span class="n">thresh</span> <span class="o">=</span> <span class="mf">0.05</span>  <span class="c1"># fraction of cell length (based on square root of area)</span>
         <span class="k">if</span> <span class="n">minimum_reach_length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">cellgeoms</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rd</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+            <span class="n">cellgeoms</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rd</span><span class="o">.</span><span class="n">node</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">'geometry'</span><span class="p">]</span>
             <span class="n">mean_area</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="n">g</span><span class="o">.</span><span class="n">area</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">cellgeoms</span><span class="p">])</span>
             <span class="n">minimum_reach_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">mean_area</span><span class="p">)</span> <span class="o">*</span> <span class="n">thresh</span> <span class="o">*</span> <span class="n">crs_units_conversion</span>
 
         <span class="n">inds</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">rchlen</span> <span class="o">&gt;</span> <span class="n">minimum_reach_length</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Dropping </span><span class="si">{}</span><span class="s1"> reaches with length &lt; </span><span class="si">{:.2f}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">inds</span><span class="p">),</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Dropping </span><span class="si">{}</span><span class="s1"> reaches with length &lt; </span><span class="si">{:.2f}</span><span class="s1"> </span><span class="si">{}</span><span class="s1">...'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">inds</span><span class="p">),</span>
                                                                         <span class="n">minimum_reach_length</span><span class="p">,</span>
                                                                         <span class="n">model_length_units</span><span class="p">))</span>
         <span class="n">rd</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">inds</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;strhc1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>  <span class="c1"># default value of streambed Kv for now</span>
+        <span class="n">rd</span><span class="p">[</span><span class="s1">'strhc1'</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.</span>  <span class="c1"># default value of streambed Kv for now</span>
         <span class="c1"># handle co-located reaches</span>
         <span class="k">if</span> <span class="n">consolidate_conductance</span> <span class="ow">or</span> <span class="n">one_reach_per_cell</span><span class="p">:</span>
             <span class="n">rd</span> <span class="o">=</span> <span class="n">consolidate_reach_conductances</span><span class="p">(</span><span class="n">rd</span><span class="p">,</span> <span class="n">keep_only_dominant</span><span class="o">=</span><span class="n">one_reach_per_cell</span><span class="p">)</span>
@@ -1314,7 +1314,7 @@
         <span class="c1"># 5) create sfrdata instance; numbering will be messed up</span>
         <span class="c1"># 6) run methods on sfrdata instance to fix numbering and route reaches with unique numbers</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Repairing routing connections...&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Repairing routing connections...'</span><span class="p">)</span>
         <span class="n">remaining_ids</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">line_id</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
         <span class="c1"># routing and paths properties should update automatically</span>
         <span class="c1"># when id and toid columns are changed in self.df</span>
@@ -1341,13 +1341,13 @@
             <span class="k">for</span> <span class="n">outlet_id</span> <span class="ow">in</span> <span class="n">add_outlets</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">types</span><span class="o">.</span><span class="n">is_string_dtype</span><span class="p">(</span><span class="n">rd</span><span class="o">.</span><span class="n">line_id</span><span class="o">.</span><span class="n">dtype</span><span class="p">):</span>
                     <span class="n">outlet_id</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">outlet_id</span><span class="p">)</span>
-                    <span class="n">outlet_toid</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span>
+                    <span class="n">outlet_toid</span> <span class="o">=</span> <span class="s1">'0'</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="n">outlet_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">outlet_id</span><span class="p">)</span>
                     <span class="n">outlet_toid</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="n">valid_outlet_ids</span> <span class="o">=</span> <span class="n">get_previous_ids_in_subset</span><span class="p">(</span><span class="n">rd</span><span class="o">.</span><span class="n">line_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_original_routing</span><span class="p">,</span> <span class="n">outlet_id</span><span class="p">)</span>
                 <span class="n">loc</span> <span class="o">=</span> <span class="n">rd</span><span class="o">.</span><span class="n">line_id</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">valid_outlet_ids</span><span class="p">)</span>
-                <span class="n">rd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">loc</span><span class="p">,</span> <span class="s1">&#39;toid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">outlet_toid</span>
+                <span class="n">rd</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">loc</span><span class="p">,</span> <span class="s1">'toid'</span><span class="p">]</span> <span class="o">=</span> <span class="n">outlet_toid</span>
                 <span class="k">for</span> <span class="n">valid_outlet_id</span> <span class="ow">in</span> <span class="n">valid_outlet_ids</span><span class="p">:</span>
                     <span class="n">new_routing</span><span class="p">[</span><span class="n">valid_outlet_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">outlet_toid</span>
 
@@ -1369,13 +1369,13 @@
         <span class="c1"># line_id2 = {s: lid for lid, s in segment2.items()}</span>
 
         <span class="c1"># update reach_data</span>
-        <span class="n">rd</span><span class="p">[</span><span class="s1">&#39;iseg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">rd</span><span class="o">.</span><span class="n">iseg</span><span class="p">]</span>
+        <span class="n">rd</span><span class="p">[</span><span class="s1">'iseg'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">rd</span><span class="o">.</span><span class="n">iseg</span><span class="p">]</span>
 
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Setting up segment data...&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">'</span><span class="se">\n</span><span class="s1">Setting up segment data...'</span><span class="p">)</span>
         <span class="n">sd</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-        <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;nseg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">nseg</span><span class="p">]</span>
-        <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;outseg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">outseg</span><span class="p">]</span>
-        <span class="n">sd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;nseg&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">sd</span><span class="p">[</span><span class="s1">'nseg'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">nseg</span><span class="p">]</span>
+        <span class="n">sd</span><span class="p">[</span><span class="s1">'outseg'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">outseg</span><span class="p">]</span>
+        <span class="n">sd</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'nseg'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># verify that no segments route to themselves</span>
         <span class="k">assert</span> <span class="ow">not</span> <span class="n">routing_is_circular</span><span class="p">(</span><span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">,</span> <span class="n">sd</span><span class="o">.</span><span class="n">outseg</span><span class="p">)</span>
@@ -1383,20 +1383,20 @@
         <span class="c1"># (elevup dict was created above)</span>
         <span class="n">elevup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elevup</span>
         <span class="n">elevdn</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">elevdn</span><span class="p">))</span>
-        <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;elevup&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">elevup</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
-        <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;elevdn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">elevdn</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
+        <span class="n">sd</span><span class="p">[</span><span class="s1">'elevup'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">elevup</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
+        <span class="n">sd</span><span class="p">[</span><span class="s1">'elevdn'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">elevdn</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
         <span class="c1"># convert elevation units</span>
-        <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;elevup&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="n">elevation_units_conversion</span>
-        <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;elevdn&#39;</span><span class="p">]</span> <span class="o">*=</span> <span class="n">elevation_units_conversion</span>
+        <span class="n">sd</span><span class="p">[</span><span class="s1">'elevup'</span><span class="p">]</span> <span class="o">*=</span> <span class="n">elevation_units_conversion</span>
+        <span class="n">sd</span><span class="p">[</span><span class="s1">'elevdn'</span><span class="p">]</span> <span class="o">*=</span> <span class="n">elevation_units_conversion</span>
 
         <span class="c1"># apply widths if they were included</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;width1&#39;</span><span class="p">,</span> <span class="s1">&#39;width2&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[[</span><span class="s1">'width1'</span><span class="p">,</span> <span class="s1">'width2'</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">width1</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">width1</span><span class="p">))</span>
             <span class="n">width2</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">width2</span><span class="p">))</span>
-            <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;width1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">width1</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
-            <span class="n">sd</span><span class="p">[</span><span class="s1">&#39;width2&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">width2</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
+            <span class="n">sd</span><span class="p">[</span><span class="s1">'width1'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">width1</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
+            <span class="n">sd</span><span class="p">[</span><span class="s1">'width2'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">width2</span><span class="p">[</span><span class="n">line_id</span><span class="p">[</span><span class="n">s</span><span class="p">]]</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">sd</span><span class="o">.</span><span class="n">nseg</span><span class="p">]</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="o">.</span><span class="n">width2</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;Need to supply width1 and width2 or use arbolate sum.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'Need to supply width1 and width2 or use arbolate sum.'</span><span class="p">)</span>
 
         <span class="c1"># create sfrdata instance</span>
         <span class="c1"># this class has methods for fix segment and reach numbering,</span>
@@ -1408,7 +1408,7 @@
                        <span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">model_length_units</span><span class="o">=</span><span class="n">model_length_units</span><span class="p">,</span>
                        <span class="n">model_time_units</span><span class="o">=</span><span class="n">model_time_units</span><span class="p">,</span>
                        <span class="n">package_name</span><span class="o">=</span><span class="n">package_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Time to create sfr dataset: </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">totim</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Time to create sfr dataset: </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">totim</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">sfrd</span></div>
 </div>
 
@@ -1422,7 +1422,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

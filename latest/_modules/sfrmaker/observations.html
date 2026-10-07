@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>sfrmaker.observations &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>sfrmaker.observations &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -14,7 +14,7 @@
   
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -96,9 +96,9 @@
            <div itemprop="articleBody">
              
   <h1>Source code for sfrmaker.observations</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span></span><span class="sd">"""</span>
 <span class="sd">Functions for handling observations of SFR package output.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
@@ -121,16 +121,16 @@
 <a class="viewcode-back" href="../../api/sfrmaker.observations.html#sfrmaker.observations.add_observations">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">add_observations</span><span class="p">(</span><span class="n">sfrdata</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">flowline_routing</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">obstype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sfrlines_shapefile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                     <span class="n">rno_column_in_sfrlines</span><span class="o">=</span><span class="s1">&#39;rno&#39;</span><span class="p">,</span>
+                     <span class="n">rno_column_in_sfrlines</span><span class="o">=</span><span class="s1">'rno'</span><span class="p">,</span>
                      <span class="n">x_location_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">y_location_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">line_id_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">rno_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                      <span class="n">obstype_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                     <span class="n">obsname_column</span><span class="o">=</span><span class="s1">&#39;site_no&#39;</span><span class="p">,</span>
+                     <span class="n">obsname_column</span><span class="o">=</span><span class="s1">'site_no'</span><span class="p">,</span>
                      <span class="n">site_location_distance_threshold</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                      <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add SFR observations to the observations DataFrame</span>
+<span class="w">    </span><span class="sd">"""Add SFR observations to the observations DataFrame</span>
 <span class="sd">    attribute of an sfrdata instance. Observations can</span>
 <span class="sd">    by located on the SFR network by specifying reach number</span>
 <span class="sd">    directly (rno_column), by x, y location (x_column_in_data and y_column in data),</span>
@@ -142,13 +142,13 @@
 <span class="sd">    sfrdata : sfrmaker.SFRData instance</span>
 <span class="sd">        SFRData instance with reach_data table attribute. To add observations from x, y coordinates,</span>
 <span class="sd">        the reach_data table must have a geometry column with LineStrings representing each reach, or</span>
-<span class="sd">        an sfrlines_shapefile is required. Reach numbers are assumed to be in an &#39;rno&#39; column.</span>
+<span class="sd">        an sfrlines_shapefile is required. Reach numbers are assumed to be in an 'rno' column.</span>
 <span class="sd">    data : DataFrame, path to csv file, or list of DataFrames or file paths</span>
 <span class="sd">        Table with information on the observation sites to be located. Must have</span>
 <span class="sd">        either reach numbers (rno_column), line_ids (line_id_column),</span>
 <span class="sd">        or x and y locations (x_column_in_data and y_column_in_data).</span>
 <span class="sd">    obstype : str or list-like (optional)</span>
-<span class="sd">        Type(s) of observation to record, for MODFLOW-6 (default &#39;downstream-flow&#39;; see</span>
+<span class="sd">        Type(s) of observation to record, for MODFLOW-6 (default 'downstream-flow'; see</span>
 <span class="sd">        MODFLOW-6 IO documentation for more details). Alternatively, observation</span>
 <span class="sd">        types can be specified by row in data, using the obstype_column_in_data argument.</span>
 <span class="sd">    x_location_column : str (optional)</span>
@@ -156,11 +156,11 @@
 <span class="sd">    y_location_column : str (optional)</span>
 <span class="sd">        Column in data with site y-coordinates (in same CRS as SFR network).</span>
 <span class="sd">    sfrlines_shapefile : str (optional)</span>
-<span class="sd">        Shapefile version of SFRdata.reach_data. Only needed if SFRdata.reach_data doesn&#39;t</span>
+<span class="sd">        Shapefile version of SFRdata.reach_data. Only needed if SFRdata.reach_data doesn't</span>
 <span class="sd">        have LineString geometries for the reaches.</span>
 <span class="sd">    rno_column_in_sfrlines : str (optional)</span>
 <span class="sd">        Column in sfrlines with reach numbers for matching lines with reaches in sfrdata, or</span>
-<span class="sd">        reach numbers assigned to observation sites. (default &#39;rno&#39;)</span>
+<span class="sd">        reach numbers assigned to observation sites. (default 'rno')</span>
 <span class="sd">    line_id_column : str</span>
 <span class="sd">        Column in data matching observation sites to line_ids in the source hydrography data.</span>
 <span class="sd">    rno_column : str</span>
@@ -175,7 +175,7 @@
 <span class="sd">        that is represented in the SFR network.</span>
 <span class="sd">    obstype_column : str (optional)</span>
 <span class="sd">        Column in data with MODFLOW-6 observation types. For adding observations of different types.</span>
-<span class="sd">        If obstype and obstype_column_in_data are none, the default of &#39;downstream-flow&#39; will be used.</span>
+<span class="sd">        If obstype and obstype_column_in_data are none, the default of 'downstream-flow' will be used.</span>
 <span class="sd">    obsname_column : str</span>
 <span class="sd">        Column in data with unique identifier (e.g. site number or name) for observation sites.</span>
 <span class="sd">    site_location_distance_threshold : scalar</span>
@@ -187,7 +187,7 @@
 <span class="sd">    Sites located by line_id (source hydrography) will be assigned to the last reach in the</span>
 <span class="sd">    segment corresponding to the line_id. Locating by x, y or reach number is more accurate.</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">sfrd</span> <span class="o">=</span> <span class="n">sfrdata</span>
     <span class="n">reach_data</span> <span class="o">=</span> <span class="n">sfrdata</span><span class="o">.</span><span class="n">reach_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
@@ -195,10 +195,10 @@
     <span class="n">data</span> <span class="o">=</span> <span class="n">read_tables</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">{</span><span class="n">obsname_column</span><span class="p">:</span> <span class="nb">object</span><span class="p">})</span><span class="c1">#, dtype={obsname_column: object})</span>
     <span class="c1"># need a special case if allowing obsname_column to also be identifier</span>
     <span class="k">if</span> <span class="n">obsname_column</span> <span class="o">==</span> <span class="n">rno_column</span><span class="p">:</span>
-        <span class="n">obsname_column</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;obsnamecol_</span><span class="si">{</span><span class="n">obsname_column</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">obsname_column</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'obsnamecol_</span><span class="si">{</span><span class="n">obsname_column</span><span class="si">}</span><span class="s1">'</span>
         <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">rno_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">obsname_column</span> <span class="o">==</span> <span class="n">line_id_column</span><span class="p">:</span>
-        <span class="n">obsname_column</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;obsnamecol_</span><span class="si">{</span><span class="n">obsname_column</span><span class="si">}</span><span class="s1">&#39;</span>
+        <span class="n">obsname_column</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">'obsnamecol_</span><span class="si">{</span><span class="n">obsname_column</span><span class="si">}</span><span class="s1">'</span>
         <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">line_id_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
@@ -207,25 +207,25 @@
     <span class="c1"># read reach geometries from a shapefile</span>
     <span class="k">if</span> <span class="n">sfrlines_shapefile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">sfrlines</span> <span class="o">=</span> <span class="n">shp2df</span><span class="p">(</span><span class="n">sfrlines_shapefile</span><span class="p">)</span>
-        <span class="n">geoms</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">sfrlines</span><span class="p">[</span><span class="n">rno_column_in_sfrlines</span><span class="p">],</span> <span class="n">sfrlines</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]))</span>
-        <span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geoms</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span> <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">reach_data</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]]</span>
+        <span class="n">geoms</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">sfrlines</span><span class="p">[</span><span class="n">rno_column_in_sfrlines</span><span class="p">],</span> <span class="n">sfrlines</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]))</span>
+        <span class="n">reach_data</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">geoms</span><span class="p">[</span><span class="n">rno</span><span class="p">]</span> <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">reach_data</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]]</span>
 
     <span class="c1"># if no reach number is provided</span>
-    <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Observation sites need reach number, (x,y) coordinates, or source hydrography IDs&quot;</span>
+    <span class="n">msg</span> <span class="o">=</span> <span class="s2">"Observation sites need reach number, (x,y) coordinates, or source hydrography IDs"</span>
     <span class="k">if</span> <span class="n">rno_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
 
-        <span class="n">rno_column</span> <span class="o">=</span> <span class="s1">&#39;rno&#39;</span>
+        <span class="n">rno_column</span> <span class="o">=</span> <span class="s1">'rno'</span>
 
         <span class="c1"># get reach numbers by x, y location of sites</span>
         <span class="k">if</span> <span class="n">x_location_column</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span> <span class="ow">and</span> <span class="n">y_location_column</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="n">locs</span> <span class="o">=</span> <span class="n">locate_sites</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">reach_data</span><span class="p">,</span>
                                 <span class="n">x_column_in_data</span><span class="o">=</span><span class="n">x_location_column</span><span class="p">,</span>
                                 <span class="n">y_column_in_data</span><span class="o">=</span><span class="n">y_location_column</span><span class="p">,</span>
-                                <span class="n">reach_id_col</span><span class="o">=</span><span class="s1">&#39;rno&#39;</span><span class="p">,</span>  <span class="c1"># reach number column in reach_data</span>
+                                <span class="n">reach_id_col</span><span class="o">=</span><span class="s1">'rno'</span><span class="p">,</span>  <span class="c1"># reach number column in reach_data</span>
                                 <span class="n">site_number_col</span><span class="o">=</span><span class="n">obsname_column</span><span class="p">,</span>
                                 <span class="n">distance_threshold</span><span class="o">=</span><span class="n">site_location_distance_threshold</span>
                                 <span class="p">)</span>
-            <span class="n">data</span><span class="p">[</span><span class="n">rno_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">locs</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">rno_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">locs</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]</span>
 
         <span class="c1"># get reach number from site locations in source hydrography (line_ids)</span>
         <span class="k">elif</span> <span class="n">line_id_column</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
@@ -239,8 +239,8 @@
                 <span class="n">flowline_routing</span> <span class="o">=</span> <span class="p">{</span><span class="n">line_id</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="mi">0</span><span class="p">):</span> <span class="n">line_id</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
                                     <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">sfr_routing</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
             <span class="c1"># get the last reach in each segment</span>
-            <span class="n">r1</span> <span class="o">=</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;iseg&#39;</span><span class="p">,</span> <span class="s1">&#39;ireach&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;iseg&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
-            <span class="n">line_id_rno_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">r1</span><span class="p">[</span><span class="s1">&#39;line_id&#39;</span><span class="p">],</span> <span class="n">r1</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]))</span>
+            <span class="n">r1</span> <span class="o">=</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">'iseg'</span><span class="p">,</span> <span class="s1">'ireach'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'iseg'</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span>
+            <span class="n">line_id_rno_mapping</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">r1</span><span class="p">[</span><span class="s1">'line_id'</span><span class="p">],</span> <span class="n">r1</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]))</span>
             <span class="n">line_ids</span> <span class="o">=</span> <span class="n">get_next_id_in_subset</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">line_id</span><span class="p">,</span> <span class="n">flowline_routing</span><span class="p">,</span>
                                              <span class="n">data</span><span class="p">[</span><span class="n">line_id_column</span><span class="p">])</span>
             <span class="n">data</span><span class="p">[</span><span class="n">rno_column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">line_id_rno_mapping</span><span class="p">[</span><span class="n">lid</span><span class="p">]</span> <span class="k">for</span> <span class="n">lid</span> <span class="ow">in</span> <span class="n">line_ids</span><span class="p">]</span>
@@ -253,44 +253,44 @@
 
     <span class="c1"># remove duplicate locations</span>
     <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">rno_column</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-    <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">rno_column</span><span class="p">]</span>
+    <span class="n">obsdata</span><span class="p">[</span><span class="s1">'rno'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">rno_column</span><span class="p">]</span>
 
     <span class="c1"># segment and reach info</span>
     <span class="n">iseg_ireach</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">reach_data</span><span class="o">.</span><span class="n">rno</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="n">reach_data</span><span class="o">.</span><span class="n">iseg</span><span class="p">,</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">ireach</span><span class="p">))))</span>
-    <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;iseg&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">iseg_ireach</span><span class="p">[</span><span class="n">rno</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">obsdata</span><span class="o">.</span><span class="n">rno</span><span class="p">]</span>
-    <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;ireach&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">iseg_ireach</span><span class="p">[</span><span class="n">rno</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">obsdata</span><span class="o">.</span><span class="n">rno</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;rno&#39;</span><span class="p">,</span> <span class="s1">&#39;iseg&#39;</span><span class="p">,</span> <span class="s1">&#39;ireach&#39;</span><span class="p">]:</span>
+    <span class="n">obsdata</span><span class="p">[</span><span class="s1">'iseg'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">iseg_ireach</span><span class="p">[</span><span class="n">rno</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">obsdata</span><span class="o">.</span><span class="n">rno</span><span class="p">]</span>
+    <span class="n">obsdata</span><span class="p">[</span><span class="s1">'ireach'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">iseg_ireach</span><span class="p">[</span><span class="n">rno</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">rno</span> <span class="ow">in</span> <span class="n">obsdata</span><span class="o">.</span><span class="n">rno</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">'rno'</span><span class="p">,</span> <span class="s1">'iseg'</span><span class="p">,</span> <span class="s1">'ireach'</span><span class="p">]:</span>
         <span class="n">obsdata</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">obsdata</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">obstype</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obstype</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obstype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obstype</span>
-            <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obsname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+            <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obstype'</span><span class="p">]</span> <span class="o">=</span> <span class="n">obstype</span>
+            <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obsname'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">obstypes</span> <span class="o">=</span> <span class="n">obstype</span>
             <span class="n">dfs</span> <span class="o">=</span> <span class="p">[]</span>
             <span class="k">for</span> <span class="n">obstype</span> <span class="ow">in</span> <span class="n">obstypes</span><span class="p">:</span>
                 <span class="n">df</span> <span class="o">=</span> <span class="n">obsdata</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;obstype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obstype</span>
-                <span class="n">obsnme_suffix</span> <span class="o">=</span> <span class="n">obstype</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">df</span><span class="p">[</span><span class="s1">&#39;obsname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obsnme</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">obsnme_suffix</span><span class="si">}</span><span class="s2">&quot;</span> 
+                <span class="n">df</span><span class="p">[</span><span class="s1">'obstype'</span><span class="p">]</span> <span class="o">=</span> <span class="n">obstype</span>
+                <span class="n">obsnme_suffix</span> <span class="o">=</span> <span class="n">obstype</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">df</span><span class="p">[</span><span class="s1">'obsname'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">obsnme</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">obsnme_suffix</span><span class="si">}</span><span class="s2">"</span> 
                                  <span class="k">for</span> <span class="n">obsnme</span> <span class="ow">in</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)]</span>
                 <span class="n">dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
             <span class="n">obsdata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">dfs</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">obstype_column</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obstype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obstype_column</span><span class="p">]</span>
+        <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obstype'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obstype_column</span><span class="p">]</span>
         <span class="c1"># check if base observation names (with just site info) are unique</span>
         <span class="c1"># if not, formulate name based on type as well</span>
         <span class="n">site_names</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">site_names</span><span class="p">))</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-            <span class="n">obsname_suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="n">obstype</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">obstype</span> <span class="ow">in</span> <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obstype&#39;</span><span class="p">]]</span>
-            <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obsname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">obsnme</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">obsnme_suffix</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">obsnme</span><span class="p">,</span> <span class="n">obsnme_suffix</span> 
+            <span class="n">obsname_suffixes</span> <span class="o">=</span> <span class="p">[</span><span class="n">obstype</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'-'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">obstype</span> <span class="ow">in</span> <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obstype'</span><span class="p">]]</span>
+            <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obsname'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">obsnme</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="n">obsnme_suffix</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">obsnme</span><span class="p">,</span> <span class="n">obsnme_suffix</span> 
                                   <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">site_names</span><span class="p">,</span> <span class="n">obsname_suffixes</span><span class="p">)]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obsname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">site_names</span>
+            <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obsname'</span><span class="p">]</span> <span class="o">=</span> <span class="n">site_names</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obstype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;downstream-flow&#39;</span>
-        <span class="n">obsdata</span><span class="p">[</span><span class="s1">&#39;obsname&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obstype'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'downstream-flow'</span>
+        <span class="n">obsdata</span><span class="p">[</span><span class="s1">'obsname'</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">obsname_column</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">obsdata</span></div>
 
@@ -299,8 +299,8 @@
 <div class="viewcode-block" id="get_closest_reach">
 <a class="viewcode-back" href="../../api/sfrmaker.observations.html#sfrmaker.observations.get_closest_reach">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_closest_reach</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sfrlines</span><span class="p">,</span>
-                      <span class="n">rno_column</span><span class="o">=</span><span class="s1">&#39;rno&#39;</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get the SFR reach number closest to a point feature.</span>
+                      <span class="n">rno_column</span><span class="o">=</span><span class="s1">'rno'</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Get the SFR reach number closest to a point feature.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -312,7 +312,7 @@
 <span class="sd">        DataFrame containing a geometry column with SFR line arcs,</span>
 <span class="sd">        and a column rno_column with unique numbers for each reach.</span>
 <span class="sd">    rno_column: str</span>
-<span class="sd">        Column with unique number for each reach. default &quot;rno&quot;</span>
+<span class="sd">        Column with unique number for each reach. default "rno"</span>
 <span class="sd">    threshold : numeric</span>
 <span class="sd">        Distance threshold (in CRS units). Only return reaches within</span>
 <span class="sd">        this distance.</span>
@@ -325,7 +325,7 @@
 <span class="sd">    distance: int or list of ints</span>
 <span class="sd">        Distance from each site in x, y to the corresponding </span>
 <span class="sd">        closest SFR reach.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">scalar</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="n">scalar</span> <span class="o">=</span> <span class="kc">True</span>
@@ -340,7 +340,7 @@
     <span class="n">allY</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># all y coordinates in sfrlines</span>
     <span class="n">all_rno</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># reach number for each x, y point in sfrlines</span>
     <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">g</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">geoms</span><span class="p">):</span>
-        <span class="k">if</span> <span class="s1">&#39;Multi&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">'Multi'</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">g</span><span class="o">.</span><span class="n">type</span><span class="p">:</span>
             <span class="n">g</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="p">]</span>
         <span class="k">for</span> <span class="n">part</span> <span class="ow">in</span> <span class="n">g</span><span class="p">:</span>
             <span class="n">gx</span><span class="p">,</span> <span class="n">gy</span> <span class="o">=</span> <span class="n">part</span><span class="o">.</span><span class="n">coords</span><span class="o">.</span><span class="n">xy</span>
@@ -374,15 +374,15 @@
                  <span class="n">active_area_shapefile</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">x_column_in_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">y_column_in_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">reach_id_col</span><span class="o">=</span><span class="s1">&#39;rno&#39;</span><span class="p">,</span>
-                 <span class="n">ireach_col</span><span class="o">=</span><span class="s1">&#39;ireach&#39;</span><span class="p">,</span>
-                 <span class="n">iseg_col</span><span class="o">=</span><span class="s1">&#39;iseg&#39;</span><span class="p">,</span>
-                 <span class="n">site_number_col</span><span class="o">=</span><span class="s1">&#39;site_no&#39;</span><span class="p">,</span>
+                 <span class="n">reach_id_col</span><span class="o">=</span><span class="s1">'rno'</span><span class="p">,</span>
+                 <span class="n">ireach_col</span><span class="o">=</span><span class="s1">'ireach'</span><span class="p">,</span>
+                 <span class="n">iseg_col</span><span class="o">=</span><span class="s1">'iseg'</span><span class="p">,</span>
+                 <span class="n">site_number_col</span><span class="o">=</span><span class="s1">'site_no'</span><span class="p">,</span>
                  <span class="n">keep_columns</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">perimeter_buffer</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
                  <span class="n">distance_threshold</span><span class="o">=</span><span class="mi">1000</span>
                  <span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Get SFR reach locations corresponding to x, y points</span>
+<span class="w">    </span><span class="sd">"""Get SFR reach locations corresponding to x, y points</span>
 <span class="sd">    (e.g. measurement site locations).</span>
 
 <span class="sd">    Parameters</span>
@@ -391,7 +391,7 @@
 <span class="sd">        DataFrame or shapefile with point locations and attribute data for</span>
 <span class="sd">        stream flow observation sites. Point locations can be specified</span>
 <span class="sd">        in a DataFrame by either x_column_in_data and y_column_in_data, or</span>
-<span class="sd">        a &#39;geometry&#39; column of shapely points. If shapefiles or GeoDataFrames are provided</span>
+<span class="sd">        a 'geometry' column of shapely points. If shapefiles or GeoDataFrames are provided</span>
 <span class="sd">        for both site_data and reach_data, they can be in any CRS, but both must have valid</span>
 <span class="sd">        CRS references (.prj file or .crs attribute); otherwise site_data and</span>
 <span class="sd">        reach_data are assumed to be in the same CRS.</span>
@@ -410,16 +410,16 @@
 <span class="sd">    y_column_in_data : str (optional)</span>
 <span class="sd">        Column in data with site y-coordinates (in same CRS as SFR network).</span>
 <span class="sd">    reach_id_col: str</span>
-<span class="sd">        Column with 1-based unique number for each stream line-arc. default &quot;rno&quot;</span>
+<span class="sd">        Column with 1-based unique number for each stream line-arc. default "rno"</span>
 <span class="sd">    ireach_col: str</span>
 <span class="sd">        Column with 1-based reach number within segment (i.e. in the modflow-2005 SFR data model),</span>
-<span class="sd">        by default, &#39;ireach&#39;</span>
+<span class="sd">        by default, 'ireach'</span>
 <span class="sd">    iseg_col: str</span>
 <span class="sd">        Column with 1-based reach segment number (i.e. in the modflow-2005 SFR data model),</span>
-<span class="sd">        by default, &#39;iseg&#39;</span>
+<span class="sd">        by default, 'iseg'</span>
 <span class="sd">    site_number_col : str</span>
 <span class="sd">        Name of column in sites_shapefile with number identifying each</span>
-<span class="sd">        site to be located. default &quot;site_no&quot;</span>
+<span class="sd">        site to be located. default "site_no"</span>
 <span class="sd">    keep_columns: list of strings</span>
 <span class="sd">        List of columns in sites_shapefile to retain when</span>
 <span class="sd">        writing output_csv_file and output_shape_file.</span>
@@ -436,7 +436,7 @@
 <span class="sd">    -------</span>
 <span class="sd">    locs : DataFrame</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">sfr_crs</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="n">locs_crs</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="c1"># read in sfr lines</span>
@@ -445,9 +445,9 @@
         <span class="n">sfr_crs</span> <span class="o">=</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">crs</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reach_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
         <span class="n">sfrlines</span> <span class="o">=</span> <span class="n">reach_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">sfr_crs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sfrlines</span><span class="p">,</span> <span class="s1">&#39;crs&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">sfr_crs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sfrlines</span><span class="p">,</span> <span class="s1">'crs'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Datatype for reach_data not understood: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reach_data</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'Datatype for reach_data not understood: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">reach_data</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">reach_id_col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">sfrlines</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sfrlines</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">sfrlines</span><span class="p">[</span><span class="n">reach_id_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sfrlines</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span>
@@ -461,16 +461,16 @@
             <span class="n">locs_crs</span> <span class="o">=</span> <span class="n">get_shapefile_crs</span><span class="p">(</span><span class="n">site_data</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">locs_crs</span> <span class="o">=</span> <span class="n">get_shapefile_crs</span><span class="p">(</span><span class="n">site_data</span><span class="p">)</span>
-        <span class="n">locs</span><span class="p">[</span><span class="s1">&#39;site_no&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">locs</span><span class="p">[</span><span class="n">site_number_col</span><span class="p">]</span>  <span class="c1"># str_ids(locs.site_no)</span>
+        <span class="n">locs</span><span class="p">[</span><span class="s1">'site_no'</span><span class="p">]</span> <span class="o">=</span> <span class="n">locs</span><span class="p">[</span><span class="n">site_number_col</span><span class="p">]</span>  <span class="c1"># str_ids(locs.site_no)</span>
     <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">site_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
         <span class="n">locs</span> <span class="o">=</span> <span class="n">site_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">locs_crs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="s1">&#39;crs&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="n">locs_crs</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="s1">'crs'</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">&#39;Datatype for site_data not understood: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">site_data</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s1">'Datatype for site_data not understood: </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">site_data</span><span class="p">))</span>
 
     <span class="c1"># to_crs if crs are available</span>
     <span class="k">if</span> <span class="n">locs_crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">sfr_crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">locs</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">locs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">locs_crs</span><span class="p">,</span> <span class="n">sfr_crs</span><span class="p">)</span>
+        <span class="n">locs</span><span class="p">[</span><span class="s1">'geometry'</span><span class="p">]</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">locs</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">locs_crs</span><span class="p">,</span> <span class="n">sfr_crs</span><span class="p">)</span>
 
     <span class="c1"># get the x and y coordinates</span>
     <span class="k">if</span> <span class="n">x_column_in_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">y_column_in_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -484,12 +484,12 @@
                                        <span class="n">rno_column</span><span class="o">=</span><span class="n">reach_id_col</span><span class="p">)</span>
     <span class="n">reach_id_col</span> <span class="o">=</span> <span class="n">reach_id_col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
     <span class="n">locs</span><span class="p">[</span><span class="n">reach_id_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">ids</span>
-    <span class="n">locs</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">distances</span>
+    <span class="n">locs</span><span class="p">[</span><span class="s1">'distance'</span><span class="p">]</span> <span class="o">=</span> <span class="n">distances</span>
     <span class="k">if</span> <span class="n">iseg_col</span> <span class="ow">in</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">locs</span><span class="p">[</span><span class="n">iseg_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ids</span><span class="p">,</span> <span class="n">iseg_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
     <span class="k">if</span> <span class="n">ireach_col</span> <span class="ow">in</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
         <span class="n">locs</span><span class="p">[</span><span class="n">ireach_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ids</span><span class="p">,</span> <span class="n">ireach_col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-    <span class="n">locs</span> <span class="o">=</span> <span class="n">locs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">locs</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">distance_threshold</span><span class="p">]</span>
+    <span class="n">locs</span> <span class="o">=</span> <span class="n">locs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">locs</span><span class="p">[</span><span class="s1">'distance'</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">distance_threshold</span><span class="p">]</span>
 
     <span class="c1"># cull observations at or outside of model perimeter</span>
     <span class="c1"># to only those along model perimeter</span>
@@ -502,14 +502,14 @@
 
         <span class="n">keep</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">rn</span> <span class="ow">in</span> <span class="n">locs</span><span class="p">[</span><span class="n">reach_id_col</span><span class="p">]:</span>
-            <span class="n">geom</span> <span class="o">=</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rn</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]</span>
+            <span class="n">geom</span> <span class="o">=</span> <span class="n">sfrlines</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">rn</span><span class="p">,</span> <span class="s1">'geometry'</span><span class="p">]</span>
             <span class="n">keep</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">geom</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">perimeter_inside_buffer</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">keep</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">keep_columns</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">keep_columns</span> <span class="o">=</span> <span class="n">locs</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">reach_id_col</span><span class="p">,</span> <span class="n">iseg_col</span><span class="p">,</span> <span class="n">ireach_col</span><span class="p">,</span> <span class="s1">&#39;geometry&#39;</span><span class="p">]:</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="p">[</span><span class="n">reach_id_col</span><span class="p">,</span> <span class="n">iseg_col</span><span class="p">,</span> <span class="n">ireach_col</span><span class="p">,</span> <span class="s1">'geometry'</span><span class="p">]:</span>
         <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">keep_columns</span> <span class="ow">and</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">locs</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
             <span class="n">keep_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 
@@ -524,18 +524,18 @@
                        <span class="n">gage_package_filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">gage_namfile_entries_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                        <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                       <span class="n">sitename_col</span><span class="o">=</span><span class="s1">&#39;site_no&#39;</span><span class="p">,</span>
+                       <span class="n">sitename_col</span><span class="o">=</span><span class="s1">'site_no'</span><span class="p">,</span>
                        <span class="n">gage_package_unit</span><span class="o">=</span><span class="mi">25</span><span class="p">,</span>
                        <span class="n">start_gage_unit</span><span class="o">=</span><span class="mi">200</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    location_data : pandas.DataFrame</span>
 <span class="sd">        Table of observation locations. Must have columns:</span>
-<span class="sd">        &#39;iseg&#39;: segment number</span>
-<span class="sd">        &#39;ireach&#39;: reach number</span>
-<span class="sd">        sitename_col: specified by sitename_col argument (default &#39;site_no&#39;)</span>
+<span class="sd">        'iseg': segment number</span>
+<span class="sd">        'ireach': reach number</span>
+<span class="sd">        sitename_col: specified by sitename_col argument (default 'site_no')</span>
 <span class="sd">    gage_package_filename : str or pathlike</span>
 <span class="sd">        Name for the gage package file, which will be written to the </span>
 <span class="sd">        model workspace (``model.model_ws``) of the supplied flopy model instance. </span>
@@ -553,7 +553,7 @@
 <span class="sd">        Used for writing the gage package input file via flopy.</span>
 <span class="sd">    sitename_col : str</span>
 <span class="sd">        Unique name or number for each gage site.</span>
-<span class="sd">        By default, &#39;site_no&#39;</span>
+<span class="sd">        By default, 'site_no'</span>
 <span class="sd">    gage_package_unit : int</span>
 <span class="sd">        MODFLOW unit number to assign to gage package.</span>
 <span class="sd">        By default, 25</span>
@@ -565,14 +565,14 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="k">if</span> <span class="n">gage_package_filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">gage_package_filename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.gage&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">modelname</span><span class="p">)</span>
+            <span class="n">gage_package_filename</span> <span class="o">=</span> <span class="s1">'</span><span class="si">{}</span><span class="s1">.gage'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">modelname</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">gage_package_filename</span> <span class="o">=</span> <span class="s1">&#39;observations.gage&#39;</span>
+            <span class="n">gage_package_filename</span> <span class="o">=</span> <span class="s1">'observations.gage'</span>
     <span class="k">if</span> <span class="n">gage_namfile_entries_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">gage_namfile_entries_file</span> <span class="o">=</span> <span class="n">gage_package_filename</span> <span class="o">+</span> <span class="s1">&#39;.namefile_entries&#39;</span>
+        <span class="n">gage_namfile_entries_file</span> <span class="o">=</span> <span class="n">gage_package_filename</span> <span class="o">+</span> <span class="s1">'.namefile_entries'</span>
     <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">gage_package_filename</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model_ws</span><span class="p">,</span>
                                              <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">gage_package_filename</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span>
@@ -581,14 +581,14 @@
     <span class="c1"># read in stream gage observation locations from locate_flux_targets_in_SFR.py</span>
     <span class="n">df</span> <span class="o">=</span> <span class="n">location_data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">sitename_col</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;gagefile&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sitename</span><span class="si">}</span><span class="s1">.ggo&#39;</span> <span class="k">for</span> <span class="n">sitename</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">sitename_col</span><span class="p">]]</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">'gagefile'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">sitename</span><span class="si">}</span><span class="s1">.ggo'</span> <span class="k">for</span> <span class="n">sitename</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">sitename_col</span><span class="p">]]</span>
 
     <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">flopy</span><span class="p">:</span>
         <span class="c1"># create flopy gage package object</span>
         <span class="n">gage_data</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">ModflowGage</span><span class="o">.</span><span class="n">get_empty</span><span class="p">(</span><span class="n">ncells</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
-        <span class="n">gage_data</span><span class="p">[</span><span class="s1">&#39;gageloc&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;iseg&#39;</span><span class="p">]</span>
-        <span class="n">gage_data</span><span class="p">[</span><span class="s1">&#39;gagerch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ireach&#39;</span><span class="p">]</span>
-        <span class="n">gage_data</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start_gage_unit</span><span class="p">,</span> <span class="n">start_gage_unit</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+        <span class="n">gage_data</span><span class="p">[</span><span class="s1">'gageloc'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'iseg'</span><span class="p">]</span>
+        <span class="n">gage_data</span><span class="p">[</span><span class="s1">'gagerch'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'ireach'</span><span class="p">]</span>
+        <span class="n">gage_data</span><span class="p">[</span><span class="s1">'unit'</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start_gage_unit</span><span class="p">,</span> <span class="n">start_gage_unit</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
         <span class="n">gag</span> <span class="o">=</span> <span class="n">fm</span><span class="o">.</span><span class="n">ModflowGage</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">numgage</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">gage_data</span><span class="p">),</span>
                              <span class="n">gage_data</span><span class="o">=</span><span class="n">gage_data</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">gagefile</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                              <span class="n">unitnumber</span><span class="o">=</span><span class="n">gage_package_unit</span>
@@ -596,11 +596,11 @@
         <span class="n">gag</span><span class="o">.</span><span class="n">fn_path</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">gage_package_filename</span><span class="p">)</span>
         <span class="n">gag</span><span class="o">.</span><span class="n">write_file</span><span class="p">()</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">&#39;writing a gage package without Flopy&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s1">'writing a gage package without Flopy'</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">gage_namfile_entries_file</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">gage_namfile_entries_file</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">gagefile</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;DATA  </span><span class="si">{:d}</span><span class="s1"> </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gage_data</span><span class="o">.</span><span class="n">unit</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f</span><span class="p">))</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'DATA  </span><span class="si">{:d}</span><span class="s1"> </span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">gage_data</span><span class="o">.</span><span class="n">unit</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">f</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">gag</span></div>
 
 
@@ -611,7 +611,7 @@
                           <span class="n">filename</span><span class="p">,</span>
                           <span class="n">sfr_output_filename</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                           <span class="n">print_input</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write MODFLOW-6 observation input for the SFR package.</span>
+<span class="w">    </span><span class="sd">"""Write MODFLOW-6 observation input for the SFR package.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -631,22 +631,22 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    writes filename</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">    """</span>
     <span class="n">locs</span> <span class="o">=</span> <span class="n">observation_locations</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">observation_locations</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">observation_locations</span><span class="p">,</span> <span class="n">Path</span><span class="p">):</span>
         <span class="n">locs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">observation_locations</span><span class="p">)</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;BEGIN OPTIONS</span><span class="se">\n</span><span class="s1">  DIGITS </span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="p">))</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'BEGIN OPTIONS</span><span class="se">\n</span><span class="s1">  DIGITS </span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">digits</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">print_input</span><span class="p">:</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;  PRINT_INPUT</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;END OPTIONS</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;BEGIN CONTINUOUS FILEOUT </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sfr_output_filename</span><span class="p">))</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;# obsname  obstype  rno</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'  PRINT_INPUT</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'END OPTIONS</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'BEGIN CONTINUOUS FILEOUT </span><span class="si">{}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">sfr_output_filename</span><span class="p">))</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'# obsname  obstype  rno</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">locs</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
-            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;  </span><span class="si">{}</span><span class="s1">  </span><span class="si">{}</span><span class="s1">  </span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">obsname</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">obstype</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rno</span><span class="p">))</span>
-        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;END CONTINUOUS</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;wrote </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span></div>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'  </span><span class="si">{}</span><span class="s1">  </span><span class="si">{}</span><span class="s1">  </span><span class="si">{:d}</span><span class="se">\n</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">obsname</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">obstype</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">rno</span><span class="p">))</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">'END CONTINUOUS</span><span class="se">\n</span><span class="s1">'</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">'wrote </span><span class="si">{}</span><span class="s1">'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span></div>
 
 </pre></div>
 
@@ -658,7 +658,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

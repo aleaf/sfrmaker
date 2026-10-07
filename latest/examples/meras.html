@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MERAS 3: Creating an SFR package from a configuration file with custom hydrography &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>MERAS 3: Creating an SFR package from a configuration file with custom hydrography &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -135,9 +135,9 @@
 <p>The configuration file for the Mississippi Embayment example is shown below. The configuration file, associate python script, and input files needed to reproduce the example are available on the <a class="reference external" href="https://github.com/aleaf/sfrmaker/examples/meras/">SFRmaker GitHub page</a>. The configuration file is specified in the <a class="reference external" href="yaml.org">YAML format</a>, which maps <code class="docutils literal notranslate"><span class="pre">key:</span> <span class="pre">value</span></code> pairs similar to a Python dictionary. In the SFRmaker configuration file, keys (to the left of the colons) indicate variables or groups of variables; values to apply to those variables are listed to the right of the colons.</p>
 <section id="meras-sfrmaker-config-yml">
 <h2>meras_sfrmaker_config.yml:<a class="headerlink" href="#meras-sfrmaker-config-yml" title="Link to this heading"></a></h2>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">package_version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mf6&#39;</span>
-<span class="linenos"> 2</span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meras3&#39;</span>
-<span class="linenos"> 3</span><span class="nt">output_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meras3&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">package_version</span><span class="p">:</span><span class="w"> </span><span class="s">'mf6'</span>
+<span class="linenos"> 2</span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="s">'meras3'</span>
+<span class="linenos"> 3</span><span class="nt">output_path</span><span class="p">:</span><span class="w"> </span><span class="s">'meras3'</span>
 <span class="linenos"> 4</span><span class="nt">modelgrid</span><span class="p">:</span>
 <span class="linenos"> 5</span><span class="w">  </span><span class="nt">xoffset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">177955</span>
 <span class="linenos"> 6</span><span class="w">  </span><span class="nt">yoffset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">938285</span>
@@ -185,10 +185,10 @@
 </section>
 <section id="make-sfr-py">
 <h2>make_sfr.py:<a class="headerlink" href="#make-sfr-py" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="sd">&quot;&quot;&quot;Run the MERAS example.</span>
-<span class="linenos">2</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="sd">"""Run the MERAS example.</span>
+<span class="linenos">2</span><span class="sd">"""</span>
 <span class="linenos">3</span><span class="kn">import</span><span class="w"> </span><span class="nn">sfrmaker</span>
-<span class="linenos">4</span><span class="n">sfrdata</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">SFRData</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s1">&#39;meras_sfrmaker_config.yml&#39;</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">sfrdata</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">SFRData</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s1">'meras_sfrmaker_config.yml'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will produce an sfr package for MODFLOW-6, csv table representations of the SFR input, and shapefiles for visualizing the SFR package. The resulting SFR package is shown in Figure 2.</p>
@@ -214,7 +214,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

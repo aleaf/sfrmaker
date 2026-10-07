@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SFRmaker configuration file options &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>SFRmaker configuration file options &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/plot_directive.css" />
@@ -15,7 +15,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="_static/clipboard.min.js?v=a7894cd8"></script>
@@ -100,12 +100,12 @@
              
   <section id="sfrmaker-configuration-file-options">
 <h1>SFRmaker configuration file options<a class="headerlink" href="#sfrmaker-configuration-file-options" title="Link to this heading"></a></h1>
-<p>Below is a comprehensive summary of the input options supported in the SFRmaker configuration file. Most keys in the YAML blocks represent arguments to methods within SFRmaker or <a class="reference external" href="https://flopy.readthedocs.io/en/latest/tutorials.html#flopy" title="(in FloPy v3.11.0.dev0)"><span class="xref std std-ref">Flopy</span></a>. Additional description of method arguments is available in the <a class="reference internal" href="api/index.html#modules"><span class="std std-ref">SFRmaker code reference</span></a> and <a class="reference external" href="https://flopy.readthedocs.io/en/latest/tutorials.html#flopy" title="(in FloPy v3.11.0.dev0)"><span class="xref std std-ref">Flopy documentation</span></a>.</p>
+<p>Below is a comprehensive summary of the input options supported in the SFRmaker configuration file. Most keys in the YAML blocks represent arguments to methods within SFRmaker or <a class="reference external" href="https://flopy.readthedocs.io/en/latest/tutorials.html#flopy" title="(in FloPy v3.12.0.dev0)"><span class="xref std std-ref">Flopy</span></a>. Additional description of method arguments is available in the <a class="reference internal" href="api/index.html#modules"><span class="std std-ref">SFRmaker code reference</span></a> and <a class="reference external" href="https://flopy.readthedocs.io/en/latest/tutorials.html#flopy" title="(in FloPy v3.12.0.dev0)"><span class="xref std std-ref">Flopy documentation</span></a>.</p>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># Summary of SFRmaker configuration file options</span>
 <span class="linenos">  2</span>
 <span class="linenos">  3</span><span class="nt">package_version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mf6</span><span class="w">  </span><span class="c1"># mf6, mfnwt or mf2005</span>
 <span class="linenos">  4</span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">model</span><span class="w">  </span><span class="c1"># (defaults to model or simulation name if not specified)</span>
-<span class="linenos">  5</span><span class="nt">output_path</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;.&quot;</span><span class="w">  </span><span class="c1"># where the output will be written</span>
+<span class="linenos">  5</span><span class="nt">output_path</span><span class="p">:</span><span class="w"> </span><span class="s">"."</span><span class="w">  </span><span class="c1"># where the output will be written</span>
 <span class="linenos">  6</span>
 <span class="linenos">  7</span><span class="nt">modelgrid</span><span class="p">:</span>
 <span class="linenos">  8</span><span class="w">  </span><span class="c1"># Shapefile option (arguments to sfrmaker.grid.StructuredGrid.from_shapefile):</span>
@@ -176,7 +176,7 @@
 <span class="linenos"> 73</span><span class="nt">model</span><span class="p">:</span>
 <span class="linenos"> 74</span><span class="w">  </span><span class="c1"># MODFLOW-NWT or MODFLOW-2005 information</span>
 <span class="linenos"> 75</span><span class="w">  </span><span class="c1"># (arguments to flopy.modflow.Modflow.load):</span>
-<span class="linenos"> 76</span><span class="w">  </span><span class="nt">namefile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span><span class="w">  </span><span class="c1"># &quot;f&quot; argument in flopy</span>
+<span class="linenos"> 76</span><span class="w">  </span><span class="nt">namefile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">None</span><span class="w">  </span><span class="c1"># "f" argument in flopy</span>
 <span class="linenos"> 77</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mf2005</span>
 <span class="linenos"> 78</span><span class="w">  </span><span class="nt">exe_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mf2005</span>
 <span class="linenos"> 79</span><span class="w">  </span><span class="nt">verbose</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span>
@@ -282,7 +282,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

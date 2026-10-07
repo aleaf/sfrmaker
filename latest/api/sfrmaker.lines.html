@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Lines Module &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>The Lines Module &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -134,7 +134,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="sfrmaker.lines.Lines">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">sfrmaker.lines.</span></span><span class="sig-name descname"><span class="pre">Lines</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">asum_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'km'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'meters'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'meters'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">length_units</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">crs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">prjfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/sfrmaker/lines.html#Lines"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#sfrmaker.lines.Lines" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.14)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Class for working with linestring feature input.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -370,8 +370,8 @@ by default, None</p>
 file geodatabase (.gdb) to include, assuming the file structure is 
 the same as when downloaded from the USGS National Map Downloader tool 
 (v2.0) website (<a class="reference external" href="https://apps.nationalmap.gov/downloader/#/">https://apps.nationalmap.gov/downloader/#/</a>). For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NHDPlusHR_paths</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/NHDPLUS_HR_1/NHDPLUS_H_0202_HU4_GDB.gdb&#39;</span><span class="p">,</span>
-                    <span class="s1">&#39;/NHDPLUS_HR_2/NHDPLUS_H_0204_HU4_GDB.gdb&#39;</span><span class="p">]</span> 
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NHDPlusHR_paths</span><span class="o">=</span><span class="p">[</span><span class="s1">'/NHDPLUS_HR_1/NHDPLUS_H_0202_HU4_GDB.gdb'</span><span class="p">,</span>
+                    <span class="s1">'/NHDPLUS_HR_2/NHDPLUS_H_0204_HU4_GDB.gdb'</span><span class="p">]</span> 
 </pre></div>
 </div>
 <p>for the 4-digit Hydrologic Units 0202 and 0204.</p>
@@ -423,8 +423,8 @@ For example, to remove all pipelines from line network:</p>
 <dt><strong>NHDPlus_paths</strong><span class="classifier">str or list of strings</span></dt><dd><p>List of paths to the root folders of NHDPlus drainage basins
 to include, assuming the file structure is the same as
 downloaded from the NHDPlus version 2 website. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/NHDPlusGL/NHDPlus04/&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;/NHDPlusMS/NHDPlus07/&#39;</span><span class="p">]</span>    
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="p">[</span><span class="s1">'/NHDPlusGL/NHDPlus04/'</span><span class="p">,</span>
+               <span class="s1">'/NHDPlusMS/NHDPlus07/'</span><span class="p">]</span>    
 </pre></div>
 </div>
 <p>for the Great Lakes (04) and Upper Mississippi (07) basins.</p>
@@ -761,7 +761,7 @@ prevent double-counting of flow. By default, None</p>
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

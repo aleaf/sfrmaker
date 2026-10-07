@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Converting a MODFLOW-2005 style SFR Package to MODFLOW 6 &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>Converting a MODFLOW-2005 style SFR Package to MODFLOW 6 &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -16,7 +16,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -127,7 +127,7 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">sfrmaker</span>
 
 <span class="c1"># Load the model using Flopy</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;tf_with_sfr.nam&#39;</span><span class="p">,</span> <span class="n">model_ws</span><span class="o">=</span><span class="s1">&#39;../tylerforks/tylerforks&#39;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">flopy</span><span class="o">.</span><span class="n">modflow</span><span class="o">.</span><span class="n">Modflow</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">'tf_with_sfr.nam'</span><span class="p">,</span> <span class="n">model_ws</span><span class="o">=</span><span class="s1">'../tylerforks/tylerforks'</span><span class="p">)</span>
 
 <span class="c1">#Check that the SFR package was loaded</span>
 <span class="n">model</span><span class="o">.</span><span class="n">get_package_list</span><span class="p">()</span>
@@ -151,7 +151,7 @@
 <span class="n">mf5to6</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">Mf6SFR</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">sfr</span><span class="p">)</span>
 
 <span class="c1"># Write the MODFLOW 6 SFR Package file</span>
-<span class="n">mf5to6</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="s1">&#39;tf_mf6.sfr&#39;</span><span class="p">)</span>
+<span class="n">mf5to6</span><span class="o">.</span><span class="n">write_file</span><span class="p">(</span><span class="s1">'tf_mf6.sfr'</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -179,7 +179,7 @@ wrote tf_mf6.sfr
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 

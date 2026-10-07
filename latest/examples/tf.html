@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Tyler Forks watershed: Creating an SFR package from a configuration file using NHDPlus &mdash; SFRmaker 0.11.3.post84.dev0+gb727251 documentation</title>
+  <title>The Tyler Forks watershed: Creating an SFR package from a configuration file using NHDPlus &mdash; SFRmaker 0.11.3.post90.dev0+g02a2bb8 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -15,7 +15,7 @@
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=c4a387b9"></script>
+      <script src="../_static/documentation_options.js?v=c1d46fb9"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -142,9 +142,9 @@
 </pre></div>
 </div>
 <p>In the second configuration file, no model is specified, so a package version, name, output path and length units are specified. The model grid is specified from a shapefile that has attribute fields indicating the row, column location of each cell. NHPlus data a specified as individual files.</p>
-<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">package_version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mfnwt&#39;</span>
-<span class="linenos"> 2</span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tf&#39;</span>
-<span class="linenos"> 3</span><span class="nt">output_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;.&#39;</span>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="nt">package_version</span><span class="p">:</span><span class="w"> </span><span class="s">'mfnwt'</span>
+<span class="linenos"> 2</span><span class="nt">package_name</span><span class="p">:</span><span class="w"> </span><span class="s">'tf'</span>
+<span class="linenos"> 3</span><span class="nt">output_path</span><span class="p">:</span><span class="w"> </span><span class="s">'.'</span>
 <span class="linenos"> 4</span><span class="nt">modelgrid</span><span class="p">:</span>
 <span class="linenos"> 5</span><span class="w">  </span><span class="nt">shapefile</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grid.shp</span>
 <span class="linenos"> 6</span><span class="w">  </span><span class="nt">icol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">i</span><span class="w">  </span><span class="c1"># attribute field with row numbers</span>
@@ -164,17 +164,17 @@
 <span class="linenos">20</span><span class="w">  </span><span class="nt">elevation_units</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">meters</span>
 <span class="linenos">21</span><span class="w">  </span><span class="nt">buffer_distance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">50.</span>
 <span class="linenos">22</span><span class="nt">options</span><span class="p">:</span>
-<span class="linenos">23</span><span class="w">  </span><span class="nt">model_length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;feet&#39;</span>
+<span class="linenos">23</span><span class="w">  </span><span class="nt">model_length_units</span><span class="p">:</span><span class="w"> </span><span class="s">'feet'</span>
 </pre></div>
 </div>
 <p>Either of these configuration files can then be used with a python script similar to the following:</p>
 </section>
 <section id="tylerforks-make-sfr-py">
 <h2>tylerforks/make_sfr.py:<a class="headerlink" href="#tylerforks-make-sfr-py" title="Link to this heading"></a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="sd">&quot;&quot;&quot;Run the Tyler Forks example.</span>
-<span class="linenos">2</span><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">1</span><span class="sd">"""Run the Tyler Forks example.</span>
+<span class="linenos">2</span><span class="sd">"""</span>
 <span class="linenos">3</span><span class="kn">import</span><span class="w"> </span><span class="nn">sfrmaker</span>
-<span class="linenos">4</span><span class="n">sfrdata</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">SFRData</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s1">&#39;tf_sfrmaker_config.yml&#39;</span><span class="p">)</span>
+<span class="linenos">4</span><span class="n">sfrdata</span> <span class="o">=</span> <span class="n">sfrmaker</span><span class="o">.</span><span class="n">SFRData</span><span class="o">.</span><span class="n">from_yaml</span><span class="p">(</span><span class="s1">'tf_sfrmaker_config.yml'</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>This will produce an sfr package for MODFLOW-NWT, csv table representations of the SFR input, and shapefiles for visualizing the SFR package.</p>
@@ -206,7 +206,7 @@
 
   <div role="contentinfo">
     <p>
-      <span class="lastupdated">Last updated on Aug 05, 2026.
+      <span class="lastupdated">Last updated on Oct 07, 2026.
       </span></p>
   </div>
 
