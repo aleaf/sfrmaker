@@ -1864,7 +1864,7 @@ def preprocess_nhdplus_hr_flowlines(nhdplus_path, active_area=None,
         df = df.loc[~df['nhdplusid'].isin(drop_ids)].copy()
         
     # update the routing dicts
-    df.loc[~df['to_nhdpid'].isin(df['nhdplusid']), 'to_nhdpid'] = 0
+    df.loc[~df['to_nhdpid'].isin(df['nhdplusid']), 'to_nhdpid'] = '0'
     routing = make_graph(df['nhdplusid'], df['to_nhdpid'], one_to_many=False)
     routing_r = make_reverse_graph(routing)
     df['to_nhdpid'] = [routing[nhdplusid] for nhdplusid in df['nhdplusid']]
@@ -1880,7 +1880,7 @@ def preprocess_nhdplus_hr_flowlines(nhdplus_path, active_area=None,
         else:
             raise ValueError('drop_isolated option requires a valid active_area.')
         # outlets are nhdplus IDs that don't route to anywhere
-        outlets = {k for k, v in routing.items() if v == 0}
+        outlets = {k for k, v in routing.items() if v == '0'}
         # evaluate only outlets still in the dataset
         outlets = outlets.intersection(df['nhdplusid'])
         for nhdplusid in outlets:
